@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "698550067067",
+    "firebase_url": "https://hyderabadtrafficlive.firebaseio.com",
+    "project_id": "hyderabadtrafficlive",
+    "storage_bucket": "hyderabadtrafficlive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698550067067:android:8ff0398e65752750",
+        "android_client_info": {
+          "package_name": "com.tspolice.htplive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698550067067-o3jhhnvp3oisafnkih0u1g3ijlu6te8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tspolice.htplive",
+            "certificate_hash": "6f0745184ce8d4494c7aea4267a9a3dcf9d65860"
+          }
+        },
+        {
+          "client_id": "698550067067-s62nc4jfqk2k3af72a4ckvuc0h7cuc9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCljdCGeYnuE92x_ymIzoMCz8-eQl6cL6I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698550067067-s62nc4jfqk2k3af72a4ckvuc0h7cuc9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
