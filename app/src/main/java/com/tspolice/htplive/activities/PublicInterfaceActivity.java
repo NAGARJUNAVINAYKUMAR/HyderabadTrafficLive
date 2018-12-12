@@ -51,6 +51,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,7 +69,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private Button btn_submit;
     private String imageFlag = "0", userChoosenTask, imageData = "", category = "-- Select Category --", remarks, phoneNo, location;
     private SharedPrefManager mSharedPrefManager;
-    private int categoryId, id1;
+    private int categoryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,7 +188,50 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
 
     private void saveCapturedImage() {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST,
+        final JSONObject jsonRequest;
+        final String mRequestBody;
+        Map<String, String> params = new HashMap<>();
+        params.put("mobileNumber", phoneNo);
+        params.put("geoLocation", location);
+        params.put("remarks", remarks);
+        params.put("category", "Traffic Violation");
+        params.put("image", imageData);
+        params.put("reason", "It is a Sample Reason");
+        jsonRequest = new JSONObject(params);
+        mRequestBody = jsonRequest.toString();
+
+        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.POST, URLs.saveCapturedImage,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        mUiHelper.dismissProgressDialog();
+                        mUiHelper.showToastLong(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mUiHelper.dismissProgressDialog();
+                        mUiHelper.showToastShort(getResources().getString(R.string.error));
+                    }
+                }) {
+            @Override
+            public String getBodyContentType() {
+                return URLs.contentType;
+            }
+
+            @Override
+            public byte[] getBody() {
+                try {
+                    return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
+                    return null;
+                }
+            }
+        });
+
+        /*VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST,
                 URLs.saveCapturedImage,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -225,7 +269,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 return params;
             }
         };
-        Volley.newRequestQueue(this).add(multipartRequest);
+        Volley.newRequestQueue(this).add(multipartRequest);*/
     }
 
     public byte[] getFileDataFromDrawable(Bitmap bitmap) {
