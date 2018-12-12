@@ -188,7 +188,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
 
     private void saveCapturedImage() {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        final JSONObject jsonRequest;
+        JSONObject jsonRequest;
         final String mRequestBody;
         Map<String, String> params = new HashMap<>();
         params.put("mobileNumber", phoneNo);
