@@ -67,9 +67,9 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private ImageView iv_camera, iv_gallery, iv_display;
     EditText et_when_why_whom_and_how, et_phone_no, et_location;
     private Button btn_submit;
-    private String imageFlag = "0", userChoosenTask, imageData = "", category = "-- Select Category --", remarks, phoneNo, location;
+    private final String finalCategory = "-- Select Category --";
+    private String imageFlag = "0", imageData = "", category = "", remarks, phoneNo, location;
     private SharedPrefManager mSharedPrefManager;
-    private int categoryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,18 +83,12 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
 
         initObjects();
 
-        //spinner_category.setSelection(0);
-        spinner_category.setOnItemSelectedListener(this);
-        List<String> categories = new ArrayList<>();
-        categories.add("-- Select Category --");
-        categories.add("Traffic Violation");
-        categories.add("Happening Crime");
-        categories.add("Violation by Police");
-        categories.add("Suggestions");
-        categories.add("Others");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
+                getResources().getStringArray(R.array.categories));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_category.setAdapter(arrayAdapter);
+        spinner_category.setSelection(0);
+        spinner_category.setOnItemSelectedListener(this);
 
         iv_camera.setOnClickListener(this);
         iv_gallery.setOnClickListener(this);
@@ -125,7 +119,6 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
-                userChoosenTask = "CAMERA";
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (PermissionUtil.checkPermission(this, Constants.INT_CAMERA) != PackageManager.PERMISSION_GRANTED) {
                         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
@@ -144,7 +137,6 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 }
                 break;
             case R.id.iv_gallery:
-                userChoosenTask = "STORAGE";
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (PermissionUtil.checkPermission(this, Constants.INT_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -166,11 +158,10 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 remarks = et_when_why_whom_and_how.getText().toString();
                 phoneNo = et_phone_no.getText().toString().trim();
                 location = et_location.getText().toString();
-                /*if ("-- Select Category --".equals(category)) {
-                    mUiHelper.showToastShort(getString(R.string.please_select_category));
-                } else*/
                 if ("0".equals(imageFlag)) {
                     mUiHelper.showToastShort(getString(R.string.please_attach_photo));
+                } else if (finalCategory.equals(category)) {
+                    mUiHelper.showToastShort(getString(R.string.please_select_category));
                 } else if (remarks.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_select_the_reason));
                 } else if (phoneNo.isEmpty()) {
@@ -281,9 +272,9 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
-            case R.id.spinner_vehicle_type:
-                categoryId = parent.getSelectedItemPosition();
-                category = String.valueOf(parent.getSelectedItem());
+            case R.id.spinner_category:
+                int categoryId = parent.getSelectedItemPosition();
+                category = (String) parent.getSelectedItem();
                 Log.i(TAG, "categoryId-->" + String.valueOf(categoryId));
                 Log.i(TAG, "category-->" + category);
                 break;
@@ -302,12 +293,14 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         switch (requestCode) {
             case Constants.REQUEST_CAMERA:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (userChoosenTask.equals("CAMERA")) {
-                        openCamera();
-                    }
-                    if (userChoosenTask.equals("STORAGE")) {
-                        openGallery();
-                    }
+                    openCamera();
+                } else {
+                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                }
+                break;
+            case Constants.REQUEST_STORAGE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openGallery();
                 } else {
                     mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
                 }

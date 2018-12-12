@@ -245,4 +245,13 @@
     <string name="please_select_the_reason">Please select the reason</string>
     <string name="please_enter_phone_no">Please enter phone no.</string>
     <string name="please_enter_a_location">Please enter a location</string>
+
+    <string-array name="categories">
+        <item>-- Select Category --</item>
+        <item>Traffic Violation</item>
+        <item>Happening Crime</item>
+        <item>Violation by Police</item>
+        <item>Suggestions</item>
+        <item>Others</item>
+    </string-array>
 </resources>
