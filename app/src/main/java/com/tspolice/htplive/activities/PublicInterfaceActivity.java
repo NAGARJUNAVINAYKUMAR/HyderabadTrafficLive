@@ -68,7 +68,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private Button btn_submit;
     private String imageFlag = "0", userChoosenTask, imageData = "", category = "-- Select Category --", remarks, phoneNo, location;
     private SharedPrefManager mSharedPrefManager;
-    private int categoryId;
+    private int categoryId, id1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
