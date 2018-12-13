@@ -173,8 +173,8 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                     mUiHelper.setError(et_your_mobile_no, getString(R.string.enter_valid_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
                 } else {
-                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName, typeComplaint,
-                            yourName, yourEmailId, yourMobileNo);
+                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName,
+                            typeComplaint, yourName, yourEmailId, yourMobileNo);
                 }
                 break;
             default:
@@ -197,7 +197,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
         params.put(URLParams.mobileNo, yourMobileNo);
         params.put(URLParams.lat, String.valueOf(mLatitude));
         params.put(URLParams.lang, String.valueOf(mLongitude));
-        params.put(URLParams.deviceId, mHardwareUtils.getDeviceUid());
+        params.put(URLParams.deviceId, HardwareUtils.getDeviceUUID(PublicComplaintsActivity.this));
         params.put(URLParams.complaintTravelBy, typeComplaint);
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();

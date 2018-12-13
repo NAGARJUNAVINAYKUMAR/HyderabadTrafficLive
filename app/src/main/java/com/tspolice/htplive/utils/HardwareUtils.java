@@ -10,13 +10,27 @@ import android.util.Log;
 import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class HardwareUtils {
 
     private Context mContext;
+    private static String uniqueID = null;
 
     public HardwareUtils(Context context) {
         this.mContext = context;
+    }
+
+    public synchronized static String getDeviceUUID(Context context) {
+        SharedPrefManager mSharedPrefManager = SharedPrefManager.getInstance(context);
+        if (uniqueID == null) {
+            uniqueID = mSharedPrefManager.getString(Constants.DEVICE_UUID);
+            if (uniqueID == null) {
+                uniqueID = UUID.randomUUID().toString();
+                mSharedPrefManager.putString(Constants.DEVICE_UUID, uniqueID);
+            }
+        }
+        return uniqueID;
     }
 
     @SuppressLint("HardwareIds")
