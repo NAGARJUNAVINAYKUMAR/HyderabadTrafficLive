@@ -245,6 +245,16 @@
     <string name="please_select_the_reason">Please select the reason</string>
     <string name="please_enter_phone_no">Please enter phone no.</string>
     <string name="please_enter_a_location">Please enter a location</string>
+    <string name="enter_complaint">Enter Complaint</string>
+    <string name="enter_complaint_type">Enter Complaint type</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="enter_your_email_id">Enter your Email ID</string>
+    <string name="enter_your_mobile_no">Enter your Mobile No.</string>
+    <string name="enter_valid_email_id">Enter valid Email ID</string>
+    <string name="enter_valid_mobile_no">Enter valid Mobile No.</string>
+    <string name="enter_your_contact_no">Enter your contact no.</string>
+    <string name="enter_a_suggestion">Enter a suggestion</string>
+    <string name="enter_valid_contact_no">Enter valid Contact No.</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

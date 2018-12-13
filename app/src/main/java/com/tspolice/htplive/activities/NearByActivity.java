@@ -42,6 +42,7 @@ import com.tspolice.htplive.R;
 import com.tspolice.htplive.models.ParkingDetailsModel;
 import com.tspolice.htplive.models.ParkingTypeModel;
 import com.tspolice.htplive.models.VehicleTypeModel;
+import com.tspolice.htplive.network.URLParams;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
@@ -432,9 +433,9 @@ public class NearByActivity extends FragmentActivity implements
         final String mRequestBody;
         try {
             Map<String, String> params = new HashMap<>();
-            params.put("parkingTypeId", String.valueOf(parkingTypeId));
-            params.put("vehicleTypeId", String.valueOf(vehicleTypeId));
-            params.put("psId", String.valueOf(psId));
+            params.put(URLParams.parkingTypeId, String.valueOf(parkingTypeId));
+            params.put(URLParams.vehicleTypeId, String.valueOf(vehicleTypeId));
+            params.put(URLParams.psId, String.valueOf(psId));
             jsonRequest = new JSONObject(params);
             mRequestBody = jsonRequest.toString();
             VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.POST,

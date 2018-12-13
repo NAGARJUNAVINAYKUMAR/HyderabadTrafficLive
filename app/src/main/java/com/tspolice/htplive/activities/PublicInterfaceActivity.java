@@ -34,6 +34,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tspolice.htplive.R;
+import com.tspolice.htplive.network.URLParams;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleyMultipartRequest;
 import com.tspolice.htplive.network.VolleySingleton;
@@ -67,7 +68,6 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private ImageView iv_camera, iv_gallery, iv_display;
     EditText et_when_why_whom_and_how, et_phone_no, et_location;
     private Button btn_submit;
-    private final String finalCategory = "-- Select Category --";
     private String imageFlag = "0", imageData = "", category = "", remarks, phoneNo, location;
     private SharedPrefManager mSharedPrefManager;
 
@@ -117,6 +117,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View v) {
+        final String finalCategory = "-- Select Category --", finalImageFlag = "0";
         switch (v.getId()) {
             case R.id.iv_camera:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -158,7 +159,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 remarks = et_when_why_whom_and_how.getText().toString();
                 phoneNo = et_phone_no.getText().toString().trim();
                 location = et_location.getText().toString();
-                if ("0".equals(imageFlag)) {
+                if (finalImageFlag.equals(imageFlag)) {
                     mUiHelper.showToastShort(getString(R.string.please_attach_photo));
                 } else if (finalCategory.equals(category)) {
                     mUiHelper.showToastShort(getString(R.string.please_select_category));
@@ -182,12 +183,12 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         JSONObject jsonRequest;
         final String mRequestBody;
         Map<String, String> params = new HashMap<>();
-        params.put("mobileNumber", phoneNo);
-        params.put("geoLocation", location);
-        params.put("remarks", remarks);
-        params.put("category", "Traffic Violation");
-        params.put("image", imageData);
-        params.put("reason", "It is a Sample Reason");
+        params.put(URLParams.mobileNumber, phoneNo);
+        params.put(URLParams.geoLocation, location);
+        params.put(URLParams.remarks, remarks);
+        params.put(URLParams.category, category);
+        params.put(URLParams.image, imageData);
+        params.put(URLParams.reason, "It is a Sample Reason");
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();
 
@@ -216,7 +217,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 try {
                     return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
                 } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
+                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, "utf-8");
                     return null;
                 }
             }

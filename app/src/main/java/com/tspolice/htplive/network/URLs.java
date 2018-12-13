@@ -42,6 +42,7 @@ public class URLs {
     public static final String contentType = "application/json; charset=utf-8";
     //4.5
     public static final String utf_8 = "utf-8";
+    public static final String unSupportedEncodingException = "Unsupported Encoding while trying to get the bytes of %s using %s";
 
     //5
     public static final String eChallanStatus = "https://www.echallan.org/publicview/";
@@ -54,6 +55,10 @@ public class URLs {
     public static String getVehicleDetails(String vehicleNo, String ctrl) {
         return getVehicleDetails + "?regNo=" + vehicleNo + "&ctrl=" + ctrl;
     }
+
+    public static final String saveAutocomplainData = rootUrl + "saveAutocomplainData";
+
+    public static final String saveSuggestions = rootUrl + "saveSuggestions";
 
     public static final String getTrafficOfficers = rootUrl + "getTrafficOfficers?updatedDate=\"\"&language=ENG";
 
