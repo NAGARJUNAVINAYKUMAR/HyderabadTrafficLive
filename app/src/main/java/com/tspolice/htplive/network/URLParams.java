@@ -1,6 +1,21 @@
 package com.tspolice.htplive.network;
 
 public class URLParams {
+    // getAutoFares params
+    static final String distance = "distance";
+    static final String regNo = "regNo";
+    static final String ctrl = "ctrl";
+
+    static final String serviceType = "serviceType";
+    static final String updatedDate = "updatedDate";
+    static final String language = "language";
+
+    static final String origins = "origins";
+    static final String destinations = "destinations";
+    static final String departure_time = "departure_time";
+    static final String key = "key";
+    static final String ENG = "ENG";
+
     // getParkingDetails params
     public static final String parkingTypeId = "parkingTypeId";
     public static final String vehicleTypeId = "vehicleTypeId";
@@ -29,4 +44,7 @@ public class URLParams {
 
     // saveSuggestions params
     public static final String suggestion = "suggestion";
+
+    static final String regId = "regId";
+    static final String deviceType = "deviceType";
 }

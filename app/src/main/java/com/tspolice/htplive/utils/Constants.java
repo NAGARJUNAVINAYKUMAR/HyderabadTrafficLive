@@ -34,4 +34,8 @@ public class Constants {
     public static final String CHANNEL_ID = "CHANNEL_ID";
     public static final String CHANNEL_NAME = "CHANNEL_NAME";
     public static final String CHANNEL_DESCRIPTION = "CHANNEL_DESCRIPTION";
+
+    public static final String REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
+    public static final String REGISTRATION_ERROR = "REGISTRATION_ERROR";
+    public static final String REGISTRATION_TOKEN_SENT = "REGISTRATION_TOKEN_SENT";
 }

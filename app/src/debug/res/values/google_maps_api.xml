@@ -22,5 +22,6 @@
     -->
 
     <!--AIzaSyBW8nUi51y68xMxEaYae6jIIeD5CSNF3-0-->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAdJ3Z4n1oMYfyViKxK2G1rjCf1pUYpY6Y</string>
+    <!--AIzaSyAdJ3Z4n1oMYfyViKxK2G1rjCf1pUYpY6Y--> <!--kasani first time-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDL4r9owIihPTqBSW13hUWYeJ2B9Qaaxy4</string>
 </resources>

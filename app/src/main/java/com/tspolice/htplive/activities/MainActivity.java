@@ -1,8 +1,15 @@
 package com.tspolice.htplive.activities;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,10 +20,14 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.firebase.MyFirebaseInstanceIdService;
+import com.tspolice.htplive.gcm.GCMRegistrationIntentService;
 import com.tspolice.htplive.network.Networking;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
@@ -24,12 +35,16 @@ import com.tspolice.htplive.utils.Constants;
 import com.tspolice.htplive.utils.HardwareUtils;
 import com.tspolice.htplive.utils.UiHelper;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "HomeActivity-->";
     private final int SPLASH_DIALOG = 0, SPLASH_TIME_OUT = 2000;
     private Button btn_english;
     private UiHelper mUiHelper;
     private boolean doubleBackToExitPressedOnce = false;
+    private BroadcastReceiver gcmBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +67,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }, SPLASH_TIME_OUT);
         }
+
+        gcmBroadcastReceiver = new BroadcastReceiver() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                switch (Objects.requireNonNull(intent.getAction())) {
+                    case Constants.REGISTRATION_SUCCESS:
+                        mUiHelper.showToastLong("Device is ready");
+                        break;
+                    case Constants.REGISTRATION_TOKEN_SENT:
+                        mUiHelper.showToastLong("Ready to receive push notifications");
+                        break;
+                    case Constants.REGISTRATION_ERROR:
+                        mUiHelper.showToastLong("GCM registration error!");
+                        break;
+                    default:
+                        mUiHelper.showToastLong("Error occurred");
+                        break;
+                }
+            }
+        };
+
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+        if (ConnectionResult.SUCCESS != resultCode) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                mUiHelper.showToastLong("Google Play Service is not install/enabled in this device!");
+                GooglePlayServicesUtil.showErrorNotification(resultCode, MainActivity.this);
+            } else {
+                mUiHelper.showToastLong("This device does not support for Google Play Service!");
+            }
+        } else {
+            startService(new Intent(MainActivity.this, GCMRegistrationIntentService.class));
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         btn_english.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume");
+        LocalBroadcastManager.getInstance(this).registerReceiver(gcmBroadcastReceiver,
+                new IntentFilter(Constants.REGISTRATION_SUCCESS));
+        LocalBroadcastManager.getInstance(this).registerReceiver(gcmBroadcastReceiver,
+                new IntentFilter(Constants.REGISTRATION_ERROR));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG,  "onPause");
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(gcmBroadcastReceiver);
     }
 
     @Override
@@ -81,9 +146,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_english:
                 mUiHelper.intent(HomeActivity.class);
-                FirebaseMessaging.getInstance().subscribeToTopic("NEWS");
-                String token = FirebaseInstanceId.getInstance().getToken();
-                sendRegistrationToServer(token);
+                //GoogleCloudMessaging.getInstance(MainActivity.this);//.subscribeToTopic("NEWS");
+                //String token = FirebaseInstanceId.getInstance().getToken();
+                //sendRegistrationToServer(token);
+                startService(new Intent(this, GCMRegistrationIntentService.class));
                 break;
             case R.id.rel_splash:
                 if (!Networking.isNetworkAvailable(MainActivity.this)) {
