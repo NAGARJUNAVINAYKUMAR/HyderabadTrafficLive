@@ -4,6 +4,7 @@ public class URLs {
 
     // rootUrl
     private static final String rootUrl = "http://117.239.149.90:8080/HTP/rest/htpService/";
+    private static final String rootUrlTest = "http://61.95.168.181:8282/";
 
     //1
     public static final String saveCapturedImage = rootUrl + "saveCapturedImage";
@@ -42,8 +43,10 @@ public class URLs {
     public static final String contentType = "application/json; charset=utf-8";
     //4.5
     public static final String utf_8 = "utf-8";
+
     public static final String unSupportedEncodingException = "Unsupported Encoding while trying to get the bytes of %s using %s";
 
+    private static final String googleApiKey = "AIzaSyAdJ3Z4n1oMYfyViKxK2G1rjCf1pUYpY6Y";
     //5
     public static final String eChallanStatus = "https://www.echallan.org/publicview/";
 
@@ -75,5 +78,11 @@ public class URLs {
 
     public static String getEmergencyContacts(String serviceType) {
         return getEmergencyContacts + "?serviceType=" + serviceType + "&updatedDate=updatedDate" + "&language=ENG";
+    }
+
+    private static final String saveRegIds = rootUrlTest + "saveRegIds";
+
+    public static String saveRegIds(String regId, String deviceType, String deviceId) {
+        return saveRegIds + "?regId=" + regId + "&deviceType=" + deviceType + "&deviceId=" + deviceId;
     }
 }

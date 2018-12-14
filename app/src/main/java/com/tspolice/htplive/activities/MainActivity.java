@@ -4,12 +4,24 @@ import android.app.Dialog;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.tspolice.htplive.R;
+import com.tspolice.htplive.firebase.MyFirebaseInstanceIdService;
 import com.tspolice.htplive.network.Networking;
+import com.tspolice.htplive.network.URLs;
+import com.tspolice.htplive.network.VolleySingleton;
+import com.tspolice.htplive.utils.Constants;
+import com.tspolice.htplive.utils.HardwareUtils;
 import com.tspolice.htplive.utils.UiHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -69,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_english:
                 mUiHelper.intent(HomeActivity.class);
+                FirebaseMessaging.getInstance().subscribeToTopic("NEWS");
+                String token = FirebaseInstanceId.getInstance().getToken();
+                sendRegistrationToServer(token);
                 break;
             case R.id.rel_splash:
                 if (!Networking.isNetworkAvailable(MainActivity.this)) {
@@ -80,6 +95,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    private void sendRegistrationToServer(String refreshedToken) {
+        mUiHelper = new UiHelper(MainActivity.this);
+        mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
+        String url = URLs.saveRegIds(refreshedToken, Constants.ANDROID, HardwareUtils.getDeviceUUID(MainActivity.this));
+        Log.i("url-->", url);
+        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        mUiHelper.dismissProgressDialog();
+                        Log.i("response-->", response);
+                        mUiHelper.showToastLong(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mUiHelper.dismissProgressDialog();
+                        Log.i("error-->", error.toString());
+                        mUiHelper.showToastShort(getResources().getString(R.string.error));
+                    }
+                }));
     }
 
     @Override

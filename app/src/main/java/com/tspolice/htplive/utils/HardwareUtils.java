@@ -25,7 +25,7 @@ public class HardwareUtils {
         SharedPrefManager mSharedPrefManager = SharedPrefManager.getInstance(context);
         if (uniqueID == null) {
             uniqueID = mSharedPrefManager.getString(Constants.DEVICE_UUID);
-            if (uniqueID == null) {
+            if (uniqueID == null || "".equals(uniqueID)) {
                 uniqueID = UUID.randomUUID().toString();
                 mSharedPrefManager.putString(Constants.DEVICE_UUID, uniqueID);
             }
@@ -44,26 +44,26 @@ public class HardwareUtils {
         return uniqueDeviceId;
     }
 
-    public String getMacId() {
+    public String getDeviceMacId() {
         try {
-            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
-            for (NetworkInterface nif : all) {
-                if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
-
-                byte[] macBytes = nif.getHardwareAddress();
+            List<NetworkInterface> networkInterfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface networkInterface : networkInterfaces) {
+                if (!networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                    continue;
+                }
+                byte[] macBytes = networkInterface.getHardwareAddress();
                 if (macBytes == null) {
                     return "";
                 }
-
-                StringBuilder res1 = new StringBuilder();
+                StringBuilder stringBuilder = new StringBuilder();
                 for (byte b : macBytes) {
-                    res1.append(Integer.toHexString(b & 0xFF));
+                    stringBuilder.append(Integer.toHexString(b & 0xFF));
                 }
-                Log.e("afterForLoop", res1.toString());
-                return res1.toString();
+                Log.i("afterForLoop", stringBuilder.toString());
+                return stringBuilder.toString();
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return "";
     }
