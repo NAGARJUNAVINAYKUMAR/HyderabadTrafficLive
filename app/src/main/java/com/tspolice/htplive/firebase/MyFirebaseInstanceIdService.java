@@ -24,33 +24,30 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        String fcmToken = FirebaseInstanceId.getInstance().getToken();
         SharedPrefManager mSharedPrefManager = SharedPrefManager.getInstance(this);
-        mSharedPrefManager.putString(Constants.FIRE_BASE_TOKEN, refreshedToken);
-        Log.i(TAG, "refreshedToken-->" + refreshedToken);
-        //sendRegistrationToServer(refreshedToken);
+        mSharedPrefManager.putString(Constants.FCM_TOKEN, fcmToken);
+        Log.i(TAG, "fcmToken-->" + fcmToken);
+        sendRegistrationToServer(fcmToken);
     }
 
-    private void sendRegistrationToServer(String refreshedToken) {
-        mUiHelper = new UiHelper(MyFirebaseInstanceIdService.this);
+    private void sendRegistrationToServer(String fcmToken) {
+        mUiHelper = new UiHelper(getApplicationContext());
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.GET,
-                URLs.saveRegIds(refreshedToken, Constants.ANDROID, HardwareUtils.getDeviceUUID(this)),
+        VolleySingleton.getInstance(MyFirebaseInstanceIdService.this).addToRequestQueue(new StringRequest(Request.Method.GET,
+                URLs.saveRegIds(fcmToken, Constants.ANDROID, HardwareUtils.getDeviceUUID(MyFirebaseInstanceIdService.this)),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
                         mUiHelper.showToastLong(response);
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
-
-
 }

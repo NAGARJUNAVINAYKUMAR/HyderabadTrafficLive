@@ -255,6 +255,10 @@
     <string name="enter_your_contact_no">Enter your contact no.</string>
     <string name="enter_a_suggestion">Enter a suggestion</string>
     <string name="enter_valid_contact_no">Enter valid Contact No.</string>
+    <string name="device_is_ready">Device is Ready</string>
+    <string name="ready_to_recieve_push_notifications">Ready to receive Push Notifications</string>
+    <string name="gcm_registration_error">GCM Registration Error!</string>
+    <string name="error_occured">Error Occurred</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

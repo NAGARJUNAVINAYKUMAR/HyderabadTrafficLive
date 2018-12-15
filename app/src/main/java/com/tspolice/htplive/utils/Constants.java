@@ -29,7 +29,8 @@ public class Constants {
     static final String DEVICE_UUID = "DEVICE_UUID";
     public static final String ANDROID = "ANDROID";
 
-    public static final String FIRE_BASE_TOKEN = "FIRE_BASE_TOKEN";
+    public static final String FCM_TOKEN = "FCM_TOKEN";
+    public static final String GCM_TOKEN = "GCM_TOKEN";
 
     public static final String CHANNEL_ID = "CHANNEL_ID";
     public static final String CHANNEL_NAME = "CHANNEL_NAME";
@@ -38,4 +39,6 @@ public class Constants {
     public static final String REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
     public static final String REGISTRATION_ERROR = "REGISTRATION_ERROR";
     public static final String REGISTRATION_TOKEN_SENT = "REGISTRATION_TOKEN_SENT";
+
+    public static final String GCM_SENDER_ID = "ANDROID";
 }

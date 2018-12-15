@@ -22,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.tspolice.htplive.R;
@@ -74,16 +73,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onReceive(Context context, Intent intent) {
                 switch (Objects.requireNonNull(intent.getAction())) {
                     case Constants.REGISTRATION_SUCCESS:
-                        mUiHelper.showToastLong("Device is ready");
+                        mUiHelper.showToastLong(getString(R.string.device_is_ready));
                         break;
                     case Constants.REGISTRATION_TOKEN_SENT:
-                        mUiHelper.showToastLong("Ready to receive push notifications");
+                        mUiHelper.showToastLong(getString(R.string.ready_to_recieve_push_notifications));
                         break;
                     case Constants.REGISTRATION_ERROR:
-                        mUiHelper.showToastLong("GCM registration error!");
+                        mUiHelper.showToastLong(getString(R.string.gcm_registration_error));
                         break;
                     default:
-                        mUiHelper.showToastLong("Error occurred");
+                        mUiHelper.showToastLong(getString(R.string.error_occured));
                         break;
                 }
             }
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
         if (ConnectionResult.SUCCESS != resultCode) {
             if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
-                mUiHelper.showToastLong("Google Play Service is not install/enabled in this device!");
+                mUiHelper.showToastLong("Google Play Service is not Install/Enabled in this device!");
                 GooglePlayServicesUtil.showErrorNotification(resultCode, MainActivity.this);
             } else {
                 mUiHelper.showToastLong("This device does not support for Google Play Service!");
@@ -146,10 +145,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_english:
                 mUiHelper.intent(HomeActivity.class);
-                //GoogleCloudMessaging.getInstance(MainActivity.this);//.subscribeToTopic("NEWS");
-                //String token = FirebaseInstanceId.getInstance().getToken();
-                //sendRegistrationToServer(token);
-                startService(new Intent(this, GCMRegistrationIntentService.class));
+                /*FirebaseMessaging.getInstance().subscribeToTopic("NEWS");
+                String fcmToken = FirebaseInstanceId.getInstance().getToken();
+                sendFcmTokenToServer(fcmToken);*/
+                startService(new Intent(MainActivity.this, GCMRegistrationIntentService.class));
                 break;
             case R.id.rel_splash:
                 if (!Networking.isNetworkAvailable(MainActivity.this)) {
@@ -163,28 +162,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void sendRegistrationToServer(String refreshedToken) {
+    private void sendFcmTokenToServer(String fcmToken) {
         mUiHelper = new UiHelper(MainActivity.this);
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        String url = URLs.saveRegIds(refreshedToken, Constants.ANDROID, HardwareUtils.getDeviceUUID(MainActivity.this));
-        Log.i("url-->", url);
-        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.GET, url,
+        String deviceId = HardwareUtils.getDeviceUUID(MainActivity.this);
+        String[] split = fcmToken.split(":");
+        Log.i(TAG, "fcmToken-->" + fcmToken);
+        Log.i(TAG, "deviceId-->" + deviceId);
+        String hardCodeToken = "APA91bH9V7C3jLunme8X3WB9KvlruIGmJJvQUr1gswbnTEDo6TcB4_4Rl0om1dFH4SQHMFVwH773c5pYVb4fFf1Kwi43vzs8C9nUJIaFXpNCIjwFJpASXDJLUenZZo26c0Q9KV7NifQf";
+        String url = URLs.saveRegIds(split[1], Constants.ANDROID, deviceId);
+        VolleySingleton.getInstance(MainActivity.this).addToRequestQueue(new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        Log.i("response-->", response);
+                        Log.i(TAG, "response-->" + response);
                         mUiHelper.showToastLong(response);
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        Log.i("error-->", error.toString());
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                Log.i(TAG, "error-->" + error.toString());
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     @Override
