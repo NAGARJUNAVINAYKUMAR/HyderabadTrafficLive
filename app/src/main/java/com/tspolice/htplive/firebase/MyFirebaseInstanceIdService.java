@@ -32,21 +32,21 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
     }
 
     private void sendRegistrationToServer(String fcmToken) {
-        mUiHelper = new UiHelper(getApplicationContext());
-        mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
+        //mUiHelper = new UiHelper(getApplicationContext());
+        //mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         VolleySingleton.getInstance(MyFirebaseInstanceIdService.this).addToRequestQueue(new StringRequest(Request.Method.GET,
                 URLs.saveRegIds(fcmToken, Constants.ANDROID, HardwareUtils.getDeviceUUID(MyFirebaseInstanceIdService.this)),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response);
+                        //mUiHelper.dismissProgressDialog();
+                        //.showToastLong(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                //mUiHelper.dismissProgressDialog();
+                //mUiHelper.showToastShort(getResources().getString(R.string.error));
             }
         }));
     }
