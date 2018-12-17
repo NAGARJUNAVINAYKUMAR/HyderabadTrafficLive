@@ -117,7 +117,6 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View v) {
-        final String finalCategory = "-- Select Category --", finalImageFlag = "0";
         switch (v.getId()) {
             case R.id.iv_camera:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -159,9 +158,9 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 remarks = et_when_why_whom_and_how.getText().toString();
                 phoneNo = et_phone_no.getText().toString().trim();
                 location = et_location.getText().toString();
-                if (finalImageFlag.equals(imageFlag)) {
+                if (Constants.finalImageFlag.equals(imageFlag)) {
                     mUiHelper.showToastShort(getString(R.string.please_attach_photo));
-                } else if (finalCategory.equals(category)) {
+                } else if (Constants.finalCategory.equals(category)) {
                     mUiHelper.showToastShort(getString(R.string.please_select_category));
                 } else if (remarks.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_select_the_reason));
@@ -217,7 +216,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 try {
                     return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
                 } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, "utf-8");
+                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
                     return null;
                 }
             }

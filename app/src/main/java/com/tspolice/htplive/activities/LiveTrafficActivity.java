@@ -31,6 +31,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.tspolice.htplive.R;
+import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.utils.Constants;
 import com.tspolice.htplive.utils.GPSTracker;
 import com.tspolice.htplive.utils.PermissionUtil;
@@ -167,11 +168,10 @@ public class LiveTrafficActivity extends FragmentActivity implements
                 }
                 s = stringBuilder.toString();
             } else {
-                Log.w(TAG, "No address returned !");
+                mUiHelper.showToastShort(getResources().getString(R.string.no_address_returned));
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "Cannot get address !");
         }
         return s;
     }
@@ -240,7 +240,7 @@ public class LiveTrafficActivity extends FragmentActivity implements
                 mLatitude = place.getLatLng().latitude;
                 mLongitude = place.getLatLng().longitude;
             } else if (resultCode == RESULT_CANCELED) {
-                mUiHelper.showToastLong("User canceled the operation");
+                mUiHelper.showToastLong(getResources().getString(R.string.user_canceled_the_operation));
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 Log.e(TAG, "status-->" + status.toString());
@@ -252,11 +252,11 @@ public class LiveTrafficActivity extends FragmentActivity implements
                 et_destination.setText(place.getAddress());
                 double destLatitude = place.getLatLng().latitude;
                 double destLongitude = place.getLatLng().longitude;
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=" +
-                        mLatitude + "," + mLongitude + "&daddr=" + destLatitude + "," + destLongitude));
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        URLs.getUri(mLatitude, mLongitude, destLatitude, destLongitude));
                 startActivity(intent);
             } else if (resultCode == RESULT_CANCELED) {
-                mUiHelper.showToastLong("User canceled the operation");
+                mUiHelper.showToastLong(getResources().getString(R.string.user_canceled_the_operation));
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 Log.e(TAG, "status-->" + status.toString());

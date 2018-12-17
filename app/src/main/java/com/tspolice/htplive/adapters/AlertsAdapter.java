@@ -34,8 +34,8 @@ public class AlertsAdapter extends RecyclerView.Adapter<AlertsAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         AlertsModel alertsModel = alertsList.get(position);
-        holder.tv_alert_text.setText(alertsModel.getAlertText());
-        holder.tv_alert_updated_date.setText(alertsModel.getAlertUpdatedDt());
+        holder.tv_alert_text.setText(alertsModel.getAdvise());
+        holder.tv_alert_updated_date.setText(alertsModel.getUpdatedDate());
     }
 
     @Override

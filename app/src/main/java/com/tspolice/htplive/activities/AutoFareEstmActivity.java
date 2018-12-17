@@ -156,7 +156,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                             buildGoogleApiClient();
                         }
                     }*/
-                    setMyLocationEnableOnPermission();
+                    setEnableCurrentLocationOnPermission();
                 } else {
                     mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
                 }
@@ -174,7 +174,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
         mGoogleApiClient.connect();
     }*/
 
-    private void setMyLocationEnableOnPermission() {
+    private void setEnableCurrentLocationOnPermission() {
         mMap.setMyLocationEnabled(true);
         if (mLocationTrack.canGetLocation()) {
             mLatitude = mLocationTrack.getLatitude();
@@ -187,25 +187,24 @@ public class AutoFareEstmActivity extends FragmentActivity implements
     }
 
     private String getAddressFromLatLng(double lat, double lng) {
-        String getAddress = "";
+        String address = "";
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
             List<Address> addresses = geocoder.getFromLocation(lat, lng, 1);
             if (addresses != null) {
-                Address address = addresses.get(0);
+                Address mAddress = addresses.get(0);
                 StringBuilder addressBuilder = new StringBuilder();
-                for (int i = 0; i <= address.getMaxAddressLineIndex(); i++) {
-                    addressBuilder.append(address.getAddressLine(i)).append("\n");
+                for (int i = 0; i <= mAddress.getMaxAddressLineIndex(); i++) {
+                    addressBuilder.append(mAddress.getAddressLine(i)).append("\n");
                 }
-                getAddress = addressBuilder.toString();
+                address = addressBuilder.toString();
             } else {
-                Log.w(TAG, "No address returned !");
+                mUiHelper.showToastShort(getResources().getString(R.string.no_address_returned));
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.w(TAG, "Cannot get address !");
         }
-        return getAddress;
+        return address;
     }
 
     private void addMapMarker(LatLng latLng) {
@@ -220,8 +219,9 @@ public class AutoFareEstmActivity extends FragmentActivity implements
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setZoomGesturesEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            setMyLocationEnableOnPermission();
+        if (ContextCompat.checkSelfPermission(AutoFareEstmActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            setEnableCurrentLocationOnPermission();
         }
     }
 

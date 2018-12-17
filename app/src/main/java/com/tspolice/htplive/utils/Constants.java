@@ -41,4 +41,7 @@ public class Constants {
     public static final String REGISTRATION_TOKEN_SENT = "REGISTRATION_TOKEN_SENT";
 
     public static final String GCM_SENDER_ID = "ANDROID";
+
+    public static final String finalCategory = "-- Select Category --";
+    public static final String finalImageFlag = "0";
 }

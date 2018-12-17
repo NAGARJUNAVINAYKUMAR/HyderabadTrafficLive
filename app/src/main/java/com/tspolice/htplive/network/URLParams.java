@@ -7,8 +7,21 @@ public class URLParams {
     static final String ctrl = "ctrl";
 
     static final String serviceType = "serviceType";
-    static final String updatedDate = "updatedDate";
-    static final String language = "language";
+
+    public static final String id = "id";
+    public static final String createdDate = "createdDate";
+    public static final String updatedDate = "updatedDate";
+    public static final String stationName = "stationName";
+    public static final String mobileNumber = "mobileNumber";
+    public static final String language = "language";
+    public static final String latitude = "latitude";
+    public static final String langitude = "langitude";
+    public static final String mobileAppSimNo="mobileAppSimNo";
+    public static final String inspectorNo = "inspectorNo";
+    public static final String acpNo = "acpNo";
+    public static final String constableNo2 = "constableNo2";
+    public static final String constableNo3 = "constableNo3";
+    public static final String constableNo4 = "constableNo4";
 
     static final String origins = "origins";
     static final String destinations = "destinations";
@@ -22,7 +35,7 @@ public class URLParams {
     public static final String psId = "psId";
 
     // saveCapturedImage params
-    public static final String mobileNumber = "mobileNumber";
+
     public static final String geoLocation = "geoLocation";
     public static final String remarks = "remarks";
     public static final String category = "category";

@@ -18,12 +18,10 @@ import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
 import com.tspolice.htplive.utils.HardwareUtils;
-import com.tspolice.htplive.utils.UiHelper;
 
 public class GCMRegistrationIntentService extends IntentService {
 
     private static final String TAG = "GCMRegnIntentService-->";
-    private UiHelper mUiHelper;
 
     public GCMRegistrationIntentService() {
         super("");
@@ -38,6 +36,7 @@ public class GCMRegistrationIntentService extends IntentService {
         Intent intentRegnComplete;
         try {
             InstanceID instanceID = InstanceID.getInstance(GCMRegistrationIntentService.this);
+            //470572687811
             String gcmToken = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             Log.i(TAG, "gcmToken-->" + gcmToken);
@@ -54,22 +53,21 @@ public class GCMRegistrationIntentService extends IntentService {
     }
 
     private void sendGcmTokenToServer(String gcmToken) {
-        //mUiHelper = new UiHelper(getApplicationContext());
-        //mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        //Toast.makeText(getApplicationContext(), "Please wait...", Toast.LENGTH_LONG).show();
+        String deviceUUID = HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this);
+        Log.i(TAG, "deviceUUID-->" + deviceUUID);
         VolleySingleton.getInstance(GCMRegistrationIntentService.this).addToRequestQueue(new StringRequest(Request.Method.GET,
-                URLs.saveRegIds(gcmToken, Constants.ANDROID, HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this)),
+                URLs.saveRegIds(gcmToken, Constants.ANDROID, deviceUUID),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                       // mUiHelper.dismissProgressDialog();
-                        //mUiHelper.showToastLong(response);
+                        Intent registrationComplete = new Intent(Constants.REGISTRATION_TOKEN_SENT);
+                        LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(registrationComplete);
+                        Log.i(TAG, "Success");
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-               // mUiHelper.dismissProgressDialog();
-                //mUiHelper.showToastShort(getResources().getString(R.string.error));
+                Log.i(TAG, "Error");
             }
         }));
     }

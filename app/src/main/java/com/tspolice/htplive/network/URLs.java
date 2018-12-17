@@ -1,5 +1,7 @@
 package com.tspolice.htplive.network;
 
+import android.net.Uri;
+
 public class URLs {
 
     private static final String rootUrl = "http://117.239.149.90:8080/HTP/rest/htpService/";
@@ -22,6 +24,11 @@ public class URLs {
         return googleDirectionsApi + "?origin=" + latitude + "," + longitude + "&destination="
                 + dest_latitude + "," + dest_longitude + "&sensor=false&units=metric";
     }*/
+
+    public static Uri getUri(double latitude, double longitude, double destLatitude, double destLongitude) {
+        return Uri.parse("http://maps.google.com/maps?saddr=" + latitude + "," + longitude
+                + "&daddr=" + destLatitude + "," + destLongitude);
+    }
 
     private static final String googleDirectionsApi = "https://maps.googleapis.com/maps/api/distancematrix/json";
 
@@ -58,6 +65,8 @@ public class URLs {
     public static final String saveAutocomplainData = rootUrl + "saveAutocomplainData";
 
     public static final String saveSuggestions = rootUrl + "saveSuggestions";
+
+    public static final String getPublicAdvisaryData = rootUrl + "getPublicAdvisaryData";
 
     public static final String getTrafficOfficers = rootUrl + "getTrafficOfficers"
             + "?" + URLParams.updatedDate + "=" + URLParams.updatedDate

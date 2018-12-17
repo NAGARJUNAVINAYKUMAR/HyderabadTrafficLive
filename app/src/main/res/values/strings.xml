@@ -210,6 +210,7 @@
     </string>
     <string name="dummy_phone_no">9985672798</string>
     <string name="no_details_found">No details found !</string>
+    <string name="no_address_returned">No address returned !</string>
     <string name="about_htp_text">Hyderabad Traffic Live Mobile application is a bridge between Hyderabad Traffic Police and traffic commuters for getting immediate information. Main aim of Hyderabad Traffic Police is commuters to have traffic police information on their hands, with this Hyderabad Traffic Live mobile application commuters or users can easily get the information about local traffic police station address with concern officer contact numbers to know traffic rules and regulations, road safety tips, emergency contact information, traffic violation fines, vehicle towed status, auto fare, etc., Moreover mobile users can see live traffic view.</string>
     <string name="traffic_cell">TRAFFIC CELL</string>
     <string name="network_error">Network Error, Please check your internet connection</string>
@@ -218,6 +219,7 @@
     <string name="permission_denied">Permission denied</string>
     <string name="please_wait">Please wait…</string>
     <string name="error">Error !</string>
+    <string name="success">Success</string>
     <string name="empty_response">Empty response</string>
     <string name="something_went_wrong">Something went wrong !</string>
     <string name="parking_details">Parking Details</string>

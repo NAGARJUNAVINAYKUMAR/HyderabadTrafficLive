@@ -38,7 +38,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "HomeActivity-->";
+    private static final String TAG = "MainActivity-->";
     private final int SPLASH_DIALOG = 0, SPLASH_TIME_OUT = 2000;
     private Button btn_english;
     private UiHelper mUiHelper;
@@ -73,13 +73,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onReceive(Context context, Intent intent) {
                 switch (Objects.requireNonNull(intent.getAction())) {
                     case Constants.REGISTRATION_SUCCESS:
+                        String token = intent.getStringExtra(Constants.GCM_TOKEN);
                         mUiHelper.showToastLong(getString(R.string.device_is_ready));
-                        break;
-                    case Constants.REGISTRATION_TOKEN_SENT:
-                        mUiHelper.showToastLong(getString(R.string.ready_to_recieve_push_notifications));
                         break;
                     case Constants.REGISTRATION_ERROR:
                         mUiHelper.showToastLong(getString(R.string.gcm_registration_error));
+                        break;
+                    case Constants.REGISTRATION_TOKEN_SENT:
+                        mUiHelper.showToastLong(getString(R.string.ready_to_recieve_push_notifications));
                         break;
                     default:
                         mUiHelper.showToastLong(getString(R.string.error_occured));
@@ -110,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG, "onResume");
         LocalBroadcastManager.getInstance(this).registerReceiver(gcmBroadcastReceiver,
                 new IntentFilter(Constants.REGISTRATION_SUCCESS));
         LocalBroadcastManager.getInstance(this).registerReceiver(gcmBroadcastReceiver,
@@ -120,7 +120,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(TAG,  "onPause");
         LocalBroadcastManager.getInstance(this).unregisterReceiver(gcmBroadcastReceiver);
     }
 
@@ -148,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 /*FirebaseMessaging.getInstance().subscribeToTopic("NEWS");
                 String fcmToken = FirebaseInstanceId.getInstance().getToken();
                 sendFcmTokenToServer(fcmToken);*/
-                startService(new Intent(MainActivity.this, GCMRegistrationIntentService.class));
+                //startService(new Intent(MainActivity.this, GCMRegistrationIntentService.class));
                 break;
             case R.id.rel_splash:
                 if (!Networking.isNetworkAvailable(MainActivity.this)) {

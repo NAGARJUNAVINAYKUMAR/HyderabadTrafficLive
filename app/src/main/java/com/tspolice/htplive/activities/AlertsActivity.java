@@ -7,11 +7,23 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.adapters.AlertsAdapter;
+import com.tspolice.htplive.adapters.CommonRecyclerAdapter;
 import com.tspolice.htplive.adapters.MyRecyclerViewItemDecoration;
 import com.tspolice.htplive.models.AlertsModel;
+import com.tspolice.htplive.models.CommonModel;
+import com.tspolice.htplive.network.URLs;
+import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.UiHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,23 +42,13 @@ public class AlertsActivity extends AppCompatActivity {
 
         initObjects();
 
-        mUiHelper.showToastLong("Push notifications");
-
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setSelected(true);
         mRecyclerView.addItemDecoration(new MyRecyclerViewItemDecoration(this, DividerItemDecoration.VERTICAL, 8));
-        List<AlertsModel> mAlertsList = new ArrayList<>(30);
-        for (int i = 0; i < 30; i++) {
-            AlertsModel model = new AlertsModel();
-            model.setAlertText("Dt: 12–09–2018 at 09:22 hrs - Slow movement of traffic from Karkhana to Secunderabad club. " +
-                    "And the extension code Slow movement of traffic from Karkhana to Secunderabad club");
-            model.setAlertUpdatedDt("Updated Dt: 12–09–2018 09:25hrs");
-            mAlertsList.add(model);
-        }
-        AlertsAdapter mAlertsAdapter = new AlertsAdapter(mAlertsList, this);
-        mRecyclerView.setAdapter(mAlertsAdapter);
+
+        getPublicAdvisaryData();
     }
 
     private void initViews() {
@@ -55,6 +57,45 @@ public class AlertsActivity extends AppCompatActivity {
 
     private void initObjects() {
         mUiHelper = new UiHelper(this);
+    }
+
+    private void getPublicAdvisaryData() {
+        mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
+        VolleySingleton.getInstance(this).addToRequestQueue(new JsonArrayRequest(Request.Method.GET,
+                URLs.getPublicAdvisaryData, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        mUiHelper.dismissProgressDialog();
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
+                            try {
+                                List<AlertsModel> mAlertsList = new ArrayList<>(response.length());
+                                for (int i = 0; i < response.length(); i++) {
+                                    JSONObject jsonObject = response.getJSONObject(i);
+                                    AlertsModel model = new AlertsModel();
+                                    model.setId(jsonObject.getString("id"));
+                                    model.setAdvise(jsonObject.getString("advise"));
+                                    model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                    mAlertsList.add(model);
+                                }
+                                AlertsAdapter mAlertsAdapter = new AlertsAdapter(mAlertsList, AlertsActivity.this);
+                                mRecyclerView.setAdapter(mAlertsAdapter);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                            }
+                        } else {
+                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     @Override
