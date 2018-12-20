@@ -198,69 +198,20 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                         mUiHelper.dismissProgressDialog();
                         mUiHelper.showToastLong(response);
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }) {
+                }, new Response.ErrorListener() {
             @Override
-            public String getBodyContentType() {
-                return URLs.contentType;
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
             }
-
-            @Override
-            public byte[] getBody() {
-                try {
-                    return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
-                } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
-                    return null;
-                }
-            }
-        });
-
-        /*VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST,
-                URLs.saveCapturedImage,
-                new Response.Listener<NetworkResponse>() {
-                    @Override
-                    public void onResponse(NetworkResponse response) {
-                        mUiHelper.dismissProgressDialog();
-                        Log.d(TAG, "onResponse() called with: response = [" + response + "]");
-                        try {
-                            JSONObject obj = new JSONObject(response.toString());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d(TAG, "onErrorResponse() called with: error = [" + error + "]");
-                    }
-                }) {
+        }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("mobileNumber", phoneNo);
-                params.put("geoLocation", location);
-                params.put("remarks", remarks);
-                params.put("category", "Traffic Violation");
+                params.put("jsonData", mRequestBody);
                 return params;
             }
-
-            @Override
-            protected Map<String, VolleyMultipartRequest.DataPart> getByteData() {
-                Map<String, DataPart> params = new HashMap<>();
-                long imagename = System.currentTimeMillis();
-                params.put("image", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
-                return params;
-            }
-        };
-        Volley.newRequestQueue(this).add(multipartRequest);*/
+        });
     }
 
     public byte[] getFileDataFromDrawable(Bitmap bitmap) {

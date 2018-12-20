@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -36,13 +35,12 @@ public class GCMRegistrationIntentService extends IntentService {
         Intent intentRegnComplete;
         try {
             InstanceID instanceID = InstanceID.getInstance(GCMRegistrationIntentService.this);
-            //470572687811
             String gcmToken = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             Log.i(TAG, "gcmToken-->" + gcmToken);
-            String[] split = gcmToken.split(":");
-            Log.i(TAG, "gcmTokenSplit-->" + split[1]);
-            sendGcmTokenToServer(split[1]);
+            String deviceUUID = HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this);
+            Log.i(TAG, "deviceUUID-->" + deviceUUID);
+            sendGcmTokenToServer(gcmToken, deviceUUID);
             intentRegnComplete = new Intent(Constants.REGISTRATION_SUCCESS);
             intentRegnComplete.putExtra(Constants.GCM_TOKEN, gcmToken);
         } catch (Exception e) {
@@ -52,9 +50,7 @@ public class GCMRegistrationIntentService extends IntentService {
         LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(intentRegnComplete);
     }
 
-    private void sendGcmTokenToServer(String gcmToken) {
-        String deviceUUID = HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this);
-        Log.i(TAG, "deviceUUID-->" + deviceUUID);
+    private void sendGcmTokenToServer(String gcmToken, String deviceUUID) {
         VolleySingleton.getInstance(GCMRegistrationIntentService.this).addToRequestQueue(new StringRequest(Request.Method.GET,
                 URLs.saveRegIds(gcmToken, Constants.ANDROID, deviceUUID),
                 new Response.Listener<String>() {
@@ -62,12 +58,12 @@ public class GCMRegistrationIntentService extends IntentService {
                     public void onResponse(String response) {
                         Intent registrationComplete = new Intent(Constants.REGISTRATION_TOKEN_SENT);
                         LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(registrationComplete);
-                        Log.i(TAG, "Success");
+                        Log.i(TAG, "sendGcmTokenToServer--> Success");
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i(TAG, "Error");
+                Log.i(TAG, "sendGcmTokenToServer--> Error");
             }
         }));
     }
