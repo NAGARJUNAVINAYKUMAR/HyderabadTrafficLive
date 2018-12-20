@@ -78,7 +78,7 @@
         <activity android:name=".activities.RtaTowingActivity" />
         <activity android:name=".activities.SuggestionsActivity" />
 
-        <service android:name=".firebase.MyFirebaseInstanceIdService">
+        <!--<service android:name=".firebase.MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -88,7 +88,7 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
+        </service>-->
 
         <!--GCM Receiver -->
         <receiver

@@ -196,7 +196,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response);
+                        mUiHelper.showToastLong(getResources().getString(R.string.success));
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -208,7 +208,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("jsonData", mRequestBody);
+                params.put(URLParams.jsonData, mRequestBody);
                 return params;
             }
         });

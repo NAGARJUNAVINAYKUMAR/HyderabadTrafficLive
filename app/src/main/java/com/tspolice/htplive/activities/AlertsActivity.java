@@ -38,30 +38,21 @@ public class AlertsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
 
-        initViews();
-
-        initObjects();
-
+        mRecyclerView = findViewById(R.id.mRecyclerViewAlerts);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setSelected(true);
-        mRecyclerView.addItemDecoration(new MyRecyclerViewItemDecoration(this, DividerItemDecoration.VERTICAL, 8));
+        mRecyclerView.addItemDecoration(new MyRecyclerViewItemDecoration(AlertsActivity.this,
+                DividerItemDecoration.VERTICAL, 8));
 
         getPublicAdvisaryData();
     }
 
-    private void initViews() {
-        mRecyclerView = findViewById(R.id.mRecyclerViewAlerts);
-    }
-
-    private void initObjects() {
-        mUiHelper = new UiHelper(this);
-    }
-
     private void getPublicAdvisaryData() {
+        mUiHelper = new UiHelper(AlertsActivity.this);
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        VolleySingleton.getInstance(this).addToRequestQueue(new JsonArrayRequest(Request.Method.GET,
+        VolleySingleton.getInstance(AlertsActivity.this).addToRequestQueue(new JsonArrayRequest(Request.Method.GET,
                 URLs.getPublicAdvisaryData, null,
                 new Response.Listener<JSONArray>() {
                     @Override

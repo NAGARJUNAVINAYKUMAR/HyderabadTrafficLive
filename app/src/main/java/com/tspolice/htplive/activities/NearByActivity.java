@@ -224,14 +224,13 @@ public class NearByActivity extends FragmentActivity implements
                             mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     public static int minIndex(ArrayList<Double> list) {
@@ -315,14 +314,13 @@ public class NearByActivity extends FragmentActivity implements
                             mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     private void parkingSpaceDialog() {
@@ -560,14 +558,13 @@ public class NearByActivity extends FragmentActivity implements
                                 mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
                             }
                         }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            mUiHelper.dismissProgressDialog();
-                            mUiHelper.showToastShort(getResources().getString(R.string.error));
-                        }
-                    }) {
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    mUiHelper.dismissProgressDialog();
+                    mUiHelper.showToastShort(getResources().getString(R.string.error));
+                }
+            }) {
                 @Override
                 public String getBodyContentType() {
                     return URLs.contentType;

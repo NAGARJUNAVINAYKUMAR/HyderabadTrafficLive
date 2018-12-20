@@ -41,6 +41,7 @@ public class URLParams {
     public static final String category = "category";
     public static final String image = "image";
     public static final String reason = "reason";
+    public static final String jsonData = "jsonData";
 
     // saveAutocomplainData params
     public static final String type = "type";

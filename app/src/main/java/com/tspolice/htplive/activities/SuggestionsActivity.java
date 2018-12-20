@@ -111,29 +111,20 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response);
+                        mUiHelper.showToastLong(getResources().getString(R.string.success));
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }) {
+                }, new Response.ErrorListener() {
             @Override
-            public String getBodyContentType() {
-                return URLs.contentType;
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
             }
-
+        }) {
             @Override
-            public byte[] getBody() {
-                try {
-                    return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
-                } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
-                    return null;
-                }
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put(URLParams.jsonData, mRequestBody);
+                return params;
             }
         });
     }

@@ -8,7 +8,7 @@ public class URLs {
 
     private static final String testUrl = "http://61.95.168.181:8282/";
 
-    public static final String saveCapturedImage = rootUrl + "saveCapturedImage";
+    public static final String saveCapturedImage = testUrl + "saveCapturedImage";
 
     public static final String getAutoFares = rootUrl + "getAutoFares";
 
@@ -62,9 +62,9 @@ public class URLs {
                 + "&" + URLParams.ctrl + "=" + ctrl;
     }
 
-    public static final String saveAutocomplainData = rootUrl + "saveAutocomplainData";
+    public static final String saveAutocomplainData = testUrl + "saveAutocomplainData";
 
-    public static final String saveSuggestions = rootUrl + "saveSuggestions";
+    public static final String saveSuggestions = testUrl + "saveSuggestions";
 
     public static final String getPublicAdvisaryData = rootUrl + "getPublicAdvisaryData";
 

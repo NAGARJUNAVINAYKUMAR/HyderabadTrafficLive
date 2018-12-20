@@ -61,10 +61,10 @@ public class UiHelper {
         builder.setIcon(mContext.getResources().getDrawable(R.drawable.ic_logo));
         builder.setMessage(message);
         builder.setCancelable(cancelable);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if ("HOME".equals(actionFlag)) {
+                if (Constants.HOME.equals(actionFlag)) {
                     Activity activity = (Activity) mContext;
                     activity.finish();
                     Intent intent_Login = new Intent(mContext, MainActivity.class);
@@ -73,7 +73,7 @@ public class UiHelper {
                 }
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -89,7 +89,7 @@ public class UiHelper {
         builder.setIcon(mContext.getResources().getDrawable(R.drawable.ic_logo));
         builder.setMessage(message);
         builder.setCancelable(cancelable);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -105,19 +105,19 @@ public class UiHelper {
         builder.setIcon(mContext.getResources().getDrawable(R.drawable.ic_logo));
         builder.setMessage(message);
         builder.setCancelable(cancelable);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        builder.setNeutralButton("Neutral", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(R.string.neutral, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -131,7 +131,7 @@ public class UiHelper {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setMessage(message);
         builder.setCancelable(cancelable);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

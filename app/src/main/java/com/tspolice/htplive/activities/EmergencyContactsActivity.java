@@ -64,17 +64,17 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         recyclerViewSetup();
 
         String serviceType;
-        if ("AMBULANCE".equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
+        if (Constants.AMBULANCE.equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
             serviceType = "0";
-        } else if ("BLOOD_BANK".equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
+        } else if (Constants.BLOOD_BANK.equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
             serviceType = "1";
-        } else if ("FIRE_STATION".equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
+        } else if (Constants.FIRE_STATION.equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
             serviceType = "2";
-        } else if ("CRIME_ALERT".equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
+        } else if (Constants.CRIME_ALERT.equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
             serviceType = "3";
-        } else if ("WOMEN_CHILD".equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
+        } else if (Constants.WOMEN_CHILD.equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
             serviceType = "4";
-        } else if ("SENIOR_CITIZEN".equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
+        } else if (Constants.SENIOR_CITIZEN.equals(mSharedPrefManager.getString(Constants.EMERGENCY_CONTACTS))) {
             serviceType = "5";
         } else {
             serviceType = "0";
@@ -140,7 +140,8 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             try {
                                 mCommonList = new ArrayList<>(response.length());
                                 for (int i = 0; i < response.length(); i++) {
@@ -155,7 +156,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                                     model.setLanguage(jsonObject.getString("language"));
                                     mCommonList.add(model);
                                 }
-                                mCommonRecyclerAdapter = new CommonRecyclerAdapter(""+Constants.EMERGENCY_CONTACTS, mCommonList,
+                                mCommonRecyclerAdapter = new CommonRecyclerAdapter("" + Constants.EMERGENCY_CONTACTS, mCommonList,
                                         new CommonRecyclerAdapter.OnItemClickListener() {
                                             @Override
                                             public void onItemClick(CommonModel item, int position) {
@@ -187,20 +188,20 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                             mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     private void makeCall() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + "+" + mCommonModel.getContactNumber()));
-        if (PermissionUtil.checkPermission(EmergencyContactsActivity.this, Constants.INT_CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+        if (PermissionUtil.checkPermission(EmergencyContactsActivity.this,
+                Constants.INT_CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             startActivity(intent);
         }
     }
@@ -232,7 +233,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (et_search_emergency_contacts.getText().toString().length()>0) {
+        if (et_search_emergency_contacts.getText().toString().length() > 0) {
             et_search_emergency_contacts.setText("");
             et_search_emergency_contacts.setHint(R.string.search_contact_no);
         } else {

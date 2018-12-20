@@ -18,7 +18,16 @@ public class Constants {
     public static final String FINE_LOCATION = "FINE_LOCATION";
     public static final String CALL_PHONE = "CALL_PHONE";
 
+    public static final String HOME = "HOME";
+
     public static final String EMERGENCY_CONTACTS = "EMERGENCY_CONTACTS";
+    public static final String AMBULANCE = "AMBULANCE";
+    public static final String BLOOD_BANK = "BLOOD_BANK";
+    public static final String FIRE_STATION = "FIRE_STATION";
+    public static final String CRIME_ALERT = "CRIME_ALERT";
+    public static final String WOMEN_CHILD = "WOMEN_CHILD";
+    public static final String SENIOR_CITIZEN = "SENIOR_CITIZEN";
+
     public static final String USEFUL_WEBSITES = "USEFUL_WEBSITES";
     public static final String FAQS = "FAQS";
     public static final String ROAD_SAFETY_TIPS = "ROAD_SAFETY_TIPS";

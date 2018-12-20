@@ -41,6 +41,7 @@
     <string name="complaint">Complaint</string>
     <string name="type_a_complaint">Type a complaint</string>
     <string name="cancel">Cancel</string>
+    <string name="neutral">Neutral</string>
     <string name="select_file">Select File</string>
     <string name="browse">Browse</string>
     <string name="regn_no">Regn. No.</string>
@@ -261,6 +262,8 @@
     <string name="ready_to_recieve_push_notifications">Ready to receive Push Notifications</string>
     <string name="gcm_registration_error">GCM Registration Error!</string>
     <string name="error_occured">Error Occurred</string>
+    <string name="you_are_here">You are here</string>
+    <string name="ok">OK</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

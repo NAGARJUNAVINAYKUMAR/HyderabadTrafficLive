@@ -17,7 +17,6 @@ import com.tspolice.htplive.activities.AlertsActivity;
 
 public class GCMPushReceiverService extends GcmListenerService {
 
-    private static final String TAG = "GCMPushReceivService-->";
     private Context context = this;
 
     @Override
