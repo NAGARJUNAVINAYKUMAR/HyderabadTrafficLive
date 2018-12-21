@@ -11,6 +11,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.network.URLParams;
@@ -101,31 +102,32 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
         Map<String, String> params = new HashMap<>();
         params.put(URLParams.name, name);
         params.put(URLParams.email, email);
-        params.put(URLParams.mobileNumber, contactNo);
-        params.put(URLParams.suggestion, suggestion);
+        params.put(URLParams.phone, contactNo);
+        params.put(URLParams.sugtext, suggestion);
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();
 
-        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.POST, URLs.saveSuggestions,
-                new Response.Listener<String>() {
+        VolleySingleton.getInstance(this).addToRequestQueue(new JsonObjectRequest(Request.Method.POST,
+                URLs.saveSuggestions, jsonRequest,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(JSONObject response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(getResources().getString(R.string.success));
+                        mUiHelper.showToastLong(response.toString());
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                mUiHelper.showToastShort(error.toString());
             }
-        }) {
+        }) /*{
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put(URLParams.jsonData, mRequestBody);
                 return params;
             }
-        });
+        }*/);
     }
 }

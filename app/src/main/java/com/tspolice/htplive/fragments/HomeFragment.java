@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_home, container, false);
+        View view = inflater.inflate(R.layout.frag_home2, container, false);
 
         mUiHelper = new UiHelper(getActivity());
         mSharedPrefManager = SharedPrefManager.getInstance(getActivity());

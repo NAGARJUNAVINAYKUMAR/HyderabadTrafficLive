@@ -4,14 +4,14 @@
     android:id="@+id/toolbar_main"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/header_background"
     android:theme="@style/ThemeOverlay.AppCompat.Light"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/header_background">
 
         <ImageView
             android:id="@+id/header_image_left"
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
                 android:textSize="20sp"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorWhite"
                 android:singleLine="true"
                 android:textStyle="bold" />
 

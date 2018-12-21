@@ -64,9 +64,15 @@ public class URLs {
 
     public static final String saveAutocomplainData = testUrl + "saveAutocomplainData";
 
-    public static final String saveSuggestions = testUrl + "saveSuggestions";
+    public static final String saveSuggestions = rootUrl + "saveSuggestions";
 
     public static final String getPublicAdvisaryData = rootUrl + "getPublicAdvisaryData";
+
+    private static final String loadPubAdvNextRec = rootUrl + "loadPubAdvNextRec";
+
+    public static String loadPubAdvNextRec(String id) {
+        return loadPubAdvNextRec + "?" + URLParams.id + "=" + id;
+    }
 
     public static final String getTrafficOfficers = rootUrl + "getTrafficOfficers"
             + "?" + URLParams.updatedDate + "=" + URLParams.updatedDate

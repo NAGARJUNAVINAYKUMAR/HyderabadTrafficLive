@@ -13,6 +13,8 @@ public class URLParams {
     public static final String updatedDate = "updatedDate";
     public static final String stationName = "stationName";
     public static final String mobileNumber = "mobileNumber";
+    public static final String phone = "phone";
+    public static final String sugtext = "sugtext";
     public static final String language = "language";
     public static final String latitude = "latitude";
     public static final String langitude = "langitude";
