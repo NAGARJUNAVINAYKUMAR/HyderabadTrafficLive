@@ -127,7 +127,8 @@ public class TrPSInfoActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             try {
                                 mTrPSInfoList = new ArrayList<>(response.length());
                                 for (int i = 0; i < response.length(); i++) {
@@ -180,8 +181,7 @@ public class TrPSInfoActivity extends AppCompatActivity {
                             mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mUiHelper.dismissProgressDialog();

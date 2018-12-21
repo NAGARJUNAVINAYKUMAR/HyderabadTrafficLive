@@ -72,7 +72,8 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onResponse(JSONArray response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"null".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             try {
                                 String captcha = (String) response.get(0);
                                 captcha = captcha.replaceAll(" ", "");
@@ -153,21 +154,20 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onResponse(JSONObject response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             getTowingRTAInfoDialog(response);
                         } else {
                             mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(getResources().getString(R.string.error));
-                    }
-                }));
-
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastLong(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     @SuppressLint("InflateParams")

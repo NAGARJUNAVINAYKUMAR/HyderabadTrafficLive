@@ -101,7 +101,8 @@ public class TrOfficersContactsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             try {
                                 mCommonList = new ArrayList<>(response.length());
                                 for (int i = 0; i < response.length(); i++) {
@@ -117,7 +118,7 @@ public class TrOfficersContactsActivity extends AppCompatActivity {
                                     model.setLanguage(jsonObject.getString("language"));
                                     mCommonList.add(model);
                                 }
-                                mCommonRecyclerAdapter = new CommonRecyclerAdapter(""+Constants.TRAFFIC_OFFICERS, mCommonList,
+                                mCommonRecyclerAdapter = new CommonRecyclerAdapter("" + Constants.TRAFFIC_OFFICERS, mCommonList,
                                         new CommonRecyclerAdapter.OnItemClickListener() {
                                             @Override
                                             public void onItemClick(CommonModel item, int position) {
@@ -149,14 +150,13 @@ public class TrOfficersContactsActivity extends AppCompatActivity {
                             mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShort(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     private void makeCall() {
@@ -194,7 +194,7 @@ public class TrOfficersContactsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (et_search_tr_officers.getText().toString().length()>0) {
+        if (et_search_tr_officers.getText().toString().length() > 0) {
             et_search_tr_officers.setText("");
             et_search_tr_officers.setHint(R.string.search_officer_name);
         } else {

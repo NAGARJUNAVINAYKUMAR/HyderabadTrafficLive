@@ -163,7 +163,8 @@ public class NearByActivity extends FragmentActivity implements
                     @Override
                     public void onResponse(JSONArray response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             ArrayList<Double> distances = new ArrayList<>();
                             ArrayList<Double> lat = new ArrayList<>();
                             ArrayList<Double> lang = new ArrayList<>();
@@ -297,7 +298,8 @@ public class NearByActivity extends FragmentActivity implements
                     @Override
                     public void onResponse(JSONObject response) {
                         mUiHelper.dismissProgressDialog();
-                        if (response != null && !"".equals(response.toString()) && response.length() > 0) {
+                        if (response != null && !"".equals(response.toString())
+                                && !"null".equals(response.toString()) && response.length() > 0) {
                             try {
                                 JSONArray jsonArray = response.getJSONArray("vehicleTypes");
                                 vehicleTypes = new ArrayList<>(jsonArray.length());
@@ -442,120 +444,125 @@ public class NearByActivity extends FragmentActivity implements
                         @Override
                         public void onResponse(String response) {
                             mUiHelper.dismissProgressDialog();
-                            try {
-                                JSONArray jsonArray = new JSONArray(response);
-                                //parkingDetailsList = new ArrayList<>(jsonArray.length());
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            if (response != null && !"".equals(response)
+                                    && !"null".equals(response) && response.length() > 0) {
+                                try {
+                                    JSONArray jsonArray = new JSONArray(response);
+                                    //parkingDetailsList = new ArrayList<>(jsonArray.length());
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                                    ParkingDetailsModel parkingDetails = new ParkingDetailsModel();
-                                    parkingDetails.setId(Integer.parseInt(jsonObject.getString("id")));
+                                        ParkingDetailsModel parkingDetails = new ParkingDetailsModel();
+                                        parkingDetails.setId(Integer.parseInt(jsonObject.getString("id")));
 
-                                    JSONObject vehicleTypeObject = jsonObject.getJSONObject("vehicleType");
-                                    VehicleTypeModel vehicleType = new VehicleTypeModel();
-                                    int vehicleTypeNewId = 0;
-                                    try {
-                                        vehicleTypeNewId = Integer.parseInt(vehicleTypeObject.getString("id"));
-                                    } catch (NumberFormatException e) {
-                                        e.printStackTrace();
-                                    }
-                                    vehicleType.setId(vehicleTypeNewId);
-
-                                    String vehicleTypeName = vehicleTypeObject.getString("name");
-                                    vehicleType.setName(vehicleTypeName);
-                                    parkingDetails.setVehicleType(vehicleType);
-
-                                    JSONObject parkingTypeObject = jsonObject.getJSONObject("parkingType");
-                                    ParkingTypeModel parkingType = new ParkingTypeModel();
-                                    int parkingTypeNewId = 0;
-                                    try {
-                                        parkingTypeNewId = Integer.parseInt(parkingTypeObject.getString("id"));
-                                    } catch (NumberFormatException e) {
-                                        e.printStackTrace();
-                                    }
-                                    parkingType.setId(parkingTypeNewId);
-
-                                    String parkingTypeName = parkingTypeObject.getString("name");
-                                    parkingType.setName(parkingTypeName);
-                                    parkingType.setIcon(parkingTypeObject.getString("icon"));
-                                    parkingType.setBigicon(parkingTypeObject.getString("bigicon"));
-                                    parkingDetails.setParkingType(parkingType);
-
-                                    parkingDetails.setLocation(jsonObject.getString("location"));
-                                    parkingDetails.setRemarks(jsonObject.getString("remarks"));
-
-                                    String stLat = jsonObject.getString("latitude");
-                                    String stLong = jsonObject.getString("langitude");
-                                    parkingDetails.setLatitude(stLat);
-                                    parkingDetails.setLongitude(stLong);
-
-                                    //parkingDetailsList.add(parkingDetails);
-
-                                    if (stLat != null && !"null".equals(stLat) && stLat.length() > 0
-                                            && stLong != null && !"null".equals(stLong) && stLong.length() > 0) {
-                                        MarkerOptions markerOptions = new MarkerOptions();
+                                        JSONObject vehicleTypeObject = jsonObject.getJSONObject("vehicleType");
+                                        VehicleTypeModel vehicleType = new VehicleTypeModel();
+                                        int vehicleTypeNewId = 0;
                                         try {
-                                            double psLatitude, psLongitude;
-                                            psLatitude = Double.parseDouble(stLat);
-                                            psLongitude = Double.parseDouble(stLong);
-                                            markerOptions.position(new LatLng(psLatitude, psLongitude));
+                                            vehicleTypeNewId = Integer.parseInt(vehicleTypeObject.getString("id"));
                                         } catch (NumberFormatException e) {
                                             e.printStackTrace();
                                         }
+                                        vehicleType.setId(vehicleTypeNewId);
 
-                                        // vehicle type
-                                        if (vehicleTypeName != null && !"null".equals(vehicleTypeName) && vehicleTypeName.length() > 0) {
-                                            markerOptions.title(vehicleTypeName);
-                                            if (vehicleTypeNewId == 1) {
-                                                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)); // need logo
-                                            }
-                                            if (vehicleTypeNewId == 2) {
-                                                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)); // need logo
-                                            }
-                                            if (vehicleTypeNewId == 3) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_auto));
-                                            }
-                                            if (vehicleTypeNewId == 4) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));
-                                            }
-                                            if (vehicleTypeNewId == 5) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));
-                                            }
-                                            if (vehicleTypeNewId == 6) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));
-                                            }
-                                        }
+                                        String vehicleTypeName = vehicleTypeObject.getString("name");
+                                        vehicleType.setName(vehicleTypeName);
+                                        parkingDetails.setVehicleType(vehicleType);
 
-                                        // parking type
-                                        if (parkingTypeName != null && !"null".equals(parkingTypeName) && parkingTypeName.length() > 0) {
-                                            markerOptions.title(parkingTypeName);
-                                            if (parkingTypeNewId == 1) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigbus));// all icon
-                                            }
-                                            if (parkingTypeNewId == 2) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigfreepark));
-                                            }
-                                            if (parkingTypeNewId == 3) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_paidpark));
-                                            }
-                                            if (parkingTypeNewId == 4) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_water));
-                                            }
-                                            if (parkingTypeNewId == 5) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigbus));
-                                            }
-                                            if (parkingTypeNewId == 6) {
-                                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigauto));
-                                            }
+                                        JSONObject parkingTypeObject = jsonObject.getJSONObject("parkingType");
+                                        ParkingTypeModel parkingType = new ParkingTypeModel();
+                                        int parkingTypeNewId = 0;
+                                        try {
+                                            parkingTypeNewId = Integer.parseInt(parkingTypeObject.getString("id"));
+                                        } catch (NumberFormatException e) {
+                                            e.printStackTrace();
                                         }
-                                        mMap.addMarker(markerOptions);
+                                        parkingType.setId(parkingTypeNewId);
+
+                                        String parkingTypeName = parkingTypeObject.getString("name");
+                                        parkingType.setName(parkingTypeName);
+                                        parkingType.setIcon(parkingTypeObject.getString("icon"));
+                                        parkingType.setBigicon(parkingTypeObject.getString("bigicon"));
+                                        parkingDetails.setParkingType(parkingType);
+
+                                        parkingDetails.setLocation(jsonObject.getString("location"));
+                                        parkingDetails.setRemarks(jsonObject.getString("remarks"));
+
+                                        String stLat = jsonObject.getString("latitude");
+                                        String stLong = jsonObject.getString("langitude");
+                                        parkingDetails.setLatitude(stLat);
+                                        parkingDetails.setLongitude(stLong);
+
+                                        //parkingDetailsList.add(parkingDetails);
+
+                                        if (stLat != null && !"null".equals(stLat) && stLat.length() > 0
+                                                && stLong != null && !"null".equals(stLong) && stLong.length() > 0) {
+                                            MarkerOptions markerOptions = new MarkerOptions();
+                                            try {
+                                                double psLatitude, psLongitude;
+                                                psLatitude = Double.parseDouble(stLat);
+                                                psLongitude = Double.parseDouble(stLong);
+                                                markerOptions.position(new LatLng(psLatitude, psLongitude));
+                                            } catch (NumberFormatException e) {
+                                                e.printStackTrace();
+                                            }
+
+                                            // vehicle type
+                                            if (vehicleTypeName != null && !"null".equals(vehicleTypeName) && vehicleTypeName.length() > 0) {
+                                                markerOptions.title(vehicleTypeName);
+                                                if (vehicleTypeNewId == 1) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)); // need logo
+                                                }
+                                                if (vehicleTypeNewId == 2) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)); // need logo
+                                                }
+                                                if (vehicleTypeNewId == 3) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_auto));
+                                                }
+                                                if (vehicleTypeNewId == 4) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));
+                                                }
+                                                if (vehicleTypeNewId == 5) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));
+                                                }
+                                                if (vehicleTypeNewId == 6) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));
+                                                }
+                                            }
+
+                                            // parking type
+                                            if (parkingTypeName != null && !"null".equals(parkingTypeName) && parkingTypeName.length() > 0) {
+                                                markerOptions.title(parkingTypeName);
+                                                if (parkingTypeNewId == 1) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigbus));// all icon
+                                                }
+                                                if (parkingTypeNewId == 2) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigfreepark));
+                                                }
+                                                if (parkingTypeNewId == 3) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_paidpark));
+                                                }
+                                                if (parkingTypeNewId == 4) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_water));
+                                                }
+                                                if (parkingTypeNewId == 5) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigbus));
+                                                }
+                                                if (parkingTypeNewId == 6) {
+                                                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bigauto));
+                                                }
+                                            }
+                                            mMap.addMarker(markerOptions);
+                                        }
                                     }
+                                    mDialogParkingSpace.dismiss();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    mUiHelper.dismissProgressDialog();
+                                    mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
                                 }
-                                mDialogParkingSpace.dismiss();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                                mUiHelper.dismissProgressDialog();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                            } else {
+                                mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
                             }
                         }
                     }, new Response.ErrorListener() {
