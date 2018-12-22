@@ -12,84 +12,85 @@
         android:baselineAligned="false">
 
         <RelativeLayout
-            android:id="@+id/rel_public_interface"
+            android:id="@+id/rel_traffic_violations_fines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_public_interface"
+                android:id="@+id/iv_traffic_violations_fines"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_notes" />
+                android:src="@drawable/ic_echallan_status" />
 
             <TextView
-                android:id="@+id/tv_public_interface"
+                android:id="@+id/tv_traffic_violations_fines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_public_interface"
+                android:layout_below="@+id/iv_traffic_violations_fines"
                 android:gravity="center_horizontal"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textStyle="bold"
-                android:text="@string/public_interface" />
+                android:text="@string/traffic_violation_fines" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rel_auto_fare_estimation"
+            android:id="@+id/rel_useful_websites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_auto_fare_estimation"
+                android:id="@+id/iv_useful_websites"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_autofare" />
+                android:src="@drawable/ic_usefulwebsites" />
 
             <TextView
-                android:id="@+id/tv_auto_fare_estimation"
+                android:id="@+id/tv_useful_websites"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_auto_fare_estimation"
+                android:layout_below="@+id/iv_useful_websites"
                 android:gravity="center_horizontal"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textStyle="bold"
-                android:text="@string/auto_fare_estimation" />
+                android:text="@string/useful_websites" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rel_faqs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_live_traffic"
+                android:id="@+id/iv_faqs"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_livetraffic" />
+                android:src="@drawable/ic_faq" />
 
             <TextView
-                android:id="@+id/tv_live_traffic"
+                android:id="@+id/tv_faqs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_live_traffic"
+                android:layout_below="@+id/iv_faqs"
                 android:gravity="center_horizontal"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textStyle="bold"
-                android:text="@string/live_traffic" />
+                android:text="@string/faqs" />
 
         </RelativeLayout>
 
@@ -105,174 +106,85 @@
         android:baselineAligned="false">
 
         <RelativeLayout
+            android:id="@+id/rel_road_safety_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_near_by"
+                android:id="@+id/iv_road_safety_tips"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_nearby" />
+                android:src="@drawable/ic_roadsafety" />
 
             <TextView
-                android:id="@+id/tv_near_by"
+                android:id="@+id/tv_road_safety_tips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_near_by"
+                android:layout_below="@+id/iv_road_safety_tips"
                 android:gravity="center_horizontal"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textStyle="bold"
-                android:text="@string/near_by" />
+                android:text="@string/road_safety_tips" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rel_traffic_signs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_echallan_status"
+                android:id="@+id/iv_traffic_signs"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_echallan_status" />
+                android:src="@drawable/ic_trafficsignage" />
 
             <TextView
-                android:id="@+id/tv_echallan_status"
+                android:id="@+id/tv_traffic_signs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_echallan_status"
+                android:layout_below="@+id/iv_traffic_signs"
                 android:gravity="center_horizontal"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textStyle="bold"
-                android:text="@string/e_challan_status" />
+                android:text="@string/traffic_signs" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rel_htl_on_fb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_find_towed_vhcl"
+                android:id="@+id/iv_htl_on_fb"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_towing2" />
+                android:src="@drawable/ic_socialmedia" />
 
             <TextView
-                android:id="@+id/tv_find_towed_vhcl"
+                android:id="@+id/tv_htl_on_fb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_find_towed_vhcl"
+                android:layout_below="@+id/iv_htl_on_fb"
                 android:gravity="center_horizontal"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textStyle="bold"
-                android:text="@string/find_your_towed_vehicle" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/horz_layout3"
-        android:layout_below="@id/horz_layout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:baselineAligned="false">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_getRTADetails"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:contentDescription="@null"
-                android:padding="8dp"
-                android:src="@drawable/ic_vehicle_rta_details2" />
-
-            <TextView
-                android:id="@+id/tv_getRTADetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_getRTADetails"
-                android:gravity="center_horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textStyle="bold"
-                android:text="@string/vehicle_rta_details" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_public_complaints"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:padding="8dp"
-                android:src="@drawable/ic_public_complaints" />
-
-            <TextView
-                android:id="@+id/tv_public_complaints"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_public_complaints"
-                android:gravity="center_horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textStyle="bold"
-                android:text="@string/public_complaints" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rel_public_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_public_info"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:padding="8dp"
-                android:src="@drawable/ic_public_info" />
-
-            <TextView
-                android:id="@+id/tv_public_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_public_info"
-                android:gravity="center_horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textStyle="bold"
-                android:text="@string/public_information" />
+                android:text="@string/htl_on_fb" />
 
         </RelativeLayout>
 

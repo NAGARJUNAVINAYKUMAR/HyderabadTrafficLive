@@ -173,7 +173,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_towedvehicles" />
+                android:src="@drawable/ic_towing2" />
 
             <TextView
                 android:id="@+id/tv_find_towed_vhcl"

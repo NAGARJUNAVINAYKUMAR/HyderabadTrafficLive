@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="@string/government_of_india"
-            android:textColor="@color/colorAccentDark"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
