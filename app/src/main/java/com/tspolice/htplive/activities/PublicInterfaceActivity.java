@@ -66,9 +66,9 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private UiHelper mUiHelper;
     private Spinner spinner_category;
     private ImageView iv_camera, iv_gallery, iv_display;
-    EditText et_when_why_whom_and_how, et_phone_no, et_location;
+    EditText et_when_why_whom_and_how, et_phone_no, et_reason, et_location;
     private Button btn_submit;
-    private String imageFlag = "0", imageData = "", category = "", remarks, phoneNo, location;
+    private String imageFlag = "0", imageData = "", category = "", remarks, phoneNo, reason, location;
     private SharedPrefManager mSharedPrefManager;
 
     @Override
@@ -105,6 +105,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
 
         et_when_why_whom_and_how = findViewById(R.id.et_when_why_whom_and_how);
         et_phone_no = findViewById(R.id.et_phone_no);
+        et_reason = findViewById(R.id.et_reason);
         et_location = findViewById(R.id.et_location);
 
         btn_submit = findViewById(R.id.btn_submit);
@@ -157,6 +158,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
             case R.id.btn_submit:
                 remarks = et_when_why_whom_and_how.getText().toString();
                 phoneNo = et_phone_no.getText().toString().trim();
+                reason = et_reason.getText().toString().trim();
                 location = et_location.getText().toString();
                 if (Constants.finalImageFlag.equals(imageFlag)) {
                     mUiHelper.showToastShort(getString(R.string.please_attach_photo));
@@ -166,6 +168,8 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                     mUiHelper.showToastShort(getString(R.string.please_select_the_reason));
                 } else if (phoneNo.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_enter_phone_no));
+                } else if (reason.isEmpty()) {
+                    mUiHelper.showToastShort(getString(R.string.please_type_a_reason));
                 } else if (location.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_enter_a_location));
                 } else {
@@ -182,12 +186,12 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         JSONObject jsonRequest;
         final String mRequestBody;
         Map<String, String> params = new HashMap<>();
-        params.put(URLParams.mobileNumber, phoneNo);
-        params.put(URLParams.geoLocation, location);
-        params.put(URLParams.remarks, remarks);
-        params.put(URLParams.category, category);
         params.put(URLParams.image, imageData);
-        params.put(URLParams.reason, "It is a Sample Reason");
+        params.put(URLParams.category, category);
+        params.put(URLParams.remarks, remarks);
+        params.put(URLParams.mobileNumber, phoneNo);
+        params.put(URLParams.reason, reason);
+        params.put(URLParams.geoLocation, location);
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();
 

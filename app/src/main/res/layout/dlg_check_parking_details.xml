@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/rel_parking_details"
@@ -389,6 +388,18 @@
 
     <Button
         android:id="@+id/btn_parking_details_dialog_submit"
+        style="@style/button_style"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tbl_layout"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/submit" />
+
+    <!--<Button
+        android:id="@+id/btn_parking_details_dialog_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tbl_layout"
@@ -396,6 +407,6 @@
         android:text="@string/submit"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" />-->
 
 </RelativeLayout>

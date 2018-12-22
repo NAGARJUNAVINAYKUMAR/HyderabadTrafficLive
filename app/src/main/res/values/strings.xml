@@ -13,8 +13,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="submit">Submit</string>
     <string name="enter_phone_no">Enter Phone No.</string>
+    <string name="phone_no">Phone No.</string>
     <string name="when_why_whom_and_how">When, Why, Whom and How ?</string>
-    <string name="type_location">Type Location</string>
+    <string name="type_location">Type a Location</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="false_report_to_police_is_a_punishable_offence">* Note: False report to police is a punishable offence</string>
@@ -247,6 +248,7 @@
     <string name="please_attach_photo">Please select photo</string>
     <string name="please_select_the_reason">Please select the reason</string>
     <string name="please_enter_phone_no">Please enter phone no.</string>
+    <string name="please_type_a_reason">Please type a Reason</string>
     <string name="please_enter_a_location">Please enter a location</string>
     <string name="enter_complaint">Enter Complaint</string>
     <string name="enter_complaint_type">Enter Complaint type</string>
@@ -264,6 +266,11 @@
     <string name="error_occured">Error Occurred</string>
     <string name="you_are_here">You are here</string>
     <string name="ok">OK</string>
+    <string name="reason">Reason</string>
+    <string name="s_no">S.NO</string>
+    <string name="name_of_the_offence">Name of the Offence</string>
+    <string name="penal_section">Penal Section</string>
+    <string name="amount">Amount (INR)</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

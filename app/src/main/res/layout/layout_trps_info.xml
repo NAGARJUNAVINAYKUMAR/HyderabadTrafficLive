@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:id="@+id/rel_trps_info"
-    android:background="@color/colorBtns">
+    android:background="@color/colorWhite">
 
     <TextView
         android:id="@+id/tv_trps_name"
@@ -19,7 +19,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorAccentDark"
         android:textStyle="bold"
         android:gravity="start"
         tools:ignore="RelativeOverlap" />

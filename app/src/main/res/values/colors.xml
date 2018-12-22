@@ -10,6 +10,7 @@
     <color name="colorGreen">#41a925</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorEdtTxtBg">#FFF1F1F1</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorHTPHeader">#57a4da</color>
     <color name="colorBtns">#fc757584</color>

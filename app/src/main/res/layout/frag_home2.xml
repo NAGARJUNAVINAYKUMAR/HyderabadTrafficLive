@@ -73,7 +73,7 @@
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:paddingBottom="8dp"
-                    android:src="@drawable/ic_public_interface1" />
+                    android:src="@drawable/ic_public_interface" />
 
                 <TextView
                     android:id="@+id/tv_public_interface"
@@ -418,7 +418,7 @@
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:paddingBottom="8dp"
-                    android:src="@drawable/ic_autofare_estimation" />
+                    android:src="@drawable/ic_public_complaint2" />
 
                 <TextView
                     android:id="@+id/tv_public_complaints"
@@ -463,7 +463,7 @@
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:paddingBottom="8dp"
-                    android:src="@drawable/ic_public_complaint2" />
+                    android:src="@drawable/ic_public_info2" />
 
                 <TextView
                     android:id="@+id/tv_public_info"

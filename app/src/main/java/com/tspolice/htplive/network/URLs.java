@@ -8,6 +8,8 @@ public class URLs {
 
     private static final String testUrl = "http://61.95.168.181:8282/";
 
+    private static final String sectionsUrl = "http://61.95.168.181:8080/echallan/";
+
     public static final String saveCapturedImage = testUrl + "saveCapturedImage";
 
     public static final String getAutoFares = rootUrl + "getAutoFares";
@@ -101,11 +103,15 @@ public class URLs {
     }
 
     private static final String saveRegIds = testUrl + "saveRegIds";
-
     public static String saveRegIds(String regId, String deviceType, String deviceId) {
         return saveRegIds + "?" + URLParams.regId + "=" + regId
                 + "&" + URLParams.deviceType + "=" + deviceType
                 + "&" + URLParams.deviceId + "=" + deviceId;
+    }
+
+    private static final String sectionMasterByWheeler = sectionsUrl + "sectionMasterByWheeler";
+    public static String sectionMasterByWheeler(String wheelerCd) {
+        return sectionMasterByWheeler + "?" + URLParams.wheelerCd + "=" + wheelerCd;
     }
 
     public static final String contentType = "application/json; charset=utf-8";

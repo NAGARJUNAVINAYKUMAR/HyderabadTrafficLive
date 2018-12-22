@@ -16,10 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.adapters.AlertsAdapter;
-import com.tspolice.htplive.adapters.CommonRecyclerAdapter;
 import com.tspolice.htplive.adapters.MyRecyclerViewItemDecoration;
 import com.tspolice.htplive.models.AlertsModel;
-import com.tspolice.htplive.models.CommonModel;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.UiHelper;
@@ -37,8 +35,7 @@ public class AlertsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private List<AlertsModel> mAlertsList;
     private AlertsAdapter mAlertsAdapter;
-    private TextView tv_load_more;
-    private String id;
+    private String lastId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +43,7 @@ public class AlertsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alerts);
 
         mRecyclerView = findViewById(R.id.mRecyclerViewAlerts);
-        tv_load_more = findViewById(R.id.tv_load_more);
+        TextView tv_load_more = findViewById(R.id.tv_load_more);
 
         mUiHelper = new UiHelper(AlertsActivity.this);
         mAlertsList = new ArrayList<>();
@@ -63,7 +60,7 @@ public class AlertsActivity extends AppCompatActivity {
         tv_load_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadPubAdvNextRec(id);
+                loadPubAdvNextRec(lastId);
             }
         });
     }
@@ -86,9 +83,9 @@ public class AlertsActivity extends AppCompatActivity {
                                     model.setAdvise(jsonObject.getString("advise"));
                                     model.setUpdatedDate(jsonObject.getString("updatedDate"));
                                     mAlertsList.add(model);
-                                    if (i == 0) {
-                                        id = mAlertsList.get(i).getId();
-                                        Log.i("id-->", id);
+                                    if (i == 2) {
+                                        lastId = mAlertsList.get(i).getId();
+                                        Log.i("lastId-->", lastId);
                                     }
                                 }
                                 mAlertsAdapter = new AlertsAdapter(mAlertsList, AlertsActivity.this);
@@ -110,10 +107,10 @@ public class AlertsActivity extends AppCompatActivity {
         }));
     }
 
-    private void loadPubAdvNextRec(final String id) {
+    private void loadPubAdvNextRec(final String id1) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         VolleySingleton.getInstance(AlertsActivity.this).addToRequestQueue(new JsonArrayRequest(Request.Method.GET,
-                URLs.loadPubAdvNextRec(id), null,
+                URLs.loadPubAdvNextRec(id1), null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -121,16 +118,23 @@ public class AlertsActivity extends AppCompatActivity {
                         if (response != null && !"".equals(response.toString())
                                 && !"null".equals(response.toString()) && response.length() > 0) {
                             try {
+                                ArrayList<String> arrayList = new ArrayList<>();
                                 for (int i = 0; i < response.length(); i++) {
                                     JSONObject jsonObject = response.getJSONObject(i);
                                     AlertsModel model = new AlertsModel();
                                     model.setId(jsonObject.getString("id"));
+                                    arrayList.add(jsonObject.getString("id"));
                                     model.setAdvise(jsonObject.getString("advise"));
                                     model.setUpdatedDate(jsonObject.getString("updatedDate"));
                                     mAlertsList.add(model);
+                                    if (i == 2) {
+                                        lastId = arrayList.get(i);
+                                        Log.i("lastIdAgain-->", lastId);
+                                    }
                                 }
                                 mAlertsAdapter = new AlertsAdapter(mAlertsList, AlertsActivity.this);
                                 mRecyclerView.setAdapter(mAlertsAdapter);
+                                mAlertsAdapter.notifyDataSetChanged();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                                 mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));

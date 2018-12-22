@@ -4,7 +4,7 @@
     android:id="@+id/rel_tr_officers"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorBtns"
+    android:background="@color/colorWhite"
     android:padding="8dp">
 
     <ImageView
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/traffic_cell"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorAccentDark"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dummy_phone_no"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorPrimary"
             tools:ignore="RelativeOverlap" />
 
     </LinearLayout>

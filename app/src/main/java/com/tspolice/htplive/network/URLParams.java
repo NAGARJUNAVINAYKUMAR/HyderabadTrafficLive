@@ -63,4 +63,6 @@ public class URLParams {
 
     static final String regId = "regId";
     static final String deviceType = "deviceType";
+
+    public static final String wheelerCd = "wheelerCd";
 }

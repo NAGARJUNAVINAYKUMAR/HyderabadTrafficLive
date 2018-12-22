@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.NearByActivity">
 
-    <include
+    <!--<include
         android:id="@+id/toolbar_main"
-        layout="@layout/toolbar_home" />
+        layout="@layout/toolbar_home" />-->
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/footer"
-        android:layout_below="@id/toolbar_main"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_above="@id/footer"
-        android:background="@color/colorBtns"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/check_parking_space"
         android:textColor="@color/colorWhite"
         android:textSize="12sp"

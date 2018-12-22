@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context=".activities.TrOfficersContactsActivity">
 
     <include
@@ -13,16 +12,16 @@
     <LinearLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/toolbar_main"
-        android:layout_above="@id/footer">
+        android:layout_below="@+id/toolbar_main">
 
         <EditText
             android:id="@+id/et_search_tr_officers"
             style="@style/edit_text_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:hint="@string/search_officer_name"
@@ -40,10 +39,10 @@
 
     </LinearLayout>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/footer"
         style="@style/footer_text_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

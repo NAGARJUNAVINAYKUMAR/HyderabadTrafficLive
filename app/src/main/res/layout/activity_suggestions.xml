@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_bg"
     tools:context=".activities.SuggestionsActivity">
 
     <include
@@ -13,7 +12,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer"
         android:layout_below="@id/toolbar_main">
 
         <LinearLayout
@@ -29,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:singleLine="false"
-                android:text="@string/we_are_waiting_for_your_valuable_suggestions"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccentDark"
+                android:text="@string/we_are_waiting_for_your_valuable_suggestions"/>
 
             <TextView
                 android:id="@+id/tv_alert_text"
@@ -38,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/please_let_us_know_your_valuable_suggestions"
-                android:textColor="@color/colorBlack" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/et_name"
@@ -84,8 +82,10 @@
             <Button
                 android:id="@+id/btn_submit"
                 style="@style/button_style"
-                android:layout_width="match_parent"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/submit" />
@@ -112,10 +112,10 @@
 
     </LinearLayout>-->
 
-    <TextView
+    <!--<TextView
         android:id="@+id/footer"
         style="@style/footer_text_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

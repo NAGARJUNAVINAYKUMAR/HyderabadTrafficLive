@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/alert_text"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorAccentDark"/>
 
     <TextView
         android:id="@+id/tv_alert_updated_date"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/updated_dt_text"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="italic" />
 
 </LinearLayout>

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_bg"
     tools:context=".activities.PublicInterfaceActivity">
 
     <include
@@ -13,7 +12,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer"
         android:layout_below="@id/toolbar_main">
 
         <LinearLayout
@@ -120,8 +118,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="@string/enter_phone_no"
+                android:hint="@string/phone_no"
                 android:inputType="phone"
+                android:maxLength="10"
+                android:maxLines="1"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/et_reason"
+                style="@style/edit_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/reason"
+                android:inputType="text"
                 android:maxLength="10"
                 android:maxLines="1"
                 tools:ignore="Autofill" />
@@ -159,10 +169,10 @@
 
     </ScrollView>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/footer"
         style="@style/footer_text_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

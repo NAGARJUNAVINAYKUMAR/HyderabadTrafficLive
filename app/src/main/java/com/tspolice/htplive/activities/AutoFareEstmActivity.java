@@ -600,6 +600,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             mUiHelper.dismissProgressDialog();
         } catch (JSONException e) {
             e.printStackTrace();
+            mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
         }
 
         Button btn_rate_chart_dialog_close = view.findViewById(R.id.btn_rate_chart_dialog_close);

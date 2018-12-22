@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -27,6 +28,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "MainActivity-->";
     private final int SPLASH_DIALOG = 0, SPLASH_TIME_OUT = 2000;
     private Button btn_english;
     private UiHelper mUiHelper;
@@ -60,17 +62,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onReceive(Context context, Intent intent) {
                 switch (Objects.requireNonNull(intent.getAction())) {
-                    /*case Constants.REGISTRATION_SUCCESS:
-                        mUiHelper.showToastShort(getString(R.string.device_is_ready));
-                        break;*/
+                    case Constants.REGISTRATION_SUCCESS:
+                        //mUiHelper.showToastShort(getString(R.string.device_is_ready));
+                        Log.i(TAG, "Success--> success");
+                        break;
                     case Constants.REGISTRATION_ERROR:
-                        mUiHelper.showToastShort(getString(R.string.gcm_registration_error));
+                        //mUiHelper.showToastShort(getString(R.string.gcm_registration_error));
+                        Log.i(TAG, "Error--> error");
                         break;
                     case Constants.REGISTRATION_TOKEN_SENT:
-                        mUiHelper.showToastShort(getString(R.string.ready_to_recieve_push_notifications));
+                        //mUiHelper.showToastShort(getString(R.string.ready_to_recieve_push_notifications));
+                        Log.i(TAG, "Token Sent--> sent");
                         break;
                     default:
-                        mUiHelper.showToastShort(getString(R.string.error_occured));
+                        //mUiHelper.showToastShort(getString(R.string.error_occured));
+                        Log.i(TAG, "Default--> default");
                         break;
                 }
             }
