@@ -13,10 +13,10 @@
 
         <ImageView
             android:id="@+id/header_image"
-            android:layout_width="@dimen/home_htp_logo_width"
-            android:layout_height="@dimen/home_htp_logo_height"
+            android:layout_width="@dimen/dashboard_htp_logo_width"
+            android:layout_height="@dimen/dashboard_htp_logo_height"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/dashboard_htp_logo_margin_top"
             android:contentDescription="@null"
             android:src="@drawable/ic_logo" />
 
@@ -25,54 +25,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:layout_marginTop="@dimen/dashboard_htp_header_text_margin_top"
+            android:paddingTop="@dimen/dashboard_htp_header_padding_top"
+            android:paddingBottom="@dimen/dashboard_htp_header_padding_bottom"
             android:text="@string/hyderabad_traffic_live"
             android:textColor="@color/colorAccentDark"
-            android:textSize="@dimen/htp_header_home_size"
+            android:textSize="@dimen/dashboard_htp_header_text_size"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/horz_layout0"
         android:id="@+id/horz_layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/horz_layout0"
+        android:layout_marginStart="@dimen/dashboard_horz_layout_margin_left"
+        android:layout_marginLeft="@dimen/dashboard_horz_layout_margin_left"
+        android:layout_marginEnd="@dimen/dashboard_horz_layout_margin_right"
+        android:layout_marginRight="@dimen/dashboard_horz_layout_margin_right"
         android:gravity="center"
-        android:layout_marginLeft="6dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_public_interface"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_public_interface"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_public_interface" />
 
                 <TextView
@@ -81,12 +83,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_public_interface"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/public_interface"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/public_interface" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -95,29 +99,30 @@
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_auto_fare_estimation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_auto_fare_estimation"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_autofare_estimation" />
 
                 <TextView
@@ -126,12 +131,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_auto_fare_estimation"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/auto_fare_estimation"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/auto_fare_estimation" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -140,29 +147,30 @@
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_live_traffic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_live_traffic"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_live_traffic" />
 
                 <TextView
@@ -171,12 +179,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_live_traffic"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/live_traffic"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/live_traffic" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -185,44 +195,45 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/horz_layout1"
         android:id="@+id/horz_layout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/horz_layout1"
+        android:layout_marginStart="@dimen/dashboard_horz_layout_margin_left"
+        android:layout_marginLeft="@dimen/dashboard_horz_layout_margin_left"
+        android:layout_marginEnd="@dimen/dashboard_horz_layout_margin_right"
+        android:layout_marginRight="@dimen/dashboard_horz_layout_margin_right"
         android:gravity="center"
-        android:layout_marginLeft="6dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_near_by"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_near_by"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_near_by" />
 
                 <TextView
@@ -231,12 +242,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_near_by"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/near_by"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/near_by" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -245,29 +258,30 @@
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_echallan_status"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_echallan_status"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_echallan_status" />
 
                 <TextView
@@ -276,12 +290,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_echallan_status"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/e_challan_status"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/e_challan_status" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -290,29 +306,30 @@
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_find_towed_vhcl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_find_towed_vhcl"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_towing" />
 
                 <TextView
@@ -321,12 +338,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_find_towed_vhcl"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/towed_vehicle_details"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/towed_vehicle_details" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -335,44 +354,45 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/horz_layout2"
         android:id="@+id/horz_layout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/horz_layout2"
+        android:layout_marginStart="@dimen/dashboard_horz_layout_margin_left"
+        android:layout_marginLeft="@dimen/dashboard_horz_layout_margin_left"
+        android:layout_marginEnd="@dimen/dashboard_horz_layout_margin_right"
+        android:layout_marginRight="@dimen/dashboard_horz_layout_margin_right"
         android:gravity="center"
-        android:layout_marginLeft="6dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_getRTADetails"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_getRTADetails"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_vehicle_rta_details" />
 
                 <TextView
@@ -381,12 +401,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_getRTADetails"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/vehicle_rta_details"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/vehicle_rta_details" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -395,29 +417,30 @@
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_public_complaints"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_public_complaints"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_public_complaints" />
 
                 <TextView
@@ -426,12 +449,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_public_complaints"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/public_complaints"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/public_complaints" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 
@@ -440,29 +465,30 @@
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
             android:layout_weight="1"
-            android:layout_margin="6dp"
             android:foreground="?android:attr/selectableItemBackground"
             card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:cardCornerRadius="12dp">
+            card_view:cardCornerRadius="@dimen/dashboard_card_view_corners">
 
             <RelativeLayout
                 android:id="@+id/rel_public_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_public_info"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dashboard_img_width"
+                    android:layout_height="@dimen/dashboard_img_height"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:paddingTop="16dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingStart="@dimen/dashboard_img_padding_left"
+                    android:paddingLeft="@dimen/dashboard_img_padding_left"
+                    android:paddingTop="@dimen/dashboard_img_padding_top"
+                    android:paddingEnd="@dimen/dashboard_img_padding_right"
+                    android:paddingRight="@dimen/dashboard_img_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_padding_bottom"
                     android:src="@drawable/ic_public_information" />
 
                 <TextView
@@ -471,12 +497,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_public_info"
                     android:gravity="center_horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="@dimen/home_img_text_size"
+                    android:paddingLeft="@dimen/dashboard_img_text_padding_left"
+                    android:paddingStart="@dimen/dashboard_img_text_padding_left"
+                    android:paddingRight="@dimen/dashboard_img_text_padding_right"
+                    android:paddingEnd="@dimen/dashboard_img_text_padding_right"
+                    android:paddingBottom="@dimen/dashboard_img_text_padding_bottom"
+                    android:text="@string/public_information"
                     android:textColor="@color/colorAccentDark"
-                    android:text="@string/public_information" />
+                    android:textSize="@dimen/dashboard_img_text_size" />
 
             </RelativeLayout>
 

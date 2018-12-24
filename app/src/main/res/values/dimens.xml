@@ -1,16 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="htp_header_size">24sp</dimen>
-    <dimen name="htp_header_home_size">18sp</dimen>
-    <dimen name="for_u_with_u_always_size">18sp</dimen>
-    <dimen name="main_btn_width">144dp</dimen>
-    <dimen name="main_btn_size">16sp</dimen>
-    <dimen name="main_btn_top_margin">12dp</dimen>
+    <dimen name="splash_htp_header_text_size">24sp</dimen>
+    <dimen name="splash_htp_header_text_padding_top">12dp</dimen>
+    <dimen name="splash_htp_header_text_padding_bottom">12dp</dimen>
+    <dimen name="splash_htp_logo_margin_top">12dp</dimen>
+    <dimen name="splash_for_u_with_u_always_text_size">18sp</dimen>
+    <dimen name="splash_for_u_with_u_always_text_padding_top">12dp</dimen>
+    <dimen name="splash_for_u_with_u_always_text_padding_bottom">12dp</dimen>
 
-    <dimen name="home_htp_logo_width">60dp</dimen>
-    <dimen name="home_htp_logo_height">60dp</dimen>
-    <dimen name="home_img_text_size">12sp</dimen>
+    <dimen name="main_htp_header_text_size">24sp</dimen>
+    <dimen name="main_htp_header_text_padding_left">24sp</dimen>
+    <dimen name="main_htp_header_text_padding_right">24sp</dimen>
+    <dimen name="main_htp_header_text_padding_top">24dp</dimen>
+    <dimen name="main_htp_header_text_padding_bottom">12dp</dimen>
+
+    <dimen name="main_for_u_with_u_always_text_size">18sp</dimen>
+    <dimen name="main_for_u_with_u_always_text_padding_top">12dp</dimen>
+    <dimen name="main_for_u_with_u_always_text_padding_bottom">12dp</dimen>
+
+    <dimen name="main_htp_logo_margin_top">12dp</dimen>
+
+    <dimen name="main_btn_width">144dp</dimen>
+    <dimen name="main_btn_text_size">16sp</dimen>
+
+    <dimen name="dashboard_htp_logo_margin_top">24dp</dimen>
+    <dimen name="dashboard_htp_logo_width">60dp</dimen>
+    <dimen name="dashboard_htp_logo_height">60dp</dimen>
+
+    <dimen name="dashboard_htp_header_text_size">18sp</dimen>
+    <dimen name="dashboard_htp_header_padding_top">8dp</dimen>
+    <dimen name="dashboard_htp_header_padding_bottom">8dp</dimen>
+    <dimen name="dashboard_htp_header_text_margin_top">12dp</dimen>
+
+    <dimen name="dashboard_horz_layout_margin_left">6dp</dimen>
+    <dimen name="dashboard_horz_layout_margin_right">6dp</dimen>
+    <dimen name="dashboard_horz_layout_margin_top">6dp</dimen>
+    <dimen name="dashboard_horz_layout_margin_bottom">6dp</dimen>
+
+    <dimen name="dashboard_card_view_margin">6dp</dimen>
+
+    <dimen name="dashboard_card_view_corners">12dp</dimen>
+
+    <dimen name="dashboard_img_width">60dp</dimen>
+    <dimen name="dashboard_img_height">60dp</dimen>
+    <dimen name="dashboard_img_padding_top">16dp</dimen>
+    <dimen name="dashboard_img_padding_bottom">8dp</dimen>
+    <dimen name="dashboard_img_padding_left">8dp</dimen>
+    <dimen name="dashboard_img_padding_right">8dp</dimen>
+
+    <dimen name="dashboard_img_text_size">12sp</dimen>
+    <dimen name="dashboard_img_text_padding_left">8dp</dimen>
+    <dimen name="dashboard_img_text_padding_right">8dp</dimen>
+    <dimen name="dashboard_img_text_padding_top">8dp</dimen>
+    <dimen name="dashboard_img_text_padding_bottom">16dp</dimen>
+
+    <dimen name="inner_dashbd_header_text_size">18sp</dimen>
+    <dimen name="inner_dashbd_header_text_padding_top">12dp</dimen>
+    <dimen name="inner_dashbd_header_text_padding_bottom">4dp</dimen>
+
+    <dimen name="inner_dashbd_horz_layout_margin_left">12dp</dimen>
+    <dimen name="inner_dashbd_horz_layout_margin_right">12dp</dimen>
+    <dimen name="inner_dashbd_horz_layout_margin_top">12dp</dimen>
+    <dimen name="inner_dashbd_horz_layout_margin_bottom">12dp</dimen>
+
+    <dimen name="inner_dashbd_card_view_margin">6dp</dimen>
+
+    <dimen name="inner_dashbd_card_view_corners">12dp</dimen>
+
+    <dimen name="inner_dashbd_img_width">75dp</dimen>
+    <dimen name="inner_dashbd_img_height">75dp</dimen>
+    <dimen name="inner_dashbd_img_padding_top">20dp</dimen>
+    <dimen name="inner_dashbd_img_padding_bottom">8dp</dimen>
+    <dimen name="inner_dashbd_img_padding_left">8dp</dimen>
+    <dimen name="inner_dashbd_img_padding_right">8dp</dimen>
+
+    <dimen name="inner_dashbd_img_text_size">14sp</dimen>
+    <dimen name="inner_dashbd_img_text_padding_left">8dp</dimen>
+    <dimen name="inner_dashbd_img_text_padding_right">8dp</dimen>
+    <dimen name="inner_dashbd_img_text_padding_top">4dp</dimen>
+    <dimen name="inner_dashbd_img_text_padding_bottom">16dp</dimen>
 
     <dimen name="spinner_text_size">16sp</dimen>
     <dimen name="spinner_padding_left">12dp</dimen>
