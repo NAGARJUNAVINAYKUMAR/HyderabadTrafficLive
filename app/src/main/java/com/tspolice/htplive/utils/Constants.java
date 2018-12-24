@@ -20,6 +20,8 @@ public class Constants {
 
     public static final String HOME = "HOME";
 
+    public static final String isValidMobile = "[a-zA-Z]+";
+
     public static final String EMERGENCY_CONTACTS = "EMERGENCY_CONTACTS";
     public static final String AMBULANCE = "AMBULANCE";
     public static final String BLOOD_BANK = "BLOOD_BANK";

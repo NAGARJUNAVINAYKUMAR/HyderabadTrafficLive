@@ -271,6 +271,8 @@
     <string name="name_of_the_offence">Name of the Offence</string>
     <string name="penal_section">Penal Section</string>
     <string name="amount">Amount (INR)</string>
+    <string name="saved">Saved</string>
+    <string name="please_enter_remarks">Please enter Remarks</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

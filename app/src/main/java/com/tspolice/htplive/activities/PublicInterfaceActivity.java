@@ -24,26 +24,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.network.URLParams;
 import com.tspolice.htplive.network.URLs;
-import com.tspolice.htplive.network.VolleyMultipartRequest;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
 import com.tspolice.htplive.utils.PermissionUtil;
 import com.tspolice.htplive.utils.SharedPrefManager;
 import com.tspolice.htplive.utils.UiHelper;
+import com.tspolice.htplive.utils.ValidationUtils;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
@@ -51,11 +45,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class PublicInterfaceActivity extends AppCompatActivity implements
@@ -68,7 +58,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private ImageView iv_camera, iv_gallery, iv_display;
     EditText et_when_why_whom_and_how, et_phone_no, et_reason, et_location;
     private Button btn_submit;
-    private String imageFlag = "0", imageData = "", category = "", remarks, phoneNo, reason, location;
+    private String imageFlag = "0", imageData = "", category = "";
     private SharedPrefManager mSharedPrefManager;
 
     @Override
@@ -156,24 +146,29 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 }
                 break;
             case R.id.btn_submit:
-                remarks = et_when_why_whom_and_how.getText().toString();
-                phoneNo = et_phone_no.getText().toString().trim();
-                reason = et_reason.getText().toString().trim();
-                location = et_location.getText().toString();
+                String remarks = et_when_why_whom_and_how.getText().toString();
+                String phoneNo = et_phone_no.getText().toString().trim();
+                String reason = et_reason.getText().toString().trim();
+                String location = et_location.getText().toString();
                 if (Constants.finalImageFlag.equals(imageFlag)) {
                     mUiHelper.showToastShort(getString(R.string.please_attach_photo));
                 } else if (Constants.finalCategory.equals(category)) {
                     mUiHelper.showToastShort(getString(R.string.please_select_category));
                 } else if (remarks.isEmpty()) {
-                    mUiHelper.showToastShort(getString(R.string.please_select_the_reason));
+                    mUiHelper.showToastShort(getString(R.string.please_enter_remarks));
+                    mUiHelper.requestFocus(et_when_why_whom_and_how);
                 } else if (phoneNo.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_enter_phone_no));
+                    mUiHelper.requestFocus(et_phone_no);
+                } else if (!ValidationUtils.isValidMobile(phoneNo)) {
+                    mUiHelper.setError(et_phone_no, getString(R.string.enter_valid_contact_no));
+                    mUiHelper.requestFocus(et_phone_no);
                 } else if (reason.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_type_a_reason));
                 } else if (location.isEmpty()) {
                     mUiHelper.showToastShort(getString(R.string.please_enter_a_location));
                 } else {
-                    saveCapturedImage();
+                    saveCapturedImage(remarks, phoneNo, reason, location);
                 }
                 break;
             default:
@@ -181,7 +176,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         }
     }
 
-    private void saveCapturedImage() {
+    private void saveCapturedImage(String remarks, String phoneNo, String reason, String location) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         JSONObject jsonRequest;
         final String mRequestBody;
@@ -200,13 +195,28 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(getResources().getString(R.string.success));
+                        mUiHelper.showToastLong(response);
+                        Log.i(TAG, "response-->"+response);
+                        imageData = "";
+                        imageFlag = "0";
+                        iv_display.setImageDrawable(getResources().getDrawable(R.drawable.ic_gallery2));
+                        iv_display.setVisibility(View.GONE);
+                        spinner_category.setSelection(0);
+                        et_when_why_whom_and_how.setText("");
+                        et_when_why_whom_and_how.setHint(getString(R.string.when_why_whom_and_how));
+                        et_phone_no.setText("");
+                        et_phone_no.setHint(getString(R.string.phone_no));
+                        et_reason.setText("");
+                        et_reason.setHint(getString(R.string.reason));
+                        et_location.setText("");
+                        et_location.setHint(getString(R.string.type_location));
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
                 mUiHelper.showToastShort(getResources().getString(R.string.error));
+                Log.i(TAG, "response-->"+error.toString());
             }
         }) {
             @Override

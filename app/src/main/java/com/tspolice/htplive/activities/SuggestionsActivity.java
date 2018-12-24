@@ -11,13 +11,13 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.network.URLParams;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.UiHelper;
+import com.tspolice.htplive.utils.ValidationUtils;
 
 import org.json.JSONObject;
 
@@ -80,7 +80,7 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
                 } else if (contactNo.isEmpty()) {
                     mUiHelper.setError(et_contact_no, getString(R.string.enter_your_contact_no));
                     mUiHelper.requestFocus(et_contact_no);
-                } else if (!Patterns.PHONE.matcher(contactNo).matches()) {
+                } else if (!ValidationUtils.isValidMobile(contactNo)) {
                     mUiHelper.setError(et_contact_no, getString(R.string.enter_valid_contact_no));
                     mUiHelper.requestFocus(et_contact_no);
                 } else if (suggestion.isEmpty()) {
@@ -102,18 +102,25 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
         Map<String, String> params = new HashMap<>();
         params.put(URLParams.name, name);
         params.put(URLParams.email, email);
-        params.put(URLParams.phone, contactNo);
-        params.put(URLParams.sugtext, suggestion);
+        params.put(URLParams.mobileNumber, contactNo);
+        params.put(URLParams.suggestion, suggestion);
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();
 
-        VolleySingleton.getInstance(this).addToRequestQueue(new JsonObjectRequest(Request.Method.POST,
-                URLs.saveSuggestions, jsonRequest,
-                new Response.Listener<JSONObject>() {
+        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.POST, URLs.saveSuggestions,
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response.toString());
+                        mUiHelper.showToastLong(response);
+                        et_name.setText("");
+                        et_name.setHint(getString(R.string.name));
+                        et_email_id.setText("");
+                        et_email_id.setHint(getString(R.string.email));
+                        et_contact_no.setText("");
+                        et_contact_no.setHint(getString(R.string.contact_no));
+                        et_suggestion.setText("");
+                        et_suggestion.setHint(getString(R.string.write_a_suggestion));
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -121,13 +128,21 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
                 mUiHelper.dismissProgressDialog();
                 mUiHelper.showToastShort(error.toString());
             }
-        }) /*{
+        }) {
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put(URLParams.jsonData, mRequestBody);
-                return params;
+            public String getBodyContentType() {
+                return URLs.contentType;
             }
-        }*/);
+
+            @Override
+            public byte[] getBody() {
+                try {
+                    return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
+                    return null;
+                }
+            }
+        });
     }
 }

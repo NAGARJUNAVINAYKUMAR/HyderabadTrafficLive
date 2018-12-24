@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -30,6 +31,7 @@ import com.tspolice.htplive.utils.HardwareUtils;
 import com.tspolice.htplive.utils.PermissionUtil;
 import com.tspolice.htplive.utils.SharedPrefManager;
 import com.tspolice.htplive.utils.UiHelper;
+import com.tspolice.htplive.utils.ValidationUtils;
 
 import org.json.JSONObject;
 
@@ -40,6 +42,7 @@ import java.util.Map;
 public class PublicComplaintsActivity extends AppCompatActivity implements
         View.OnClickListener {
 
+    private static final String TAG = "PublicComplaintsAct-->";
     private EditText et_complaint, et_complaint_type, et_vehicle_no, et_drivers_name, et_type_a_complaint,
             et_your_name, et_your_email_id, et_your_mobile_no;
     private Button btn_submit;
@@ -169,12 +172,12 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                 } else if (yourMobileNo.isEmpty()) {
                     mUiHelper.setError(et_your_mobile_no, getString(R.string.enter_your_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
-                } else if (!Patterns.PHONE.matcher(yourMobileNo).matches()) {
+                } else if (!ValidationUtils.isValidMobile(yourMobileNo)) {
                     mUiHelper.setError(et_your_mobile_no, getString(R.string.enter_valid_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
                 } else {
-                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName,
-                            typeComplaint, yourName, yourEmailId, yourMobileNo);
+                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName, typeComplaint, yourName,
+                            yourEmailId, yourMobileNo);
                 }
                 break;
             default:
@@ -188,17 +191,17 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
         JSONObject jsonRequest;
         final String mRequestBody;
         Map<String, String> params = new HashMap<>();
+        params.put(URLParams.comments, complaint);
         params.put(URLParams.type, complaintType);
         params.put(URLParams.vehicleNo, vehicleNo);
         params.put(URLParams.driverName, driversName);
-        params.put(URLParams.comments, complaint);
+        params.put(URLParams.complaintTravelBy, typeComplaint);
         params.put(URLParams.name, yourName);
         params.put(URLParams.email, yourEmailId);
         params.put(URLParams.mobileNo, yourMobileNo);
         params.put(URLParams.lat, String.valueOf(mLatitude));
         params.put(URLParams.lang, String.valueOf(mLongitude));
         params.put(URLParams.deviceId, HardwareUtils.getDeviceUUID(PublicComplaintsActivity.this));
-        params.put(URLParams.complaintTravelBy, typeComplaint);
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();
 
@@ -207,15 +210,32 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(getResources().getString(R.string.success));
+                        mUiHelper.showToastLong(response);
+                        Log.i(TAG, "response-->"+response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
                 mUiHelper.showToastShort(getResources().getString(R.string.error));
+                Log.i(TAG, "response-->"+error.toString());
             }
         }) {
+            /*@Override
+            public String getBodyContentType() {
+                return URLs.contentType;
+            }
+
+            @Override
+            public byte[] getBody() {
+                try {
+                    return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
+                    return null;
+                }
+            }*/
+
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
