@@ -10,7 +10,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/inner_dashbd_header_text_padding_top"
         android:paddingBottom="@dimen/inner_dashbd_header_text_padding_top"
-        android:text="@string/public_information"
+        android:text="@string/about_traffic_police"
         android:textColor="@color/colorAccentDark"
         android:textSize="@dimen/inner_dashbd_header_text_size"
         android:textStyle="bold" />
@@ -55,7 +55,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_alerts" />
+                    android:src="@drawable/ic_htp_info" />
 
                 <TextView
                     android:id="@+id/tv_about_htl"
@@ -104,7 +104,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_suggestions" />
+                    android:src="@drawable/ic_hyd_city_police_info" />
 
                 <TextView
                     android:id="@+id/tv_traffic_police_info"
@@ -168,7 +168,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_rules_information" />
+                    android:src="@drawable/ic_org_chart" />
 
                 <TextView
                     android:id="@+id/tv_org_chart"
@@ -217,7 +217,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_public_information" />
+                    android:src="@drawable/ic_traffic_officers" />
 
                 <TextView
                     android:id="@+id/tv_traffic_officers"

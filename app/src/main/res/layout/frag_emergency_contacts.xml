@@ -10,7 +10,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/inner_dashbd_header_text_padding_top"
         android:paddingBottom="@dimen/inner_dashbd_header_text_padding_top"
-        android:text="@string/rules_and_information"
+        android:text="@string/emergency_contacts"
         android:textColor="@color/colorAccentDark"
         android:textSize="@dimen/inner_dashbd_header_text_size"
         android:textStyle="bold" />
@@ -55,7 +55,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_alerts" />
+                    android:src="@drawable/ic_ambulance" />
 
                 <TextView
                     android:id="@+id/tv_ambulance"
@@ -104,7 +104,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_suggestions" />
+                    android:src="@drawable/ic_blood_bank" />
 
                 <TextView
                     android:id="@+id/tv_blood_bank"
@@ -168,7 +168,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_rules_information" />
+                    android:src="@drawable/ic_fire_station" />
 
                 <TextView
                     android:id="@+id/tv_fire_station"
@@ -217,7 +217,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_public_information" />
+                    android:src="@drawable/ic_crime_alert" />
 
                 <TextView
                     android:id="@+id/tv_crime_alert"
@@ -281,7 +281,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_rules_information" />
+                    android:src="@drawable/ic_women_children" />
 
                 <TextView
                     android:id="@+id/tv_women_child"
@@ -330,7 +330,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_public_information" />
+                    android:src="@drawable/ic_senior_citizen" />
 
                 <TextView
                     android:id="@+id/tv_senior_citizen_helpline"

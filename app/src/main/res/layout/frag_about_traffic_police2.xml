@@ -23,7 +23,7 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_htp_info" />
+                android:src="@drawable/ic_htp_info2" />
 
             <TextView
                 android:id="@+id/tv_about_htl"
@@ -79,7 +79,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_org_chart" />
+                android:src="@drawable/ic_org_chart2" />
 
             <TextView
                 android:id="@+id/tv_org_chart"

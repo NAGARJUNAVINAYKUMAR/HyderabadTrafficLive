@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:orientation="vertical"
-        tools:ignore="UselessParent">
+        tools:ignore="UseCompoundDrawables,UselessParent">
 
         <TextView
             android:id="@+id/tv_about_htp"

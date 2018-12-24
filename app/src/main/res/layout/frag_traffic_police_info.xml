@@ -10,7 +10,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/inner_dashbd_header_text_padding_top"
         android:paddingBottom="@dimen/inner_dashbd_header_text_padding_top"
-        android:text="@string/public_information"
+        android:text="@string/traffic_police_info"
         android:textColor="@color/colorAccentDark"
         android:textSize="@dimen/inner_dashbd_header_text_size"
         android:textStyle="bold" />
@@ -55,7 +55,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_alerts" />
+                    android:src="@drawable/ic_crime_alert" />
 
                 <TextView
                     android:id="@+id/tv_control_room"
@@ -104,7 +104,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_suggestions" />
+                    android:src="@drawable/ic_hydcitypolice" />
 
                 <TextView
                     android:id="@+id/tv_hyd_traffic_police_stations"
@@ -168,7 +168,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_rules_information" />
+                    android:src="@drawable/ic_emergency_contacts" />
 
                 <TextView
                     android:id="@+id/tv_emergency_contacts"

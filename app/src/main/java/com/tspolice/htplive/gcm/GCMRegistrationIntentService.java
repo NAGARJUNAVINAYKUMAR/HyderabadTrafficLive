@@ -40,7 +40,9 @@ public class GCMRegistrationIntentService extends IntentService {
             Log.i(TAG, "gcmToken-->" + gcmToken);
             String deviceUUID = HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this);
             Log.i(TAG, "deviceUUID-->" + deviceUUID);
+
             sendGcmTokenToServer(gcmToken, deviceUUID);
+
             intentRegnComplete = new Intent(Constants.REGISTRATION_SUCCESS);
             intentRegnComplete.putExtra(Constants.GCM_TOKEN, gcmToken);
         } catch (Exception e) {

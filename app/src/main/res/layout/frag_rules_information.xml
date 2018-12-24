@@ -55,7 +55,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_alerts" />
+                    android:src="@drawable/ic_traffic_violation_fines" />
 
                 <TextView
                     android:id="@+id/tv_traffic_violations_fines"
@@ -104,7 +104,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_suggestions" />
+                    android:src="@drawable/ic_usefulwebsites" />
 
                 <TextView
                     android:id="@+id/tv_useful_websites"
@@ -168,7 +168,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_rules_information" />
+                    android:src="@drawable/ic_faq" />
 
                 <TextView
                     android:id="@+id/tv_faqs"
@@ -217,7 +217,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_public_information" />
+                    android:src="@drawable/ic_roadsafety" />
 
                 <TextView
                     android:id="@+id/tv_road_safety_tips"
@@ -281,7 +281,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_rules_information" />
+                    android:src="@drawable/ic_trafficsignage" />
 
                 <TextView
                     android:id="@+id/tv_traffic_signs"
@@ -330,7 +330,7 @@
                     android:paddingEnd="@dimen/inner_dashbd_img_padding_right"
                     android:paddingRight="@dimen/inner_dashbd_img_padding_right"
                     android:paddingBottom="@dimen/inner_dashbd_img_padding_bottom"
-                    android:src="@drawable/ic_public_information" />
+                    android:src="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/tv_htl_on_fb"

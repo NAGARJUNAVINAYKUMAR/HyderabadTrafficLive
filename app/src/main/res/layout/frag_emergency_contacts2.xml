@@ -23,7 +23,7 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 android:padding="8dp"
-                android:src="@drawable/ic_ambulance" />
+                android:src="@drawable/ic_ambulance2" />
 
             <TextView
                 android:id="@+id/tv_ambulance"
