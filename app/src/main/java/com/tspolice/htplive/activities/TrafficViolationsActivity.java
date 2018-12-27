@@ -64,7 +64,7 @@ public class TrafficViolationsActivity extends AppCompatActivity {
 
                                 TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
 
-                                final int tableTextSize = 12, textPadding = 6;
+                                final int tableTextSize = 18, textPadding = 6;
 
                                 TextView tv_s_no = new TextView(TrafficViolationsActivity.this);
                                 tv_s_no.setText(getResources().getString(R.string.s_no));

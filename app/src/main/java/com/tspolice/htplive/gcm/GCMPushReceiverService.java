@@ -5,8 +5,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -17,6 +15,7 @@ import com.tspolice.htplive.activities.AlertsActivity;
 
 public class GCMPushReceiverService extends GcmListenerService {
 
+    private static final String TAG = "GCMReceiverService-->";
     private Context context = this;
 
     @Override
@@ -26,11 +25,15 @@ public class GCMPushReceiverService extends GcmListenerService {
                 Bundle notificationData = data.getBundle("notification");
                 String message = notificationData.getString("body");
                 String title = notificationData.getString("title");
+
                 sendNotificationToUser(message, title);
+
+                Log.d(TAG, "onMessageReceived()= [" + from + "], data = [" + data + "]");
             } catch (Exception e) {
                 e.printStackTrace();
                 String message = data.getString("message");
                 sendNotificationToUser(message, "");
+                Log.d(TAG, "onMessageReceived()= [" + from + "], data = [" + data + "]");
             }
         }
     }

@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:paddingLeft="12dp"
-            android:paddingRight="12dp"
             android:paddingTop="6dp"
+            android:paddingRight="12dp"
             android:paddingBottom="6dp"
             android:text="@string/traffic_violation_fines"
             android:textColor="@color/colorPrimaryDark"
@@ -33,18 +33,29 @@
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="horizontal|vertical">
 
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/tbl_traffic_violations"
+            <HorizontalScrollView
+                android:id="@+id/horizontalView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp"
-                android:shrinkColumns="*"
-                android:stretchColumns="*" />
+                android:scrollbars="horizontal|vertical">
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/tbl_traffic_violations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="12dp"
+                    android:shrinkColumns="*"
+                    android:stretchColumns="*" />
+
+            </HorizontalScrollView>
 
         </ScrollView>
 
