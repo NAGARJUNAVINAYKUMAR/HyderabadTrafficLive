@@ -273,6 +273,12 @@
     <string name="amount">Amount (INR)</string>
     <string name="saved">Saved</string>
     <string name="please_enter_remarks">Please enter Remarks</string>
+    <string name="approx_distance">Approx. Distance</string>
+    <string name="min_fare">Min. Fare</string>
+    <string name="max_passengers">Max. Passengers</string>
+    <string name="_3">3</string>
+    <string name="rs_58_64_approximately">Rs. 58 - 64 Approximately</string>
+    <string name="secunderabad_telangana_india">Secunderabad, Telangana, India.</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

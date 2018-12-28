@@ -14,9 +14,7 @@
         android:layout_height="@dimen/public_interface_bg_lyt_height"
         android:layout_below="@id/toolbar_main"
         android:background="@drawable/content_background"
-        android:orientation="vertical">
-
-    </LinearLayout>
+        android:orientation="vertical"/>
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -51,9 +49,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -76,7 +73,7 @@
 
                         <EditText
                             android:id="@+id/et_when_why_whom_and_how"
-                            style="@style/edit_text_style"
+                            style="@style/edit_text_style_drawable"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -87,7 +84,7 @@
 
                         <EditText
                             android:id="@+id/et_phone_no"
-                            style="@style/edit_text_style"
+                            style="@style/edit_text_style_drawable"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -99,7 +96,7 @@
 
                         <EditText
                             android:id="@+id/et_reason"
-                            style="@style/edit_text_style"
+                            style="@style/edit_text_style_drawable"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -111,10 +108,11 @@
 
                         <EditText
                             android:id="@+id/et_location"
-                            style="@style/edit_text_style"
+                            style="@style/edit_text_style_drawable"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
                             android:hint="@string/type_location"
                             android:inputType="text"
                             android:maxLines="1"
@@ -136,6 +134,7 @@
                             android:contentDescription="@null"
                             android:src="@drawable/ic_gallery2"
                             android:visibility="gone" />
+
                     </LinearLayout>
 
                     <RelativeLayout
@@ -244,9 +243,11 @@
                         android:id="@+id/tv_already_have_an_account"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="36dp"
+                        android:layout_marginTop="36dp"
+                        android:layout_marginBottom="8dp"
                         android:gravity="center_horizontal"
+                        android:textSize="14sp"
+                        android:textStyle="italic"
                         android:text="@string/false_report_to_police_is_a_punishable_offence"
                         android:textColor="@color/colorRed" />
 
