@@ -55,8 +55,9 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     private static final String TAG = "PublicInterfaceFrag-->";
     private UiHelper mUiHelper;
     private Spinner spinner_category;
-    private ImageView iv_camera, iv_gallery, iv_display;
-    EditText et_when_why_whom_and_how, et_phone_no, et_reason, et_location;
+    private ImageView iv_camera, iv_gallery, iv_display, iv_arrow_next;
+    private EditText et_when_why_whom_and_how, et_phone_no, et_reason, et_location;
+    private View view;
     private Button btn_submit;
     private String imageFlag = "0", imageData = "", category = "";
     private SharedPrefManager mSharedPrefManager;
@@ -64,7 +65,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_public_interface);
+        setContentView(R.layout.activity_public_interface2);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
                 | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
@@ -83,7 +84,8 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         iv_camera.setOnClickListener(this);
         iv_gallery.setOnClickListener(this);
 
-        btn_submit.setOnClickListener(this);
+        //btn_submit.setOnClickListener(this);
+        iv_arrow_next.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -92,13 +94,14 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         iv_camera = findViewById(R.id.iv_camera);
         iv_gallery = findViewById(R.id.iv_gallery);
         iv_display = findViewById(R.id.iv_display);
+        iv_arrow_next = findViewById(R.id.iv_arrow_next);
 
         et_when_why_whom_and_how = findViewById(R.id.et_when_why_whom_and_how);
         et_phone_no = findViewById(R.id.et_phone_no);
         et_reason = findViewById(R.id.et_reason);
         et_location = findViewById(R.id.et_location);
-
-        btn_submit = findViewById(R.id.btn_submit);
+        view = findViewById(R.id.view);
+        //btn_submit = findViewById(R.id.btn_submit);
     }
 
     private void initObjects() {
@@ -145,7 +148,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                     PermissionUtil.redirectAppSettings(this);
                 }
                 break;
-            case R.id.btn_submit:
+            case R.id.iv_arrow_next:
                 String remarks = et_when_why_whom_and_how.getText().toString();
                 String phoneNo = et_phone_no.getText().toString().trim();
                 String reason = et_reason.getText().toString().trim();
@@ -176,6 +179,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         }
     }
 
+    // finished with test url
     private void saveCapturedImage(String remarks, String phoneNo, String reason, String location) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         JSONObject jsonRequest;
@@ -201,6 +205,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                         imageFlag = "0";
                         iv_display.setImageDrawable(getResources().getDrawable(R.drawable.ic_gallery2));
                         iv_display.setVisibility(View.GONE);
+                        view.setVisibility(View.VISIBLE);
                         spinner_category.setSelection(0);
                         et_when_why_whom_and_how.setText("");
                         et_when_why_whom_and_how.setHint(getString(R.string.when_why_whom_and_how));
@@ -324,6 +329,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         }
         imageFlag = "1";
         iv_display.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
         iv_display.setImageBitmap(bitmap);
         imageData = bitmapToString(bitmap);
         Log.i(TAG, "imageData-->" + imageData);
@@ -340,6 +346,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
         }
         imageFlag = "2";
         iv_display.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
         iv_display.setImageBitmap(bitmap);
         imageData = bitmapToString(bitmap);
         Log.i(TAG, "imageData-->" + imageData);

@@ -27,7 +27,6 @@ public class GCMPushReceiverService extends GcmListenerService {
                 String title = notificationData.getString("title");
 
                 sendNotificationToUser(message, title);
-
                 Log.d(TAG, "onMessageReceived()= [" + from + "], data = [" + data + "]");
             } catch (Exception e) {
                 e.printStackTrace();

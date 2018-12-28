@@ -185,6 +185,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
         }
     }
 
+    // not finished
     public void saveAutocomplainData(String complaint, String complaintType, String vehicleNo, String driversName,
                                      String typeComplaint, String yourName, String yourEmailId, String yourMobileNo) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
@@ -211,31 +212,16 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
                         mUiHelper.showToastLong(response);
-                        Log.i(TAG, "response-->"+response);
+                        Log.i(TAG, "response-->" + response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
                 mUiHelper.showToastShort(getResources().getString(R.string.error));
-                Log.i(TAG, "response-->"+error.toString());
+                Log.i(TAG, "response-->" + error.toString());
             }
         }) {
-            /*@Override
-            public String getBodyContentType() {
-                return URLs.contentType;
-            }
-
-            @Override
-            public byte[] getBody() {
-                try {
-                    return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
-                } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
-                    return null;
-                }
-            }*/
-
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();

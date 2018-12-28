@@ -40,7 +40,7 @@
                         android:layout_height="120dp"
                         android:contentDescription="@null"
                         android:padding="8dp"
-                        android:src="@drawable/ic_camera" />
+                        android:src="@drawable/ic_camera_old" />
 
                     <TextView
                         android:id="@+id/tv_camera"
@@ -67,7 +67,7 @@
                         android:layout_height="120dp"
                         android:contentDescription="@null"
                         android:padding="8dp"
-                        android:src="@drawable/ic_gallery" />
+                        android:src="@drawable/ic_gallery_old" />
 
                     <TextView
                         android:id="@+id/tv_gallery"
