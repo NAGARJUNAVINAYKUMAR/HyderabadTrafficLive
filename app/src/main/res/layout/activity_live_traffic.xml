@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
@@ -33,7 +32,8 @@
         android:layout_marginEnd="12dp"
         android:hint="@string/enter_source"
         android:inputType="text"
-        android:maxLines="1" />
+        android:maxLines="1"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/et_destination"
@@ -48,7 +48,8 @@
         android:layout_marginEnd="12dp"
         android:hint="@string/enter_destination"
         android:inputType="text"
-        android:maxLines="1" />
+        android:maxLines="1"
+        tools:ignore="Autofill" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -66,11 +67,5 @@
             android:src="@drawable/ic_traffic_movement" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/footer"
-        style="@style/footer_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </RelativeLayout>

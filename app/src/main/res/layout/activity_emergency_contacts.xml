@@ -17,15 +17,18 @@
 
         <EditText
             android:id="@+id/et_search_emergency_contacts"
-            style="@style/edit_text_style"
+            style="@style/edit_text_style_drawable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:drawableRight="@drawable/ic_edit_text_right_search"
+            android:drawableEnd="@drawable/ic_edit_text_right_search"
             android:hint="@string/search_contact_no"
             android:inputType="text"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            tools:ignore="Autofill" />
 
         <!--<android.support.v7.widget.SearchView
             android:id="@+id/searchView"

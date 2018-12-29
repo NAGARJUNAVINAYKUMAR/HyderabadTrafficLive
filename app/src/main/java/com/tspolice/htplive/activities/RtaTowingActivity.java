@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -127,7 +128,30 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                     getTowingDetails(vehicleNo);
                 }
                 break;
-            case R.id.btn_dialog_close:
+            case R.id.btn_dialog_towed_detials_close:
+                towingRTAInfoDialog.dismiss();
+                et_vehicle_no.setText("");
+                et_vehicle_no.setHint(getResources().getString(R.string.enter_vehicle_no));
+                et_enter_above_captcha.setText("");
+                et_enter_above_captcha.setHint(getResources().getString(R.string.enter_above_captcha));
+                getCaptchaForVehicleDetails();
+                break;
+            case R.id.btn_dialog_rta_details_close:
+                towingRTAInfoDialog.dismiss();
+                et_vehicle_no.setText("");
+                et_vehicle_no.setHint(getResources().getString(R.string.enter_vehicle_no));
+                et_enter_above_captcha.setText("");
+                et_enter_above_captcha.setHint(getResources().getString(R.string.enter_above_captcha));
+                getCaptchaForVehicleDetails();
+                break;
+            case R.id.img_towed_vehicle_details_close:
+                towingRTAInfoDialog.dismiss();
+                et_vehicle_no.setText("");
+                et_vehicle_no.setHint(getResources().getString(R.string.enter_vehicle_no));
+                et_enter_above_captcha.setText("");
+                et_enter_above_captcha.setHint(getResources().getString(R.string.enter_above_captcha));
+                getCaptchaForVehicleDetails();
+            case R.id.img_vehicle_details_close:
                 towingRTAInfoDialog.dismiss();
                 et_vehicle_no.setText("");
                 et_vehicle_no.setHint(getResources().getString(R.string.enter_vehicle_no));
@@ -177,6 +201,9 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
         View view;
         if ("TOWING".equals(mSharedPrefManager.getString(Constants.RTA_TOWING))) {
             view = inflater.inflate(R.layout.dlg_towed_vehicle_details, null);
+
+            ImageView img_towed_vehicle_details_close = view.findViewById(R.id.img_towed_vehicle_details_close);
+
             TextView tv_regn_no = view.findViewById(R.id.tv_regn_no);
             TextView tv_owner_name = view.findViewById(R.id.tv_owner_name);
             TextView tv_detained_date = view.findViewById(R.id.tv_detained_date);
@@ -184,8 +211,11 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
             TextView tv_location = view.findViewById(R.id.tv_location);
             TextView tv_officer_name = view.findViewById(R.id.tv_officer_name);
             TextView tv_trps_contact_no = view.findViewById(R.id.tv_trps_contact_no);
-            Button btn_dialog_close = view.findViewById(R.id.btn_dialog_close);
-            btn_dialog_close.setOnClickListener(this);
+            Button btn_dialog_towed_detials_close = view.findViewById(R.id.btn_dialog_towed_detials_close);
+
+            btn_dialog_towed_detials_close.setOnClickListener(this);
+            img_towed_vehicle_details_close.setOnClickListener(this);
+
             try {
                 String regNum = response.getString("regNum");
                 if (regNum != null && !"".equals(regNum) && !"null".equals(regNum)) {
@@ -237,6 +267,7 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
             }
         } else {
             view = inflater.inflate(R.layout.dlg_vehicle_details, null);
+            ImageView img_vehicle_details_close = view.findViewById(R.id.img_vehicle_details_close);
             TextView tv_regn_no = view.findViewById(R.id.tv_regn_no);
             TextView tv_owner_name = view.findViewById(R.id.tv_owner_name);
             TextView tv_fuel_type = view.findViewById(R.id.tv_fuel_type);
@@ -245,7 +276,11 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
             TextView tv_mfg_year = view.findViewById(R.id.tv_mfg_year);
             TextView tv_date_of_registration = view.findViewById(R.id.tv_date_of_registration);
             TextView tv_chassis_no = view.findViewById(R.id.tv_chassis_no);
-            Button btn_dialog_close = view.findViewById(R.id.btn_dialog_close);
+            Button btn_dialog_rta_details_close = view.findViewById(R.id.btn_dialog_rta_details_close);
+
+            btn_dialog_rta_details_close.setOnClickListener(this);
+            img_vehicle_details_close.setOnClickListener(this);
+
             try {
                 String regNum = response.getString("regNum");
                 if (regNum != null && !"".equals(regNum) && !"null".equals(regNum)) {
@@ -299,7 +334,6 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                 e.printStackTrace();
                 mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
             }
-            btn_dialog_close.setOnClickListener(this);
         }
         builder.setView(view);
         builder.setCancelable(false);

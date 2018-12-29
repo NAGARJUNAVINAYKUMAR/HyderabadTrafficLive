@@ -17,9 +17,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
             android:orientation="vertical"
-            tools:ignore="UselessParent">
+            android:padding="12dp">
 
             <TextView
                 style="@style/text_view_style"
@@ -27,95 +27,108 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:singleLine="false"
+                android:text="@string/we_are_waiting_for_your_valuable_suggestions"
                 android:textColor="@color/colorAccentDark"
-                android:text="@string/we_are_waiting_for_your_valuable_suggestions"/>
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_alert_text"
+                style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/please_let_us_know_your_valuable_suggestions"
-                android:textColor="@color/colorPrimaryDark" />
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/name"
+                android:textColor="@color/colorBlack" />
 
             <EditText
                 android:id="@+id/et_name"
-                style="@style/edit_text_style"
+                style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:hint="@string/name"
+                android:layout_marginTop="6dp"
+                android:hint="@string/enter_name"
                 android:inputType="text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="Autofill" />
+
+            <TextView
+                style="@style/text_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/email"
+                android:textColor="@color/colorBlack" />
 
             <EditText
                 android:id="@+id/et_email_id"
-                style="@style/edit_text_style"
+                style="@style/edit_text_style_drawable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="@string/enter_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                tools:ignore="Autofill" />
+
+            <TextView
+                style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:maxLines="1" />
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/contact_no"
+                android:textColor="@color/colorBlack" />
 
             <EditText
                 android:id="@+id/et_contact_no"
-                style="@style/edit_text_style"
+                style="@style/edit_text_style_drawable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="@string/enter_contact_no"
+                android:inputType="phone"
+                android:maxLines="1"
+                tools:ignore="Autofill" />
+
+            <TextView
+                style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="@string/contact_no"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:maxLines="1" />
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/suggestion"
+                android:textColor="@color/colorBlack" />
 
             <EditText
                 android:id="@+id/et_suggestion"
-                style="@style/edit_text_style"
+                style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="8dp"
                 android:hint="@string/write_a_suggestion"
                 android:inputType="text"
-                android:maxLines="4" />
+                android:maxLines="1"
+                tools:ignore="Autofill" />
 
             <Button
                 android:id="@+id/btn_submit"
                 style="@style/button_style"
-                android:layout_width="140dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
                 android:text="@string/submit" />
 
         </LinearLayout>
 
     </ScrollView>
-
-    <!--<LinearLayout
-        android:id="@+id/ll_btns"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/footer"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp">
-
-        <Button
-            android:id="@+id/btn_submit"
-            style="@style/button_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit" />
-
-    </LinearLayout>-->
-
-    <!--<TextView
-        android:id="@+id/footer"
-        style="@style/footer_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

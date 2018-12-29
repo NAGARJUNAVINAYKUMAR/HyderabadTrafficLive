@@ -26,12 +26,12 @@
 
     <ImageView
         android:id="@+id/img_right_arrow"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:contentDescription="@null"
-        android:src="@drawable/ic_call_btn"/>
+        android:src="@drawable/ic_call_img_3x"/>
 
 </RelativeLayout>

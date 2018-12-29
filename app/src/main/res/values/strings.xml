@@ -8,6 +8,7 @@
     <string name="footer_text">TELANGANA STATE POLICE</string>
     <string name="app_version">1.0.0</string>
     <string name="public_interface">Public Interface</string>
+    <string name="public_interface_caps">PUBLIC INTERFACE</string>
     <string name="auto_fare_estimation">Auto Fare Estimation</string>
     <string name="live_traffic">Live Traffic</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -23,7 +24,7 @@
     <string name="get_data">Get Data</string>
     <string name="enter_above_captcha">Enter Above Captcha</string>
     <string name="enter_valid_captcha">Enter Valid Captcha</string>
-    <string name="enter_vehicle_no">Enter Vehicle No.</string>
+    <string name="enter_vehicle_no">Enter Vehicle Number</string>
     <string name="vehicle_details">Vehicle Details</string>
     <string name="captcha_text">14214</string>
     <string name="settings">Settings</string>
@@ -36,7 +37,7 @@
     <string name="find_your_towed_vehicle">Find your\nTowed Vehicle</string>
     <string name="e_challan_status">e-Challan Status</string>
     <string name="near_by">Near by</string>
-    <string name="comment">Comment</string>
+    <string name="comment">Comments</string>
     <string name="enter_driver_name">Enter Drivers Name</string>
     <string name="complaint_type">Complaint Type</string>
     <string name="complaint">Complaint</string>
@@ -47,7 +48,7 @@
     <string name="browse">Browse</string>
     <string name="regn_no">Regn. No.</string>
     <string name="close">Close</string>
-    <string name="please_contact_htc_room">* Note: Please contact Hyderabad Traffic Control Room at Phone: 9010203626</string>
+    <string name="please_contact_htc_room">* Please contact Hyderabad Traffic Control Room at Phone: 9010203626</string>
     <string name="towed_vehicle_details">Towed Vehicle Details</string>
     <string name="owner_name">Owner Name</string>
     <string name="detained_date">Detained Date</string>
@@ -83,11 +84,15 @@
     <string name="alert_text">Dt: 12–09–2018 at 09:22 hrs - Slow movement of traffic from Karkhana to Secunderabad club.</string>
     <string name="updated_dt_text">Updated Dt: 12–09–2018 09:25hrs</string>
     <string name="load_more"><u>Load More</u></string>
-    <string name="we_are_waiting_for_your_valuable_suggestions">We are waiting for your valuable Suggestions</string>
+    <string name="we_are_waiting_for_your_valuable_suggestions">We are waiting, Please let us know for your valuable Suggestions</string>
     <string name="please_let_us_know_your_valuable_suggestions">Please let us know your valuable suggestions</string>
     <string name="name">Name</string>
+    <string name="driver_name">Driver\'s Name</string>
     <string name="email">Email</string>
+    <string name="enter_email">Enter email</string>
     <string name="contact_no">Contact No.</string>
+    <string name="enter_contact_no">Enter Contact No.</string>
+    <string name="suggestion">Suggestion</string>
     <string name="write_a_suggestion">Write a Suggestion</string>
     <string name="complaint_against_all_public_services">Complaint against all Public services</string>
     <string name="your_details">Your Details</string>
@@ -251,7 +256,9 @@
     <string name="please_type_a_reason">Please type a Reason</string>
     <string name="please_enter_a_location">Please enter a location</string>
     <string name="enter_complaint">Enter Complaint</string>
+    <string name="enter_comment">Enter Comment</string>
     <string name="enter_complaint_type">Enter Complaint type</string>
+    <string name="enter_name">Enter name</string>
     <string name="enter_your_name">Enter your Name</string>
     <string name="enter_your_email_id">Enter your Email ID</string>
     <string name="enter_your_mobile_no">Enter your Mobile No.</string>
@@ -282,6 +289,7 @@
     <string name="day">Day</string>
     <string name="or">(OR)</string>
     <string name="night">Night</string>
+    <string name="vehicle_number">Vehicle Number</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

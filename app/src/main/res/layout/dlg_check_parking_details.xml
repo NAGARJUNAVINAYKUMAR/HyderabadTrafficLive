@@ -3,7 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/img_parking_details_close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_close_red" />
+
+    <TextView
+        android:id="@+id/tv_parking_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="6dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="6dp"
+        android:text="@string/parking_details"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!--<RelativeLayout
         android:id="@+id/rel_parking_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,15 +63,16 @@
             android:contentDescription="@null"
             android:src="@drawable/ic_close" />
 
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <LinearLayout
         android:id="@+id/lnr_vehicle_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rel_parking_details"
+        android:layout_below="@id/tv_parking_details"
         android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginTop="6dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
 
@@ -168,7 +195,7 @@
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
-                android:src="@drawable/ic_bigfreepark" />
+                android:src="@drawable/ic_free_parking_3x" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -217,7 +244,7 @@
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
-                android:src="@drawable/ic_paidpark" />
+                android:src="@drawable/ic_paid_parking_3x" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -266,7 +293,7 @@
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
-                android:src="@drawable/ic_water" />
+                android:src="@drawable/ic_water_logging_3x" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -315,7 +342,7 @@
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
-                android:src="@drawable/ic_bus" />
+                android:src="@drawable/ic_bus_bay_3x" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -366,7 +393,7 @@
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
-                android:src="@drawable/ic_auto" />
+                android:src="@drawable/ic_auto_parking_3x" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -388,14 +415,14 @@
 
     <Button
         android:id="@+id/btn_parking_details_dialog_submit"
-        style="@style/button_style"
-        android:layout_width="@dimen/button_width"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tbl_layout"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/button_text_size"
+        android:textStyle="bold"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
         android:text="@string/submit" />
 
     <!--<Button

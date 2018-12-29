@@ -17,10 +17,7 @@ import android.widget.EditText;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.network.URLParams;
 import com.tspolice.htplive.network.URLs;
@@ -35,7 +32,6 @@ import com.tspolice.htplive.utils.ValidationUtils;
 
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +46,6 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
     private GPSTracker mGpsTracker;
     private SharedPrefManager mSharedPrefManager;
     private double mLatitude, mLongitude;
-    private HardwareUtils mHardwareUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +97,6 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
         mUiHelper = new UiHelper(this);
         mGpsTracker = new GPSTracker(this);
         mSharedPrefManager = SharedPrefManager.getInstance(this);
-        mHardwareUtils = new HardwareUtils(this);
     }
 
     @Override
@@ -176,8 +170,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                     mUiHelper.setError(et_your_mobile_no, getString(R.string.enter_valid_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
                 } else {
-                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName, typeComplaint, yourName,
-                            yourEmailId, yourMobileNo);
+                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName, typeComplaint, yourName, yourEmailId, yourMobileNo);
                 }
                 break;
             default:

@@ -15,7 +15,7 @@
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:minHeight="50dp"
         android:minWidth="50dp"
         android:max="100"/>
@@ -23,7 +23,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/footer"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
@@ -40,8 +39,8 @@
         android:id="@+id/btn_check_parking_space"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_above="@id/footer"
         android:background="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
         android:text="@string/check_parking_space"
         android:textColor="@color/colorWhite"
         android:textSize="12sp"
@@ -49,11 +48,5 @@
         android:paddingRight="12dp"
         android:layout_margin="8dp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/footer"
-        style="@style/footer_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </RelativeLayout>

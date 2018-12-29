@@ -53,16 +53,17 @@ public class GCMRegistrationIntentService extends IntentService {
     }
 
     private void sendGcmTokenToServer(String gcmToken, String deviceUUID) {
+        String url = URLs.saveRegIds(gcmToken, Constants.ANDROID, deviceUUID);
+        Log.i(TAG, "url_form-->" + url);
         VolleySingleton.getInstance(GCMRegistrationIntentService.this).addToRequestQueue(new StringRequest(Request.Method.GET,
-                URLs.saveRegIds(gcmToken, Constants.ANDROID, deviceUUID),
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Intent registrationComplete = new Intent(Constants.REGISTRATION_TOKEN_SENT);
-                        LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(registrationComplete);
-                        Log.i(TAG, "sendGcmTokenToServer--> Success");
-                    }
-                }, new Response.ErrorListener() {
+                url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent registrationComplete = new Intent(Constants.REGISTRATION_TOKEN_SENT);
+                LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(registrationComplete);
+                Log.i(TAG, "sendGcmTokenToServer--> Success");
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.i(TAG, "sendGcmTokenToServer--> Error");

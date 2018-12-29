@@ -65,7 +65,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_public_interface2);
+        setContentView(R.layout.activity_public_interface);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
                 | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);

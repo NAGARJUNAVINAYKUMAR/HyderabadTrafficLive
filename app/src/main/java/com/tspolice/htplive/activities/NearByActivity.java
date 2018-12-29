@@ -280,7 +280,7 @@ public class NearByActivity extends FragmentActivity implements
             case R.id.btn_check_parking_space:
                 getZones();
                 break;
-            case R.id.img_close_btn:
+            case R.id.img_parking_details_close:
                 mDialogParkingSpace.dismiss();
                 setCurrentLocation();
                 getHydPoliceStations();
@@ -334,7 +334,7 @@ public class NearByActivity extends FragmentActivity implements
         mDialogParkingSpace = builder.create();
         mDialogParkingSpace.show();
 
-        ImageView img_close_btn = view.findViewById(R.id.img_close_btn);
+        ImageView img_parking_details_close = view.findViewById(R.id.img_parking_details_close);
         final Spinner spinner_vehicle_type = view.findViewById(R.id.spinner_vehicle_type);
         final CheckBox chb_select_all, chb_free_parking, chb_paid_parking, chb_water_loggings, chb_busbays_stops, chb_auto_parking;
         chb_select_all = view.findViewById(R.id.chb_select_all);
@@ -345,7 +345,7 @@ public class NearByActivity extends FragmentActivity implements
         chb_auto_parking = view.findViewById(R.id.chb_auto_parking);
         Button btn_parking_details_dialog_submit = view.findViewById(R.id.btn_parking_details_dialog_submit);
 
-        img_close_btn.setOnClickListener(this);
+        img_parking_details_close.setOnClickListener(this);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vehicleTypes);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -380,7 +380,7 @@ public class NearByActivity extends FragmentActivity implements
                 if (!chb_select_all.isChecked() && !chb_free_parking.isChecked()
                         && !chb_paid_parking.isChecked() && !chb_water_loggings.isChecked()
                         && !chb_busbays_stops.isChecked() && !chb_auto_parking.isChecked()) {
-                    mUiHelper.showToastShort("Please select parking type");
+                    mUiHelper.showToastShort(getString(R.string.please_select_parking_type));
                 } else {
                     if (chb_select_all.isChecked()) {
                         parkingTypeId = 1;
@@ -507,7 +507,6 @@ public class NearByActivity extends FragmentActivity implements
                                                 e.printStackTrace();
                                             }
 
-                                            // vehicle type
                                             if (vehicleTypeName != null && !"null".equals(vehicleTypeName) && vehicleTypeName.length() > 0) {
                                                 markerOptions.title(vehicleTypeName);
                                                 if (vehicleTypeNewId == 1) {
@@ -530,7 +529,6 @@ public class NearByActivity extends FragmentActivity implements
                                                 }
                                             }
 
-                                            // parking type
                                             if (parkingTypeName != null && !"null".equals(parkingTypeName) && parkingTypeName.length() > 0) {
                                                 markerOptions.title(parkingTypeName);
                                                 if (parkingTypeNewId == 1) {
@@ -582,7 +580,7 @@ public class NearByActivity extends FragmentActivity implements
                     try {
                         return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
                     } catch (UnsupportedEncodingException uee) {
-                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
+                        VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
                         return null;
                     }
                 }
