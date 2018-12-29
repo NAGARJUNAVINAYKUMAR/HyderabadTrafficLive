@@ -280,6 +280,12 @@ public class AutoFareEstmActivity extends FragmentActivity implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.img_fare_estimation_close:
+                mDialogFareEstm.cancel();
+                break;
+            case R.id.img_rate_chart_close:
+                mDialogRateChart.cancel();
+                break;
             case R.id.et_search:
                 autoCompleteMethod(SOURCE_PLACE_AUTO_COMPLETE_REQUEST_CODE);
                 break;
@@ -289,12 +295,12 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             case R.id.img_estimation:
                 fareEstimation();
                 break;
-            case R.id.btn_rate_chart_dialog_close:
+            /*case R.id.btn_rate_chart_dialog_close:
                 mDialogRateChart.cancel();
-                break;
-            case R.id.btn_fare_estimation_dialog_close:
+                break;*/
+            /*case R.id.btn_fare_estimation_dialog_close:
                 mDialogFareEstm.cancel();
-                break;
+                break;*/
             case R.id.ll_public_complaints:
                 mDialogFareEstm.dismiss();
                 mUiHelper.intent(PublicComplaintsActivity.class);
@@ -603,8 +609,8 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
         }
 
-        Button btn_rate_chart_dialog_close = view.findViewById(R.id.btn_rate_chart_dialog_close);
-        btn_rate_chart_dialog_close.setOnClickListener(AutoFareEstmActivity.this);
+        ImageView img_rate_chart_close = view.findViewById(R.id.img_rate_chart_close);
+        img_rate_chart_close.setOnClickListener(AutoFareEstmActivity.this);
     }
 
     private void fareEstimation() {
@@ -616,6 +622,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
         mDialogFareEstm = builder.create();
         mDialogFareEstm.show();
 
+        ImageView img_fare_estimation_close = view.findViewById(R.id.img_fare_estimation_close);
         et_destination = view.findViewById(R.id.et_destination);
         tv_Distance = view.findViewById(R.id.tv_Distance);
         tv_MinFare = view.findViewById(R.id.tv_MinFare);
@@ -623,10 +630,12 @@ public class AutoFareEstmActivity extends FragmentActivity implements
         tv_Day = view.findViewById(R.id.tv_Day);
         tv_Night = view.findViewById(R.id.tv_Night);
         LinearLayout ll_public_complaints = view.findViewById(R.id.ll_public_complaints);
-        ll_public_complaints.setOnClickListener(this);
-        Button btn_fare_estimation_dialog_close = view.findViewById(R.id.btn_fare_estimation_dialog_close);
 
-        btn_fare_estimation_dialog_close.setOnClickListener(AutoFareEstmActivity.this);
+        img_fare_estimation_close.setOnClickListener(AutoFareEstmActivity.this);
+        ll_public_complaints.setOnClickListener(this);
+        //Button btn_fare_estimation_dialog_close = view.findViewById(R.id.btn_fare_estimation_dialog_close);
+
+        //btn_fare_estimation_dialog_close.setOnClickListener(AutoFareEstmActivity.this);
 
         et_destination.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -643,11 +652,11 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 tv_MinFare.setText(getString(R.string.day_price));
                 if (tv_Distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
                     tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
-                    tv_Night.setTextColor(getResources().getColor(R.color.colorAccent));
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     mUiHelper.showToastShort(getString(R.string.please_select_destination_place));
                 } else {
-                    tv_Night.setTextColor(getResources().getColor(R.color.colorAccent));
-                    tv_Day.setTextColor(getResources().getColor(R.color.colorGreen));
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorAccentDark));
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     tv_FareEstm.setText(dayPrice);
                 }
             }
@@ -658,12 +667,12 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             public void onClick(View v) {
                 tv_MinFare.setText(getString(R.string.night_price));
                 if (tv_Distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
-                    tv_Day.setTextColor(getResources().getColor(R.color.colorAccent));
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     tv_Night.setTextColor(getResources().getColor(R.color.colorAccentDark));
                     mUiHelper.showToastShort(getString(R.string.please_select_destination_place));
                 } else {
-                    tv_Day.setTextColor(getResources().getColor(R.color.colorAccent));
-                    tv_Night.setTextColor(getResources().getColor(R.color.colorGreen));
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     tv_FareEstm.setText(nightPrice);
                 }
             }

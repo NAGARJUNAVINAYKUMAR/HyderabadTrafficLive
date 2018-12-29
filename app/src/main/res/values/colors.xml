@@ -8,6 +8,7 @@
     <color name="colorAccent">#5352d0</color>
     <color name="colorAccentDark">#FF4A49D2</color>
     <color name="colorGreen">#41a925</color>
+    <color name="colorApprox">#119960</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorEdtTxtBg">#FFF1F1F1</color>
@@ -16,4 +17,5 @@
     <color name="colorBtns">#fc757584</color>
     <color name="colorStroke">#f1efef</color>
     <color name="colorTableRow">#dcdbdb</color>
+    <color name="colorLayoutBorder">#fc757584</color>
 </resources>

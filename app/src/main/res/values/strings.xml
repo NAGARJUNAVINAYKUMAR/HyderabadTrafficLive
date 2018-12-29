@@ -64,12 +64,12 @@
     <string name="day_inr">Day\n(INR)</string>
     <string name="night_inr">Night\n(INR)</string>
     <string name="note">Note:</string>
-    <string name="auto_fare_chart_note">* Minimum fare: \u20B9 20 for first 1.6km.\n* Fare above minimum fare: \u20B9 11 per km.\n* Waiting charges per hour \u20B9 30.\n* Night charges apply from 11:00pm to 05:00am.</string>
+    <string name="auto_fare_chart_note">1. Minimum fare: \u20B9 20 for first 1.6km.\n2. Fare above minimum fare: \u20B9 11 per km.\n3. Waiting charges per hour \u20B9 30.\n4. Night charges apply from 11:00pm to 05:00am.</string>
     <string name="Rs">\u20B9</string>
     <string name="rs">\u20A8</string>
     <string name="fare_estimation">Fare Estimation</string>
     <string name="select_destination">Select Destination</string>
-    <string name="fare_estimation_note">* Note: The above fare and Kilometers are approx. values, this may vary depends on the route journey, waiting time amd journey time, Fare is subject Local RTA.</string>
+    <string name="fare_estimation_note">* The above fare and Kilometers are approx. values, this may vary depends on the route journey, waiting time amd journey time, Fare is subject Local RTA.</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_liva_traffic">Map</string>
     <string name="enter_source">Enter Source</string>
@@ -241,8 +241,8 @@
     <string name="search_contact_no">Search Contact Number</string>
     <string name="zero_km">0.0 km</string>
     <string name="please_select_destination_place">Please select destination place</string>
-    <string name="day_price">Rs: 20 in Day</string>
-    <string name="night_price">Rs: 30 in Night</string>
+    <string name="day_price">Rs: 20\n in Day</string>
+    <string name="night_price">Rs: 30\n in Night</string>
     <string name="user_canceled_the_operation">User canceled the operation</string>
     <string name="please_select_category">Please select category</string>
     <string name="please_attach_photo">Please select photo</string>
@@ -279,6 +279,9 @@
     <string name="_3">3</string>
     <string name="rs_58_64_approximately">Rs. 58 - 64 Approximately</string>
     <string name="secunderabad_telangana_india">Secunderabad, Telangana, India.</string>
+    <string name="day">Day</string>
+    <string name="or">(OR)</string>
+    <string name="night">Night</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>
