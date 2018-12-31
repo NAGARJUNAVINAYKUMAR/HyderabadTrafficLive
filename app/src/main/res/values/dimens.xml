@@ -24,6 +24,12 @@
     <dimen name="main_btn_width">144dp</dimen>
     <dimen name="main_btn_text_size">16sp</dimen>
 
+    <dimen name="toolbar_img_height">32dp</dimen>
+    <dimen name="toolbar_img_width">32dp</dimen>
+    <dimen name="toolbar_lnr_lyt_margin_left">8dp</dimen>
+    <dimen name="toolbar_lnr_lyt_margin_right">0dp</dimen>
+    <dimen name="toolbar_title_text_size">20sp</dimen>
+
     <dimen name="dashboard_htp_logo_margin_top">24dp</dimen>
     <dimen name="dashboard_htp_logo_width">60dp</dimen>
     <dimen name="dashboard_htp_logo_height">60dp</dimen>
@@ -108,6 +114,92 @@
     <dimen name="public_interface_card_view_margin_left">8dp</dimen>
     <dimen name="public_interface_card_view_margin_right">8dp</dimen>
     <dimen name="public_interface_card_view_margin_bottom">8dp</dimen>
-
     <dimen name="public_interface_inner_lyt_margin_left">8dp</dimen>
+
+    <dimen name="pub_complaints_lnr_lyt_margin">12dp</dimen>
+    <dimen name="pub_complaints_lnr_lyt_padding">12dp</dimen>
+    <dimen name="pub_complaints_tv_label_padding_left">20dp</dimen>
+    <dimen name="pub_complaints_tv_label_padding_right">20dp</dimen>
+    <dimen name="pub_complaints_tv_label_margin_top">8dp</dimen>
+    <dimen name="pub_complaints_et_margin_top">6dp</dimen>
+    <dimen name="pub_complaints_et_margin_bottom">12dp</dimen>
+    <dimen name="pub_complaints_your_details_label_padding_top">6dp</dimen>
+    <dimen name="pub_complaints_your_details_label_padding_bottom">6dp</dimen>
+    <dimen name="pub_complaints_your_details_label_margin_top">12dp</dimen>
+
+    <dimen name="autofare_search_et_margin_left">12dp</dimen>
+    <dimen name="autofare_search_et_margin_right">12dp</dimen>
+    <dimen name="autofare_search_et_margin_top">12dp</dimen>
+    <dimen name="autofare_search_et_margin_bottom">12dp</dimen>
+    <dimen name="ratechart_autofare_lnr_lyt_padding">4dp</dimen>
+    <dimen name="autofare_ratechart_img_width">24dp</dimen>
+    <dimen name="autofare_ratechart_img_height">24dp</dimen>
+    <dimen name="autofare_ratechart_img_margin_top">12dp</dimen>
+    <dimen name="autofare_ratechart_tv_margin_top">6dp</dimen>
+    <dimen name="autofare_ratechart_tv_size">12sp</dimen>
+    <dimen name="autofare_estimation_img_width">24dp</dimen>
+    <dimen name="autofare_estimation_img_height">24dp</dimen>
+    <dimen name="autofare_estimation_img_margin_top">12dp</dimen>
+    <dimen name="autofare_estimation_tv_margin_top">0dp</dimen>
+    <dimen name="autofare_estimation_tv_margin_bottom">12dp</dimen>
+    <dimen name="autofare_estimation_tv_size">12sp</dimen>
+
+    <dimen name="live_traffic_source_et_margin_left">12dp</dimen>
+    <dimen name="live_traffic_source_et_margin_right">12dp</dimen>
+    <dimen name="live_traffic_source_et_margin_top">12dp</dimen>
+    <dimen name="live_traffic_destination_et_margin_left">12dp</dimen>
+    <dimen name="live_traffic_destination_et_margin_right">12dp</dimen>
+    <dimen name="live_traffic_destination_et_margin_top">6dp</dimen>
+    <dimen name="live_traffic_destination_et_margin_bottom">12dp</dimen>
+    <dimen name="live_traffic_tr_img_width">40dp</dimen>
+
+    <dimen name="nearby_parking_space_btn_height">36dp</dimen>
+
+    <dimen name="alerts_load_more_text_margin_top">8dp</dimen>
+    <dimen name="alerts_load_more_text_margin_bottom">8dp</dimen>
+    <dimen name="alerts_load_more_text_padding_top">4dp</dimen>
+    <dimen name="alerts_load_more_text_padding_bottom">4dp</dimen>
+    <dimen name="alerts_lyt_padding">8dp</dimen>
+    <dimen name="alerts_date_margin_top">8dp</dimen>
+
+    <dimen name="emerg_cont_search_et_margin_left">8dp</dimen>
+    <dimen name="emerg_cont_search_et_margin_right">8dp</dimen>
+    <dimen name="emerg_cont_search_et_margin_top">8dp</dimen>
+
+    <dimen name="emerg_cont_recycler_view_margin_top">8dp</dimen>
+    <dimen name="emerg_cont_recycler_view_margin_left">1dp</dimen>
+    <dimen name="emerg_cont_recycler_view_margin_right">1dp</dimen>
+
+    <dimen name="emerg_cont_rel_lyt_padding">8dp</dimen>
+    <dimen name="emerg_cont_contact_name_margin_left">0dp</dimen>
+    <dimen name="emerg_cont_contact_name_margin_right">4dp</dimen>
+    <dimen name="emerg_cont_contact_no_margin_left">0dp</dimen>
+    <dimen name="emerg_cont_contact_no_margin_right">8dp</dimen>
+    <dimen name="emerg_cont_call_img_height">24dp</dimen>
+    <dimen name="emerg_cont_call_img_width">24dp</dimen>
+
+    <dimen name="useful_websites_lyt_padding">8dp</dimen>
+    <dimen name="useful_websites_text_margin_left">0dp</dimen>
+    <dimen name="useful_websites_text_margin_right">4dp</dimen>
+    <dimen name="useful_websites_arrow_img_height">24dp</dimen>
+    <dimen name="useful_websites_arrow_img_width">24dp</dimen>
+
+    <dimen name="trps_info_lyt_padding">8dp</dimen>
+    <dimen name="trps_info_text_margin_left">0dp</dimen>
+    <dimen name="trps_info_text_margin_right">4dp</dimen>
+    <dimen name="trps_info_arrow_img_height">24dp</dimen>
+    <dimen name="trps_info_arrow_img_width">24dp</dimen>
+
+    <dimen name="tr_officer_info_lyt_padding">8dp</dimen>
+    <dimen name="tr_officer_img_height">32dp</dimen>
+    <dimen name="tr_officer_img_width">32dp</dimen>
+    <dimen name="tr_officer_lnr_lyt_margin_left">4dp</dimen>
+    <dimen name="tr_officer_lnr_lyt_margin_right">4dp</dimen>
+
+    <dimen name="tr_officer_call_img_height">24dp</dimen>
+    <dimen name="tr_officer_call_img_width">24dp</dimen>
+
+    <dimen name="faqs_recycler_view_margin_left">1dp</dimen>
+    <dimen name="faqs_recycler_view_margin_right">1dp</dimen>
+    <dimen name="faqs_rel_lyt_padding">8dp</dimen>
 </resources>

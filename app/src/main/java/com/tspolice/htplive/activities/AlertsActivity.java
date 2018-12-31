@@ -92,17 +92,17 @@ public class AlertsActivity extends AppCompatActivity {
                                 mRecyclerView.setAdapter(mAlertsAdapter);
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             }
                         } else {
-                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                            mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
             }
         }));
     }

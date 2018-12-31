@@ -30,10 +30,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
+                android:layout_marginTop="@dimen/alerts_load_more_text_margin_top"
+                android:layout_marginBottom="@dimen/alerts_load_more_text_margin_bottom"
+                android:paddingTop="@dimen/alerts_load_more_text_padding_top"
+                android:paddingBottom="@dimen/alerts_load_more_text_padding_bottom"
                 android:text="@string/load_more"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
@@ -41,11 +41,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <!--<TextView
-        android:id="@+id/footer"
-        style="@style/footer_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

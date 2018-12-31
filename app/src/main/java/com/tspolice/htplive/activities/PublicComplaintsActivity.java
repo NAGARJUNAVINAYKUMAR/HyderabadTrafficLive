@@ -106,7 +106,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getCurrentLocation();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastShortCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:
@@ -140,37 +140,38 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                 String yourEmailId = et_your_email_id.getText().toString().trim();
                 String yourMobileNo = et_your_mobile_no.getText().toString().trim();
                 if (complaint.isEmpty()) {
-                    mUiHelper.setError(et_complaint, getString(R.string.enter_complaint));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_complaint));
                     mUiHelper.requestFocus(et_complaint);
                 } else if (complaintType.isEmpty()) {
-                    mUiHelper.setError(et_complaint_type, getString(R.string.enter_complaint_type));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_complaint_type));
                     mUiHelper.requestFocus(et_complaint_type);
                 } else if (vehicleNo.isEmpty()) {
-                    mUiHelper.setError(et_vehicle_no, getString(R.string.enter_vehicle_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_vehicle_no));
                     mUiHelper.requestFocus(et_vehicle_no);
                 } else if (driversName.isEmpty()) {
-                    mUiHelper.setError(et_drivers_name, getString(R.string.enter_driver_name));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_driver_name));
                     mUiHelper.requestFocus(et_drivers_name);
                 } else if (typeComplaint.isEmpty()) {
-                    mUiHelper.setError(et_type_a_complaint, getString(R.string.type_a_complaint));
+                    mUiHelper.showToastShortCentre(getString(R.string.type_a_complaint));
                     mUiHelper.requestFocus(et_type_a_complaint);
                 } else if (yourName.isEmpty()) {
-                    mUiHelper.setError(et_your_name, getString(R.string.enter_your_name));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_your_name));
                     mUiHelper.requestFocus(et_your_name);
                 } else if (yourEmailId.isEmpty()) {
-                    mUiHelper.setError(et_your_email_id, getString(R.string.enter_your_email_id));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_your_email_id));
                     mUiHelper.requestFocus(et_your_email_id);
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(yourEmailId).matches()) {
-                    mUiHelper.setError(et_your_email_id, getString(R.string.enter_valid_email_id));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_valid_email_id));
                     mUiHelper.requestFocus(et_your_email_id);
                 } else if (yourMobileNo.isEmpty()) {
-                    mUiHelper.setError(et_your_mobile_no, getString(R.string.enter_your_mobile_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_your_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
                 } else if (!ValidationUtils.isValidMobile(yourMobileNo)) {
-                    mUiHelper.setError(et_your_mobile_no, getString(R.string.enter_valid_mobile_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_valid_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
                 } else {
-                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName, typeComplaint, yourName, yourEmailId, yourMobileNo);
+                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName,
+                            typeComplaint, yourName, yourEmailId, yourMobileNo);
                 }
                 break;
             default:
@@ -204,14 +205,14 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response);
+                        mUiHelper.showToastShortCentre(response);
                         Log.i(TAG, "response-->" + response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
                 Log.i(TAG, "response-->" + error.toString());
             }
         }) {

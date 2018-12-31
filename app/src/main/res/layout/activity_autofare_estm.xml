@@ -5,34 +5,45 @@
     android:layout_height="match_parent"
     tools:context=".activities.AutoFareEstmActivity">
 
+    <LinearLayout
+        android:id="@+id/lnr_lyt_et_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_background"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_search"
+            style="@style/edit_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/autofare_search_et_margin_left"
+            android:layout_marginLeft="@dimen/autofare_search_et_margin_left"
+            android:layout_marginTop="@dimen/autofare_search_et_margin_top"
+            android:layout_marginEnd="@dimen/autofare_search_et_margin_right"
+            android:layout_marginRight="@dimen/autofare_search_et_margin_right"
+            android:layout_marginBottom="@dimen/autofare_search_et_margin_bottom"
+            android:hint="@string/enter_a_location"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:ignore="Autofill" />
+
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnr_lyt_et_search">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
-
-    <EditText
-        android:id="@+id/et_search"
-        style="@style/edit_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:hint="@string/enter_a_location"
-        android:inputType="text"
-        android:maxLines="1"
-        android:singleLine="true"
-        tools:ignore="Autofill" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -41,13 +52,13 @@
         android:background="@drawable/content_background_reverse"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="4dp">
+        android:padding="@dimen/ratechart_autofare_lnr_lyt_padding">
 
         <ImageView
             android:id="@+id/img_rate_chart"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="@dimen/autofare_ratechart_img_width"
+            android:layout_height="@dimen/autofare_ratechart_img_height"
+            android:layout_marginTop="@dimen/autofare_ratechart_img_margin_top"
             android:contentDescription="@null"
             android:src="@drawable/ic_farechart2" />
 
@@ -55,17 +66,17 @@
             android:id="@+id/tv_rate_chart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/autofare_ratechart_tv_margin_top"
             android:gravity="center"
             android:text="@string/rate_chart"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp" />
+            android:textSize="@dimen/autofare_ratechart_tv_size" />
 
         <ImageView
             android:id="@+id/img_estimation"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="@dimen/autofare_estimation_img_width"
+            android:layout_height="@dimen/autofare_estimation_img_height"
+            android:layout_marginTop="@dimen/autofare_estimation_img_margin_top"
             android:contentDescription="@null"
             android:src="@drawable/ic_estimate2" />
 
@@ -73,12 +84,12 @@
             android:id="@+id/tv_estimation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="@dimen/autofare_estimation_tv_margin_top"
+            android:layout_marginBottom="@dimen/autofare_estimation_tv_margin_bottom"
             android:gravity="center"
             android:text="@string/estimation"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp" />
+            android:textSize="@dimen/autofare_estimation_tv_size" />
 
     </LinearLayout>
 

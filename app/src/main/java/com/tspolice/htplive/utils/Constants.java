@@ -10,12 +10,13 @@ public class Constants {
     public static final int INT_CAMERA = 1;
     public static final int INT_STORAGE = 2;
     public static final int INT_FINE_LOCATION = 3;
-    static final int INT_COARSE_LOCATION = 4;
+    public static final int INT_COARSE_LOCATION = 4;
     public static final int INT_CALL_PHONE = 5;
 
     public static final String CAMERA = "CAMERA";
     public static final String STORAGE = "STORAGE";
     public static final String FINE_LOCATION = "FINE_LOCATION";
+    public static final String COARSE_LOCATION = "COARSE_LOCATION";
     public static final String CALL_PHONE = "CALL_PHONE";
 
     public static final String HOME = "HOME";

@@ -6,27 +6,29 @@
     tools:context=".activities.PublicComplaintsActivity">
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@+id/toolbar_pub_complaints"
         layout="@layout/toolbar_home" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar_main">
+        android:layout_below="@id/toolbar_pub_complaints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="@dimen/pub_complaints_lnr_lyt_margin"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="@dimen/pub_complaints_lnr_lyt_padding">
 
             <TextView
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/complaint"
                 android:textColor="@color/colorBlack" />
 
@@ -35,7 +37,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_complaint"
                 android:inputType="text"
                 android:maxLines="1"
@@ -45,9 +47,11 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/complaint_type"
                 android:textColor="@color/colorBlack" />
 
@@ -56,7 +60,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_complaint_type"
                 android:inputType="text"
                 android:maxLines="1"
@@ -66,9 +70,11 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/vehicle_number"
                 android:textColor="@color/colorBlack" />
 
@@ -77,19 +83,22 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_vehicle_no"
                 android:inputType="textCapCharacters"
                 android:maxLines="1"
+                android:maxLength="12"
                 tools:ignore="Autofill" />
 
             <TextView
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/name"
                 android:textColor="@color/colorBlack" />
 
@@ -98,7 +107,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/driver_name"
                 android:inputType="text"
                 android:maxLines="1"
@@ -108,9 +117,11 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/comment"
                 android:textColor="@color/colorBlack" />
 
@@ -119,7 +130,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_comment"
                 android:inputType="text"
                 android:maxLines="1"
@@ -130,8 +141,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:paddingTop="12dp"
-                android:paddingBottom="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_your_details_label_margin_top"
+                android:paddingTop="@dimen/pub_complaints_your_details_label_padding_top"
+                android:paddingBottom="@dimen/pub_complaints_your_details_label_padding_bottom"
                 android:text="@string/your_details"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/dashboard_htp_header_text_size"
@@ -141,8 +153,10 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/your_name"
                 android:textColor="@color/colorBlack" />
 
@@ -151,7 +165,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_your_name"
                 android:inputType="text"
                 android:maxLines="1"
@@ -161,9 +175,11 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/your_email_id"
                 android:textColor="@color/colorBlack" />
 
@@ -172,7 +188,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_your_email_id"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -182,9 +198,11 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/your_mobile_no"
                 android:textColor="@color/colorBlack" />
 
@@ -193,10 +211,11 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
+                android:layout_marginBottom="@dimen/pub_complaints_et_margin_bottom"
                 android:hint="@string/enter_your_mobile_no"
                 android:inputType="phone"
+                android:maxLength="10"
                 android:maxLines="1"
                 tools:ignore="Autofill" />
 

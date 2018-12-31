@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -147,6 +148,18 @@ public class UiHelper {
 
     public void showToastLong(String message) {
         Toast.makeText(mContext, "" + message, Toast.LENGTH_LONG).show();
+    }
+
+    public void showToastShortCentre(String message) {
+        Toast toast = Toast.makeText(mContext, "" + message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
+
+    public void showToastLongCentre(String message) {
+        Toast toast = Toast.makeText(mContext, "" + message, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 
     public void intent(Class<?> mClass) {

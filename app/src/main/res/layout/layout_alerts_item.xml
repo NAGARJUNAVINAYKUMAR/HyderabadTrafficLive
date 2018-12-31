@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="@dimen/alerts_lyt_padding">
 
     <TextView
         android:id="@+id/tv_alert_text"
@@ -16,7 +16,7 @@
         android:id="@+id/tv_alert_updated_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/alerts_date_margin_top"
         android:text="@string/updated_dt_text"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="italic" />

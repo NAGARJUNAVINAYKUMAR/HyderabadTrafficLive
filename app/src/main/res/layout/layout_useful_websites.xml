@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:padding="@dimen/useful_websites_lyt_padding"
     android:id="@+id/rel_website"
     android:background="@color/colorWhite">
 
@@ -15,18 +15,18 @@
         android:layout_toStartOf="@id/img_right_arrow"
         android:text="@string/government_of_india"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="@dimen/useful_websites_text_margin_left"
+        android:layout_marginStart="@dimen/useful_websites_text_margin_left"
+        android:layout_marginRight="@dimen/useful_websites_text_margin_right"
+        android:layout_marginEnd="@dimen/useful_websites_text_margin_right"
         android:textColor="@color/colorAccentDark"
         android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
 
     <ImageView
         android:id="@+id/img_right_arrow"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="@dimen/useful_websites_arrow_img_width"
+        android:layout_height="@dimen/useful_websites_arrow_img_height"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"

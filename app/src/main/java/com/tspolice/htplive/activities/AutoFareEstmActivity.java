@@ -125,6 +125,8 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 } else {
                     PermissionUtil.redirectAppSettings(this);
                 }
+            //} else {
+                //mMap.setMyLocationEnabled(true);
             }
         } else {
             PermissionUtil.redirectAppSettings(this);
@@ -175,14 +177,18 @@ public class AutoFareEstmActivity extends FragmentActivity implements
     }*/
 
     private void setEnableCurrentLocationOnPermission() {
-        mMap.setMyLocationEnabled(true);
-        if (mLocationTrack.canGetLocation()) {
-            mLatitude = mLocationTrack.getLatitude();
-            mLongitude = mLocationTrack.getLongitude();
-            mLatLng = new LatLng(mLatitude, mLongitude);
-            et_search.setText(getAddressFromLatLng(mLatitude, mLongitude));
-            addMapMarker(mLatLng);
-            mMap.setOnCameraMoveStartedListener(this);
+        try {
+            mMap.setMyLocationEnabled(true);
+            if (mLocationTrack.canGetLocation()) {
+                mLatitude = mLocationTrack.getLatitude();
+                mLongitude = mLocationTrack.getLongitude();
+                mLatLng = new LatLng(mLatitude, mLongitude);
+                et_search.setText(getAddressFromLatLng(mLatitude, mLongitude));
+                addMapMarker(mLatLng);
+                mMap.setOnCameraMoveStartedListener(this);
+            }
+        } catch (SecurityException e) {
+            e.printStackTrace();
         }
     }
 
@@ -420,12 +426,12 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                                             dayPrice = "Rs: " + Math.round(extraDay * 0.9) + " to " + (Math.round(extraDay * 0.9) + 6) + " Approximately";
                                             nightPrice = "Rs: " + Math.round(extraNight * 0.9) + " to " + (Math.round(extraNight * 0.9) + 10) + " Approximately";
                                             tv_FareEstm.setText(dayPrice);
-                                            tv_Day.setTextColor(getColor(R.color.colorGreen));
+                                            tv_Day.setTextColor(getResources().getColor(R.color.colorGreen));
                                         } else {
                                             dayPrice = "Rs: " + Math.round(day * 0.9) + " to " + (Math.round(day * 0.9) + 6) + " Approximately";
                                             nightPrice = "Rs: " + Math.round(night * 0.9) + " to " + (Math.round(night * 0.9) + 10) + " Approximately";
                                             tv_FareEstm.setText(dayPrice);
-                                            tv_Day.setTextColor(getColor(R.color.colorGreen));
+                                            tv_Day.setTextColor(getResources().getColor(R.color.colorGreen));
                                         }
                                     } catch (NumberFormatException e) {
                                         e.printStackTrace();
