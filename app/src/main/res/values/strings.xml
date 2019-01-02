@@ -290,6 +290,8 @@
     <string name="or">(OR)</string>
     <string name="night">Night</string>
     <string name="vehicle_number">Vehicle Number</string>
+    <string name="question">Question</string>
+    <string name="answer">Answer</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

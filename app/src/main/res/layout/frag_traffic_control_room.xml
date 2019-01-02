@@ -3,11 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/img_traffic_control_room"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_htl_bg_lyt_height"
+        android:background="@drawable/header_background"
+        android:orientation="vertical" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/about_htl_scroll_view_margin_top"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/about_htl_lnr_lyt_margin"
+            android:background="@drawable/corners_background"
+            android:orientation="vertical"
+            android:padding="@dimen/about_htl_lnr_lyt_padding">
+
+            <ImageView
+                android:id="@+id/img_traffic_control_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_controlroom_address"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--<ImageView
+        android:layout_width="@dimen/about_htl_htp_logo_width"
+        android:layout_height="@dimen/about_htl_htp_logo_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/about_htl_htp_logo_margin_top"
         android:contentDescription="@null"
-        android:src="@drawable/ic_controlroom_address" />
+        android:src="@drawable/ic_logo" />-->
 
 </RelativeLayout>

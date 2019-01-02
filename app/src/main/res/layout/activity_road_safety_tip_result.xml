@@ -6,37 +6,45 @@
     tools:context=".activities.RoadSafetyTipResultActivity">
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@+id/toolbar_road_safety_tip"
         layout="@layout/toolbar_home" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/road_safety_bg_lyt_height"
+        android:layout_below="@id/toolbar_road_safety_tip"
+        android:background="@drawable/header_background"
+        android:orientation="vertical" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/footer"
-        android:layout_below="@id/toolbar_main"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="@dimen/road_safety_scroll_view_margin_top"
+        android:layout_marginBottom="@dimen/road_safety_scroll_view_margin_bottom"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/road_safety_lnr_lyt_margin_left"
+            android:layout_marginLeft="@dimen/road_safety_lnr_lyt_margin_left"
+            android:layout_marginEnd="@dimen/road_safety_lnr_lyt_margin_right"
+            android:layout_marginRight="@dimen/road_safety_lnr_lyt_margin_right"
+            android:layout_marginBottom="@dimen/road_safety_lnr_lyt_margin_bottom"
+            android:background="@drawable/corners_background"
             android:orientation="vertical"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:id="@+id/img_tip"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_speeding_200x150" />
+            android:paddingStart="@dimen/road_safety_lnr_lyt_padding_left"
+            android:paddingLeft="@dimen/road_safety_lnr_lyt_padding_left"
+            android:paddingEnd="@dimen/road_safety_lnr_lyt_padding_right"
+            android:paddingRight="@dimen/road_safety_lnr_lyt_padding_right"
+            android:paddingBottom="@dimen/road_safety_lnr_lyt_padding_bottom">
 
             <TextView
                 android:id="@+id/tv_tip_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/road_safety_tv_margin_top"
+                android:padding="@dimen/road_safety_tv_padding"
                 android:text="@string/tip_helmet"
                 android:textColor="@color/colorBlack" />
 
@@ -44,10 +52,22 @@
 
     </ScrollView>
 
-    <TextView
-        android:id="@+id/footer"
-        style="@style/footer_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="@dimen/road_safety_logo_width"
+        android:layout_height="@dimen/road_safety_logo_height"
+        android:layout_below="@id/toolbar_road_safety_tip"
+        android:background="@drawable/layout_border_style"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_tip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_helmet" />
+
+    </LinearLayout>
 
 </RelativeLayout>

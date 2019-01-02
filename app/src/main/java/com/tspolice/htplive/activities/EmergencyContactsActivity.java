@@ -129,7 +129,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setSelected(true);
-        mRecyclerView.addItemDecoration(new MyRecyclerViewItemDecoration(this, DividerItemDecoration.VERTICAL, 8));
+        //mRecyclerView.addItemDecoration(new MyRecyclerViewItemDecoration(this, DividerItemDecoration.VERTICAL, 8));
     }
 
     public void getEmergencyContacts(String serviceType) {
@@ -156,7 +156,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                                     model.setLanguage(jsonObject.getString("language"));
                                     mCommonList.add(model);
                                 }
-                                mCommonRecyclerAdapter = new CommonRecyclerAdapter("" + Constants.EMERGENCY_CONTACTS, mCommonList,
+                                mCommonRecyclerAdapter = new CommonRecyclerAdapter(Constants.EMERGENCY_CONTACTS, mCommonList,
                                         new CommonRecyclerAdapter.OnItemClickListener() {
                                             @Override
                                             public void onItemClick(CommonModel item, int position) {

@@ -115,7 +115,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlack">
+            android:background="@color/colorWhite">
 
             <CheckBox
                 android:id="@+id/chb_select_all"
@@ -126,10 +126,10 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorPrimaryDark"
                 android:gravity="start"
                 android:padding="4dp"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textStyle="bold" />
 
             <TextView
@@ -140,11 +140,11 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/type"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textStyle="bold" />
 
             <TextView
@@ -155,18 +155,18 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/select_all"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textStyle="bold" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlack">
+            android:background="@color/colorWhite">
 
             <CheckBox
                 android:id="@+id/chb_free_parking"
@@ -177,7 +177,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="start"
                 android:padding="4dp"
                 android:textColor="@color/colorBlack"
@@ -191,7 +191,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
@@ -205,7 +205,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/free_parking"
@@ -215,7 +215,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlack">
+            android:background="@color/colorWhite">
 
             <CheckBox
                 android:id="@+id/chb_paid_parking"
@@ -226,7 +226,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="start"
                 android:padding="4dp"
                 android:textColor="@color/colorBlack"
@@ -240,7 +240,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
@@ -254,7 +254,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/paid_parking"
@@ -264,7 +264,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlack">
+            android:background="@color/colorWhite">
 
             <CheckBox
                 android:id="@+id/chb_water_loggings"
@@ -275,7 +275,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="start"
                 android:padding="4dp"
                 android:textColor="@color/colorBlack"
@@ -289,7 +289,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
@@ -303,7 +303,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/water_loggings"
@@ -313,7 +313,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlack">
+            android:background="@color/colorWhite">
 
             <CheckBox
                 android:id="@+id/chb_busbays_stops"
@@ -324,7 +324,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="start"
                 android:padding="4dp"
                 android:textColor="@color/colorBlack"
@@ -338,7 +338,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
@@ -352,7 +352,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/bus_bays_stops"
@@ -362,7 +362,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlack">
+            android:background="@color/colorWhite">
 
             <CheckBox
                 android:id="@+id/chb_auto_parking"
@@ -374,7 +374,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="start"
                 android:padding="4dp"
                 android:textColor="@color/colorBlack"
@@ -389,7 +389,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:contentDescription="@null"
                 android:gravity="center"
                 android:padding="4dp"
@@ -404,7 +404,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
-                android:background="@color/colorWhite"
+                android:background="@color/colorEdtTxtBg"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="@string/auto_parking"
@@ -424,16 +424,5 @@
         android:textStyle="bold"
         android:gravity="center"
         android:text="@string/submit" />
-
-    <!--<Button
-        android:id="@+id/btn_parking_details_dialog_submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tbl_layout"
-        android:background="@color/colorBlack"
-        android:text="@string/submit"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        android:textStyle="bold" />-->
 
 </RelativeLayout>

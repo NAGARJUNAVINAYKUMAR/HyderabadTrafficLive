@@ -18,4 +18,5 @@
     <color name="colorStroke">#f1efef</color>
     <color name="colorTableRow">#dcdbdb</color>
     <color name="colorLayoutBorder">#fc757584</color>
+    <color name="colorRecyclerViewItem">#d7e7fd</color>
 </resources>

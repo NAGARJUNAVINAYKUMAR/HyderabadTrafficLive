@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        tools:ignore="UseCompoundDrawables,UselessParent">
+        android:layout_height="@dimen/about_htl_bg_lyt_height"
+        android:background="@drawable/header_background"
+        android:orientation="vertical" />
 
-        <TextView
-            android:id="@+id/tv_about_htp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/about_htl_scroll_view_margin_top"
+        android:scrollbars="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_htp_text"
-            android:textColor="@color/colorBlack" />
+            android:layout_marginLeft="@dimen/about_htl_lnr_lyt_margin_left"
+            android:layout_marginStart="@dimen/about_htl_lnr_lyt_margin_left"
+            android:layout_marginRight="@dimen/about_htl_lnr_lyt_margin_right"
+            android:layout_marginEnd="@dimen/about_htl_lnr_lyt_margin_right"
+            android:background="@drawable/corners_background"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/about_htl_lnr_lyt_padding_left"
+            android:paddingStart="@dimen/about_htl_lnr_lyt_padding_left"
+            android:paddingRight="@dimen/about_htl_lnr_lyt_padding_right"
+            android:paddingEnd="@dimen/about_htl_lnr_lyt_padding_right"
+            android:paddingBottom="@dimen/about_htl_lnr_lyt_padding_bottom">
 
-        <ImageView
-            android:id="@+id/img_htp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:contentDescription="@null"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_logo" />
+            <TextView
+                android:id="@+id/tv_about_htp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/about_htl_tv_margin_top"
+                android:padding="@dimen/about_htl_tv_padding"
+                android:text="@string/about_htp_text"
+                android:textColor="@color/colorBlack" />
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="@dimen/about_htl_htp_logo_width"
+        android:layout_height="@dimen/about_htl_htp_logo_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/about_htl_htp_logo_margin_top"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_logo" />
 
 </RelativeLayout>

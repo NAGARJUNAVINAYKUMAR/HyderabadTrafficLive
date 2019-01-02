@@ -2,6 +2,7 @@ package com.tspolice.htplive.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,7 +51,7 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private RelativeLayout rel_website;
+        private RelativeLayout rel_website, rel_faqs, rel_emergency_contacts, rel_tr_officers;
         private TextView tv_website_name, tv_question, tv_answer, tv_trps_name, tv_contact_no, tv_name, tv_cadre;
         private ImageView img_call_btn;
         private RelativeLayout rel_animation, rel_collapse_expand;
@@ -63,6 +64,7 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
                     tv_website_name = itemView.findViewById(R.id.tv_website_name);
                     break;
                 case Constants.FAQS:
+                    rel_faqs = itemView.findViewById(R.id.rel_faqs);
                     rel_animation = itemView.findViewById(R.id.rel_animation);
                     rel_collapse_expand = itemView.findViewById(R.id.rel_collapse_expand);
                     tv_question = itemView.findViewById(R.id.tv_question);
@@ -73,11 +75,13 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
                     tv_website_name = itemView.findViewById(R.id.tv_website_name);
                     break;
                 case Constants.EMERGENCY_CONTACTS:
+                    rel_emergency_contacts = itemView.findViewById(R.id.rel_emergency_contacts);
                     tv_trps_name = itemView.findViewById(R.id.tv_trps_name);
                     tv_contact_no = itemView.findViewById(R.id.tv_contact_no);
                     img_call_btn = itemView.findViewById(R.id.img_call_btn);
                     break;
                 case Constants.TRAFFIC_OFFICERS:
+                    rel_tr_officers = itemView.findViewById(R.id.rel_tr_officers);
                     tv_name = itemView.findViewById(R.id.tv_name);
                     tv_cadre = itemView.findViewById(R.id.tv_cadre);
                     img_call_btn = itemView.findViewById(R.id.img_call_btn);
@@ -115,6 +119,11 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
         final CommonModel model = commonList.get(position);
         switch (mFlag) {
             case Constants.USEFUL_WEBSITES:
+                if (position % 2 == 0) {
+                    holder.rel_website.setBackgroundColor(mContext.getResources().getColor(R.color.colorRecyclerViewItem));
+                } else {
+                    holder.rel_website.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
+                }
                 holder.tv_website_name.setText(model.getName());
                 holder.rel_website.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -124,6 +133,11 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
                 });
                 break;
             case Constants.FAQS:
+                if (position % 2 == 0) {
+                    holder.rel_faqs.setBackgroundColor(mContext.getResources().getColor(R.color.colorRecyclerViewItem));
+                } else {
+                    holder.rel_faqs.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
+                }
                 String question = model.getId() + ". " + model.getQuestion();
                 holder.tv_question.setText(question);
                 String answer = "A: " + model.getAnswer();
@@ -144,6 +158,11 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
                 });
                 break;
             case Constants.ROAD_SAFETY_TIPS:
+                if (position % 2 == 0) {
+                    holder.rel_website.setBackgroundColor(mContext.getResources().getColor(R.color.colorRecyclerViewItem));
+                } else {
+                    holder.rel_website.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
+                }
                 holder.tv_website_name.setText(model.getTip());
                 holder.rel_website.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -153,6 +172,11 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
                 });
                 break;
             case Constants.EMERGENCY_CONTACTS:
+                if (position % 2 == 0) {
+                    holder.rel_emergency_contacts.setBackgroundColor(mContext.getResources().getColor(R.color.colorRecyclerViewItem));
+                } else {
+                    holder.rel_emergency_contacts.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
+                }
                 holder.tv_trps_name.setText(model.getServiceName());
                 holder.tv_contact_no.setText(model.getContactNumber());
                 holder.img_call_btn.setOnClickListener(new View.OnClickListener() {
@@ -161,8 +185,19 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
                         onItemClickListener.onItemClick(model, position);
                     }
                 });
+                holder.tv_contact_no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onItemClickListener.onItemClick(model, position);
+                    }
+                });
                 break;
             case Constants.TRAFFIC_OFFICERS:
+                if (position % 2 == 0) {
+                    holder.rel_tr_officers.setBackgroundColor(mContext.getResources().getColor(R.color.colorRecyclerViewItem));
+                } else {
+                    holder.rel_tr_officers.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
+                }
                 holder.tv_name.setText(model.getName());
                 holder.tv_cadre.setText(model.getDesignation());
                 holder.img_call_btn.setOnClickListener(new View.OnClickListener() {

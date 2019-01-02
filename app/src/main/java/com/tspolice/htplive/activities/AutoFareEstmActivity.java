@@ -535,7 +535,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
         tv_meters.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         tv_meters.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
         tv_meters.setPadding(6, 6, 6, 6);
-        final int tableTextSize = 30;
+        final int tableTextSize = 32;
         tv_meters.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
         tableRow.addView(tv_meters);
 
