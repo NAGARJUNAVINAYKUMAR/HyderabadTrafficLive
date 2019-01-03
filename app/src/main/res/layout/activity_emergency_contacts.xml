@@ -6,13 +6,13 @@
     tools:context=".activities.EmergencyContactsActivity">
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@+id/toolbar_emergency_contacts"
         layout="@layout/toolbar_home" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_main"
+        android:layout_below="@id/toolbar_emergency_contacts"
         android:orientation="vertical">
 
         <EditText

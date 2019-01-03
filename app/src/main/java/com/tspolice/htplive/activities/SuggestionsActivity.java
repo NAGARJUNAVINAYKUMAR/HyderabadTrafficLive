@@ -69,22 +69,22 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
                 String contactNo = et_contact_no.getText().toString();
                 String suggestion = et_suggestion.getText().toString();
                 if (name.isEmpty()) {
-                    mUiHelper.setError(et_name, getString(R.string.enter_your_name));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_your_name));
                     mUiHelper.requestFocus(et_name);
                 } else if (email.isEmpty()) {
-                    mUiHelper.setError(et_email_id, getString(R.string.enter_your_email_id));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_your_email_id));
                     mUiHelper.requestFocus(et_email_id);
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    mUiHelper.setError(et_email_id, getString(R.string.enter_valid_email_id));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_valid_email_id));
                     mUiHelper.requestFocus(et_email_id);
                 } else if (contactNo.isEmpty()) {
-                    mUiHelper.setError(et_contact_no, getString(R.string.enter_your_contact_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_your_contact_no));
                     mUiHelper.requestFocus(et_contact_no);
                 } else if (!ValidationUtils.isValidMobile(contactNo)) {
-                    mUiHelper.setError(et_contact_no, getString(R.string.enter_valid_contact_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_valid_contact_no));
                     mUiHelper.requestFocus(et_contact_no);
                 } else if (suggestion.isEmpty()) {
-                    mUiHelper.setError(et_suggestion, getString(R.string.enter_a_suggestion));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_a_suggestion));
                     mUiHelper.requestFocus(et_suggestion);
                 } else {
                     saveSuggestions(name, email, contactNo, suggestion);
@@ -127,7 +127,7 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(error.toString());
+                mUiHelper.showToastShortCentre(error.toString());
             }
         }) {
             @Override

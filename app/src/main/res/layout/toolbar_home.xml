@@ -10,8 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/header_background">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/header_image_left"

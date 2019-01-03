@@ -154,22 +154,24 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 String reason = et_reason.getText().toString().trim();
                 String location = et_location.getText().toString();
                 if (Constants.finalImageFlag.equals(imageFlag)) {
-                    mUiHelper.showToastShort(getString(R.string.please_attach_photo));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_attach_photo));
                 } else if (Constants.finalCategory.equals(category)) {
-                    mUiHelper.showToastShort(getString(R.string.please_select_category));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_select_category));
                 } else if (remarks.isEmpty()) {
-                    mUiHelper.showToastShort(getString(R.string.please_enter_remarks));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_enter_remarks));
                     mUiHelper.requestFocus(et_when_why_whom_and_how);
                 } else if (phoneNo.isEmpty()) {
-                    mUiHelper.showToastShort(getString(R.string.please_enter_phone_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_enter_phone_no));
                     mUiHelper.requestFocus(et_phone_no);
                 } else if (!ValidationUtils.isValidMobile(phoneNo)) {
-                    mUiHelper.setError(et_phone_no, getString(R.string.enter_valid_contact_no));
+                    mUiHelper.showToastShortCentre(getString(R.string.enter_valid_contact_no));
                     mUiHelper.requestFocus(et_phone_no);
                 } else if (reason.isEmpty()) {
-                    mUiHelper.showToastShort(getString(R.string.please_type_a_reason));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_type_a_reason));
+                    mUiHelper.requestFocus(et_reason);
                 } else if (location.isEmpty()) {
-                    mUiHelper.showToastShort(getString(R.string.please_enter_a_location));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_enter_a_location));
+                    mUiHelper.requestFocus(et_location);
                 } else {
                     saveCapturedImage(remarks, phoneNo, reason, location);
                 }
@@ -220,7 +222,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
                 Log.i(TAG, "response-->"+error.toString());
             }
         }) {
@@ -265,14 +267,14 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openCamera();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastShortCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             case Constants.REQUEST_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openGallery();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastShortCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:

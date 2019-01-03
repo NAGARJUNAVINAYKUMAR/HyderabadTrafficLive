@@ -60,6 +60,11 @@ public class TrPSInfoAdapter extends RecyclerView.Adapter<TrPSInfoAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         final TrPSInfoModel trPSInfoModel = trPSInfoList.get(position);
+        if (position % 2 == 0) {
+            holder.rel_trps_info.setBackgroundColor(mContext.getResources().getColor(R.color.colorRecyclerViewItem));
+        } else {
+            holder.rel_trps_info.setBackgroundColor(mContext.getResources().getColor(R.color.colorWhite));
+        }
         holder.tv_trps_name.setText(trPSInfoModel.getStationName());
         holder.rel_trps_info.setOnClickListener(new View.OnClickListener() {
             @Override
