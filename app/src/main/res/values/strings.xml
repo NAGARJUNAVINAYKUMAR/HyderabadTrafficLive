@@ -84,15 +84,19 @@
     <string name="alert_text">Dt: 12–09–2018 at 09:22 hrs - Slow movement of traffic from Karkhana to Secunderabad club.</string>
     <string name="updated_dt_text">Updated Dt: 12–09–2018 09:25hrs</string>
     <string name="load_more"><u>Load More</u></string>
-    <string name="we_are_waiting_for_your_valuable_suggestions">We are waiting, Please let us know for your valuable Suggestions</string>
+    <string name="we_are_waiting_for_your_valuable_suggestions">We are waiting for your valuable Suggestions</string>
     <string name="please_let_us_know_your_valuable_suggestions">Please let us know your valuable suggestions</string>
     <string name="name">Name</string>
     <string name="driver_name">Driver\'s Name</string>
     <string name="email">Email</string>
     <string name="enter_email">Enter email</string>
     <string name="contact_no">Contact No.</string>
+    <string name="mobile_no">Mobile No.</string>
+    <string name="enter_mobile_no">Enter Mobile No.</string>
     <string name="enter_contact_no">Enter Contact No.</string>
     <string name="suggestion">Suggestion</string>
+    <string name="message">Message</string>
+    <string name="type_a_message">Type a message</string>
     <string name="write_a_suggestion">Write a Suggestion</string>
     <string name="complaint_against_all_public_services">Complaint against all Public services</string>
     <string name="your_details">Your Details</string>
@@ -160,7 +164,7 @@
         Provided further that the state government may, by such rules, provide for such expectations as it may think fit.
         Explanation ? protective headgear ? means a helmet which-By virtue of its shape, material and construction,
         could reasonably be expected to afford to the person driving or riding on a motorcycle a degree of protection
-        from injury in the event of an accident; and is securely fastened to lthe head of the wearer by means of straps or other fastening provided on the headgear.
+        from injury in the event of an accident; and is securely fastened to the head of the wearer by means of straps or other fastening provided on the headgear.
     </string>
 
     <string name="tip_seat_belt">Seat Belt - SEAT BELTS: STAY SAFE AND SECURE:\n A seat belt or seat belt, sometimes called a safety belt,

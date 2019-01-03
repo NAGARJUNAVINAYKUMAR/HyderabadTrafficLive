@@ -6,14 +6,14 @@
     tools:context=".activities.UsefulWebsitesActivity">
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@+id/toolbar_useful_websites"
         layout="@layout/toolbar_home" />
 
     <LinearLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar_main"
+        android:layout_below="@+id/toolbar_useful_websites"
         android:orientation="vertical">
 
         <EditText
@@ -21,9 +21,11 @@
             style="@style/edit_text_style_drawable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginTop="@dimen/emerg_cont_search_et_margin_top"
+            android:layout_marginLeft="@dimen/emerg_cont_search_et_margin_left"
+            android:layout_marginStart="@dimen/emerg_cont_search_et_margin_left"
+            android:layout_marginRight="@dimen/emerg_cont_search_et_margin_right"
+            android:layout_marginEnd="@dimen/emerg_cont_search_et_margin_right"
             android:drawableRight="@drawable/ic_edit_text_right_search"
             android:drawableEnd="@drawable/ic_edit_text_right_search"
             android:hint="@string/search_website_name"
@@ -35,9 +37,11 @@
             android:id="@+id/mRecyclerViewUsefulWebsites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="1dp"
+            android:layout_marginTop="@dimen/emerg_cont_recycler_view_margin_top"
+            android:layout_marginLeft="@dimen/emerg_cont_recycler_view_margin_left"
+            android:layout_marginStart="@dimen/emerg_cont_recycler_view_margin_left"
+            android:layout_marginRight="@dimen/emerg_cont_recycler_view_margin_right"
+            android:layout_marginEnd="@dimen/emerg_cont_recycler_view_margin_right"
             android:scrollbars="vertical" />
 
     </LinearLayout>

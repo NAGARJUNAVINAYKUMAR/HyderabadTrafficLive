@@ -6,38 +6,40 @@
     tools:context=".activities.SuggestionsActivity">
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@+id/toolbar_suggestions"
         layout="@layout/toolbar_home" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar_main">
+        android:layout_below="@id/toolbar_suggestions">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="@dimen/suggestions_lnr_lyt_margin"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="@dimen/suggestions_lnr_lyt_padding">
 
             <TextView
-                style="@style/text_view_style"
+                style="@style/text_view_style_heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:singleLine="false"
                 android:text="@string/we_are_waiting_for_your_valuable_suggestions"
-                android:textColor="@color/colorAccentDark"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
             <TextView
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/name"
                 android:textColor="@color/colorBlack" />
 
@@ -46,7 +48,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_name"
                 android:inputType="text"
                 android:maxLines="1"
@@ -56,9 +58,11 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/email"
                 android:textColor="@color/colorBlack" />
 
@@ -67,7 +71,7 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
                 android:hint="@string/enter_email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -77,10 +81,12 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/contact_no"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
+                android:text="@string/mobile_no"
                 android:textColor="@color/colorBlack" />
 
             <EditText
@@ -88,8 +94,8 @@
                 style="@style/edit_text_style_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:hint="@string/enter_contact_no"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
+                android:hint="@string/enter_mobile_no"
                 android:inputType="phone"
                 android:maxLines="1"
                 tools:ignore="Autofill" />
@@ -98,20 +104,22 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/suggestion"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
+                android:text="@string/message"
                 android:textColor="@color/colorBlack" />
 
             <EditText
                 android:id="@+id/et_suggestion"
-                style="@style/edit_text_style_drawable"
+                style="@style/edit_text_style_square"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="8dp"
-                android:hint="@string/write_a_suggestion"
+                android:layout_height="@dimen/suggestions_et_height"
+                android:layout_marginTop="@dimen/pub_complaints_et_margin_top"
+                android:layout_marginBottom="@dimen/pub_complaints_et_margin_bottom"
+                android:hint="@string/type_a_message"
                 android:inputType="text"
                 android:maxLines="1"
                 tools:ignore="Autofill" />
@@ -121,10 +129,10 @@
                 style="@style/button_style"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
                 android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/pub_complaints_submit_btn_margin_top"
+                android:layout_marginBottom="@dimen/pub_complaints_submit_btn_margin_bottom"
                 android:text="@string/submit" />
 
         </LinearLayout>

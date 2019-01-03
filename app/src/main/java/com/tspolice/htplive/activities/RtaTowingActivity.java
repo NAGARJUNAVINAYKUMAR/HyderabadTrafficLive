@@ -36,6 +36,7 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
     private UiHelper mUiHelper;
     private SharedPrefManager mSharedPrefManager;
     private Dialog towingRTAInfoDialog;
+    private TextView tv_rta_towing;
     private EditText et_vehicle_no, et_captcha, et_enter_above_captcha;
 
     @Override
@@ -47,10 +48,17 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
 
         initObjects();
 
+        if ("TOWING".equals(mSharedPrefManager.getString(Constants.RTA_TOWING))) {
+            tv_rta_towing.setText(getResources().getString(R.string.vehicle_details));
+        } else {
+            tv_rta_towing.setText(getResources().getString(R.string.towed_vehicle_details));
+        }
+
         getCaptchaForVehicleDetails();
     }
 
     private void initViews() {
+        tv_rta_towing = findViewById(R.id.tv_rta_towing);
         et_vehicle_no = findViewById(R.id.et_vehicle_no);
         et_captcha = findViewById(R.id.et_captcha);
         et_enter_above_captcha = findViewById(R.id.et_enter_above_captcha);

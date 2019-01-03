@@ -2,7 +2,6 @@ package com.tspolice.htplive.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,7 +17,6 @@ import com.tspolice.htplive.R;
 import com.tspolice.htplive.models.CommonModel;
 import com.tspolice.htplive.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAdapter.MyViewHolder> {
@@ -96,19 +92,19 @@ public class CommonRecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerAd
         View view = null;
         switch (mFlag) {
             case Constants.USEFUL_WEBSITES:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_useful_websites, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_useful_websites, parent, false);
                 break;
             case Constants.FAQS:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_faqs, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_faqs, parent, false);
                 break;
             case Constants.ROAD_SAFETY_TIPS:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_useful_websites, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_useful_websites, parent, false);
                 break;
             case Constants.EMERGENCY_CONTACTS:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_emergency_contacts, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_emergency_contacts, parent, false);
                 break;
             case Constants.TRAFFIC_OFFICERS:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_tr_officers, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_tr_officers, parent, false);
                 break;
         }
         return new MyViewHolder(view);

@@ -14,7 +14,7 @@
 
         <EditText
             android:id="@+id/et_source"
-            style="@style/edit_text_style"
+            style="@style/edit_text_style_square"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/live_traffic_source_et_margin_left"
@@ -29,7 +29,7 @@
 
         <EditText
             android:id="@+id/et_destination"
-            style="@style/edit_text_style"
+            style="@style/edit_text_style_square"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/live_traffic_destination_et_margin_left"
@@ -56,22 +56,6 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <!--<LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="@dimen/live_traffic_tr_img_width"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_traffic_movement" />
-
-        </LinearLayout>-->
 
     </RelativeLayout>
 

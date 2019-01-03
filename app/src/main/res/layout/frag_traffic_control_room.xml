@@ -12,7 +12,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/about_htl_scroll_view_margin_top"
         android:scrollbars="vertical">
 
         <LinearLayout
@@ -33,13 +32,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <!--<ImageView
-        android:layout_width="@dimen/about_htl_htp_logo_width"
-        android:layout_height="@dimen/about_htl_htp_logo_height"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/about_htl_htp_logo_margin_top"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_logo" />-->
 
 </RelativeLayout>

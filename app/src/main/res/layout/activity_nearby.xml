@@ -42,10 +42,12 @@
         android:layout_alignParentBottom="true"
         android:text="@string/check_parking_space"
         android:textColor="@color/colorWhite"
-        android:textSize="12sp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:layout_margin="8dp"
+        android:textSize="@dimen/nearby_parking_space_btn_text_size"
+        android:paddingLeft="@dimen/nearby_parking_space_btn_padding_left"
+        android:paddingStart="@dimen/nearby_parking_space_btn_padding_left"
+        android:paddingRight="@dimen/nearby_parking_space_btn_padding_right"
+        android:paddingEnd="@dimen/nearby_parking_space_btn_padding_right"
+        android:layout_margin="@dimen/nearby_parking_space_btn_margin"
         android:textStyle="bold" />
 
 </RelativeLayout>

@@ -31,8 +31,8 @@
     <dimen name="toolbar_title_text_size">20sp</dimen>
 
     <dimen name="dashboard_htp_logo_margin_top">24dp</dimen>
-    <dimen name="dashboard_htp_logo_width">60dp</dimen>
-    <dimen name="dashboard_htp_logo_height">60dp</dimen>
+    <dimen name="dashboard_htp_logo_width">75dp</dimen>
+    <dimen name="dashboard_htp_logo_height">75dp</dimen>
 
     <dimen name="dashboard_htp_header_text_size">18sp</dimen>
     <dimen name="dashboard_htp_header_padding_top">8dp</dimen>
@@ -114,7 +114,40 @@
     <dimen name="public_interface_card_view_margin_left">8dp</dimen>
     <dimen name="public_interface_card_view_margin_right">8dp</dimen>
     <dimen name="public_interface_card_view_margin_bottom">8dp</dimen>
-    <dimen name="public_interface_inner_lyt_margin_left">8dp</dimen>
+    <dimen name="public_interface_inner_lyt_margin_left">16dp</dimen>
+    <dimen name="public_interface_inner_lyt_margin_right">16dp</dimen>
+    <dimen name="public_interface_inner_lyt_padding_left">16dp</dimen>
+    <dimen name="public_interface_inner_lyt_padding_right">16dp</dimen>
+    <dimen name="public_interface_inner_lyt_padding_top">16dp</dimen>
+    <dimen name="public_interface_inner_lyt_padding_bottom">16dp</dimen>
+    <dimen name="public_interface_text_label_margin_top">8dp</dimen>
+    <dimen name="public_interface_spinner_margin_top">8dp</dimen>
+    <dimen name="public_interface_et_margin_top">8dp</dimen>
+    <dimen name="public_interface_et_margin_bottom">8dp</dimen>
+    <dimen name="public_interface_view_height">24dp</dimen>
+    <dimen name="public_interface_display_img_height">192dp</dimen>
+    <dimen name="public_interface_display_img_width">192dp</dimen>
+    <dimen name="public_interface_display_img_margin_top">8dp</dimen>
+    <dimen name="public_interface_display_img_margin_bottom">24dp</dimen>
+
+    <dimen name="public_interface_camera_img_width">48dp</dimen>
+    <dimen name="public_interface_camera_img_height">48dp</dimen>
+    <dimen name="public_interface_camera_img_padding_left">8dp</dimen>
+    <dimen name="public_interface_camera_img_padding_right">8dp</dimen>
+    <dimen name="public_interface_camera_img_padding_top">16dp</dimen>
+    <dimen name="public_interface_camera_img_padding_bottom">8dp</dimen>
+    <dimen name="public_interface_camera_text_size">12sp</dimen>
+    <dimen name="public_interface_camera_text_padding_left">8dp</dimen>
+    <dimen name="public_interface_camera_text_padding_right">8dp</dimen>
+    <dimen name="public_interface_camera_text_padding_top">8dp</dimen>
+    <dimen name="public_interface_camera_text_padding_bottom">8dp</dimen>
+
+    <dimen name="public_interface_next_arrow_img_width">48dp</dimen>
+    <dimen name="public_interface_next_arrow_img_height">48dp</dimen>
+
+    <dimen name="suggestions_lnr_lyt_margin">12dp</dimen>
+    <dimen name="suggestions_lnr_lyt_padding">12dp</dimen>
+    <dimen name="suggestions_et_height">100dp</dimen>
 
     <dimen name="pub_complaints_lnr_lyt_margin">12dp</dimen>
     <dimen name="pub_complaints_lnr_lyt_padding">12dp</dimen>
@@ -126,6 +159,13 @@
     <dimen name="pub_complaints_your_details_label_padding_top">6dp</dimen>
     <dimen name="pub_complaints_your_details_label_padding_bottom">6dp</dimen>
     <dimen name="pub_complaints_your_details_label_margin_top">12dp</dimen>
+
+    <dimen name="pub_complaints_note_text_size">12sp</dimen>
+    <dimen name="pub_complaints_note_text_margin_top">36dp</dimen>
+    <dimen name="pub_complaints_note_text_margin_bottom">8dp</dimen>
+
+    <dimen name="pub_complaints_submit_btn_margin_top">16dp</dimen>
+    <dimen name="pub_complaints_submit_btn_margin_bottom">24dp</dimen>
 
     <dimen name="autofare_search_et_margin_left">12dp</dimen>
     <dimen name="autofare_search_et_margin_right">12dp</dimen>
@@ -149,11 +189,15 @@
     <dimen name="live_traffic_source_et_margin_top">12dp</dimen>
     <dimen name="live_traffic_destination_et_margin_left">12dp</dimen>
     <dimen name="live_traffic_destination_et_margin_right">12dp</dimen>
-    <dimen name="live_traffic_destination_et_margin_top">6dp</dimen>
+    <dimen name="live_traffic_destination_et_margin_top">8dp</dimen>
     <dimen name="live_traffic_destination_et_margin_bottom">12dp</dimen>
     <dimen name="live_traffic_tr_img_width">40dp</dimen>
 
     <dimen name="nearby_parking_space_btn_height">36dp</dimen>
+    <dimen name="nearby_parking_space_btn_text_size">12sp</dimen>
+    <dimen name="nearby_parking_space_btn_padding_left">12dp</dimen>
+    <dimen name="nearby_parking_space_btn_padding_right">12dp</dimen>
+    <dimen name="nearby_parking_space_btn_margin">8dp</dimen>
 
     <dimen name="alerts_load_more_text_margin_top">8dp</dimen>
     <dimen name="alerts_load_more_text_margin_bottom">8dp</dimen>
@@ -162,6 +206,9 @@
     <dimen name="alerts_lyt_padding">8dp</dimen>
     <dimen name="alerts_card_view_corners">12dp</dimen>
     <dimen name="alerts_date_margin_top">8dp</dimen>
+
+    <dimen name="rta_towing_lnr_lyt_margin">12dp</dimen>
+    <dimen name="rta_towing_lnr_lyt_padding">12dp</dimen>
 
     <dimen name="emerg_cont_search_et_margin_left">8dp</dimen>
     <dimen name="emerg_cont_search_et_margin_right">8dp</dimen>
@@ -182,8 +229,8 @@
     <dimen name="useful_websites_lyt_padding">16dp</dimen>
     <dimen name="useful_websites_text_margin_left">0dp</dimen>
     <dimen name="useful_websites_text_margin_right">4dp</dimen>
-    <dimen name="useful_websites_arrow_img_height">24dp</dimen>
-    <dimen name="useful_websites_arrow_img_width">24dp</dimen>
+    <dimen name="useful_websites_arrow_img_height">20dp</dimen>
+    <dimen name="useful_websites_arrow_img_width">20dp</dimen>
 
     <dimen name="trps_info_lyt_padding">16dp</dimen>
     <dimen name="trps_info_text_margin_left">0dp</dimen>
@@ -213,7 +260,7 @@
     <dimen name="faqs_minus_img_height">20dp</dimen>
 
     <dimen name="about_htl_bg_lyt_height">200dp</dimen>
-    <dimen name="about_htl_scroll_view_margin_top">100dp</dimen>
+    <dimen name="about_htl_scroll_view_margin_top">12dp</dimen>
     <dimen name="about_htl_lnr_lyt_margin">12dp</dimen>
     <dimen name="about_htl_lnr_lyt_margin_left">12dp</dimen>
     <dimen name="about_htl_lnr_lyt_margin_right">12dp</dimen>
@@ -237,10 +284,12 @@
     <dimen name="road_safety_bg_lyt_height">200dp</dimen>
     <dimen name="road_safety_scroll_view_margin_top">100dp</dimen>
     <dimen name="road_safety_scroll_view_margin_bottom">12dp</dimen>
+    <dimen name="road_safety_scroll_view_padding_top">60dp</dimen>
+    <dimen name="road_safety_scroll_view_padding_bottom">12dp</dimen>
     <dimen name="road_safety_lnr_lyt_margin">12dp</dimen>
     <dimen name="road_safety_lnr_lyt_margin_left">12dp</dimen>
     <dimen name="road_safety_lnr_lyt_margin_right">12dp</dimen>
-    <dimen name="road_safety_lnr_lyt_margin_top">12dp</dimen>
+    <dimen name="road_safety_lnr_lyt_margin_top">100dp</dimen>
     <dimen name="road_safety_lnr_lyt_margin_bottom">12dp</dimen>
     <dimen name="road_safety_lnr_lyt_padding">12dp</dimen>
     <dimen name="road_safety_lnr_lyt_padding_left">12dp</dimen>

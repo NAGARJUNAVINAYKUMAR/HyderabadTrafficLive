@@ -22,9 +22,20 @@
             android:padding="@dimen/pub_complaints_lnr_lyt_padding">
 
             <TextView
+                style="@style/text_view_style_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:singleLine="false"
+                android:text="@string/public_complaints"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <TextView
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
                 android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
@@ -153,6 +164,7 @@
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
                 android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
@@ -226,18 +238,18 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="@dimen/pub_complaints_submit_btn_margin_top"
+                android:layout_marginBottom="@dimen/pub_complaints_submit_btn_margin_bottom"
                 android:text="@string/submit" />
 
             <TextView
                 android:id="@+id/tv_already_have_an_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/pub_complaints_note_text_margin_top"
+                android:layout_marginBottom="@dimen/pub_complaints_note_text_margin_bottom"
                 android:gravity="center_horizontal"
-                android:textSize="14sp"
+                android:textSize="@dimen/pub_complaints_note_text_size"
                 android:text="@string/false_report_to_police_is_a_punishable_offence"
                 android:textColor="@color/colorRed" />
 
