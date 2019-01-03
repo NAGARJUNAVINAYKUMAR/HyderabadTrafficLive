@@ -3,67 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img_parking_details_close"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="4dp"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_close_red" />
-
     <TextView
         android:id="@+id/tv_parking_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingStart="12dp"
-        android:paddingLeft="12dp"
-        android:paddingTop="6dp"
-        android:paddingEnd="6dp"
-        android:paddingRight="6dp"
-        android:paddingBottom="6dp"
+        android:paddingStart="@dimen/dlg_title_padding_left"
+        android:paddingLeft="@dimen/dlg_title_padding_left"
+        android:paddingTop="@dimen/dlg_title_padding_top"
+        android:paddingEnd="@dimen/dlg_title_padding_right"
+        android:paddingRight="@dimen/dlg_title_padding_right"
+        android:paddingBottom="@dimen/dlg_title_padding_bottom"
         android:text="@string/parking_details"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:textSize="@dimen/dlg_title_text_size"
         android:textStyle="bold" />
 
-    <!--<RelativeLayout
-        android:id="@+id/rel_parking_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="12dp"
-        android:paddingStart="12dp"
-        android:paddingRight="6dp"
-        android:paddingEnd="6dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
-
-        <TextView
-            android:id="@+id/tv_parking_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/img_close_btn"
-            android:layout_toStartOf="@id/img_close_btn"
-            android:layout_centerVertical="true"
-            android:gravity="start"
-            android:text="@string/parking_details"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_close_btn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_close" />
-
-    </RelativeLayout>-->
+    <ImageView
+        android:id="@+id/img_parking_details_close"
+        android:layout_width="@dimen/dlg_close_img_width"
+        android:layout_height="@dimen/dlg_close_img_height"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/dlg_close_img_margin"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_close_red" />
 
     <LinearLayout
         android:id="@+id/lnr_vehicle_type"
@@ -78,11 +42,11 @@
 
         <TextView
             android:id="@+id/tv_vehicle_type"
+            style="@style/text_view_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vehicle_type"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
+            android:textColor="@color/colorBlack"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -201,7 +201,7 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response);
+                        mUiHelper.showToastShortCentre(response);
                         Log.i(TAG, "response-->"+response);
                         imageData = "";
                         imageFlag = "0";
@@ -267,14 +267,14 @@ public class PublicInterfaceActivity extends AppCompatActivity implements
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openCamera();
                 } else {
-                    mUiHelper.showToastShortCentre(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             case Constants.REQUEST_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openGallery();
                 } else {
-                    mUiHelper.showToastShortCentre(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:

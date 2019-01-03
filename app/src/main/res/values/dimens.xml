@@ -149,6 +149,9 @@
     <dimen name="suggestions_lnr_lyt_padding">12dp</dimen>
     <dimen name="suggestions_et_height">100dp</dimen>
 
+    <dimen name="tr_violations_lnr_lyt_margin">12dp</dimen>
+    <dimen name="tr_violations_lnr_lyt_padding">12dp</dimen>
+
     <dimen name="pub_complaints_lnr_lyt_margin">12dp</dimen>
     <dimen name="pub_complaints_lnr_lyt_padding">12dp</dimen>
     <dimen name="pub_complaints_tv_label_padding_left">20dp</dimen>
@@ -198,6 +201,16 @@
     <dimen name="nearby_parking_space_btn_padding_left">12dp</dimen>
     <dimen name="nearby_parking_space_btn_padding_right">12dp</dimen>
     <dimen name="nearby_parking_space_btn_margin">8dp</dimen>
+
+    <dimen name="dlg_title_text_size">20sp</dimen>
+    <dimen name="dlg_title_padding_left">12dp</dimen>
+    <dimen name="dlg_title_padding_right">12dp</dimen>
+    <dimen name="dlg_title_padding_top">6dp</dimen>
+    <dimen name="dlg_title_padding_bottom">6dp</dimen>
+
+    <dimen name="dlg_close_img_width">24dp</dimen>
+    <dimen name="dlg_close_img_height">24dp</dimen>
+    <dimen name="dlg_close_img_margin">4dp</dimen>
 
     <dimen name="alerts_load_more_text_margin_top">8dp</dimen>
     <dimen name="alerts_load_more_text_margin_bottom">8dp</dimen>

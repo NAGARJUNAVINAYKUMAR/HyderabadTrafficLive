@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
-import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -135,7 +134,7 @@ public class LiveTrafficActivity extends FragmentActivity implements
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     setCurrentLocation();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:
@@ -168,7 +167,7 @@ public class LiveTrafficActivity extends FragmentActivity implements
                 }
                 s = stringBuilder.toString();
             } else {
-                mUiHelper.showToastShort(getResources().getString(R.string.no_address_returned));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.no_address_returned));
             }
         } catch (Exception e) {
             e.printStackTrace();

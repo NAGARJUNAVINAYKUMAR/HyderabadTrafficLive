@@ -15,19 +15,6 @@
         android:layout_below="@id/toolbar_tr_violations"
         android:orientation="vertical">
 
-        <!--<TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:paddingLeft="12dp"
-            android:paddingTop="6dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="6dp"
-            android:text="@string/traffic_violation_fines"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="bold" />-->
-
         <TextView
             android:id="@+id/tv_vehicle_details"
             style="@style/text_view_style_heading"
@@ -69,11 +56,5 @@
         </ScrollView>
 
     </LinearLayout>
-
-    <!--<TextView
-        android:id="@+id/footer"
-        style="@style/footer_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

@@ -89,13 +89,13 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                                 et_captcha.setText(captcha);
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             }
                         } else {
-                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                            mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                         }
                     }
                 },
@@ -103,7 +103,7 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
+                        mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
                     }
                 }));
     }
@@ -124,13 +124,13 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                 Log.i(TAG, "onClick: captcha-->" + captcha);
                 final String matchCaptcha = et_enter_above_captcha.getText().toString().trim();
                 if (TextUtils.isEmpty(vehicleNo)) {
-                    mUiHelper.showToastShort(getResources().getString(R.string.enter_vehicle_no));
+                    mUiHelper.showToastShortCentre(getResources().getString(R.string.enter_vehicle_no));
                     et_vehicle_no.requestFocus();
                 } else if (TextUtils.isEmpty(matchCaptcha)) {
-                    mUiHelper.showToastShort(getResources().getString(R.string.enter_above_captcha));
+                    mUiHelper.showToastShortCentre(getResources().getString(R.string.enter_above_captcha));
                     et_enter_above_captcha.requestFocus();
                 } else if (!matchCaptcha.equals(captcha)) {
-                    mUiHelper.showToastShort(getResources().getString(R.string.enter_valid_captcha));
+                    mUiHelper.showToastShortCentre(getResources().getString(R.string.enter_valid_captcha));
                     et_enter_above_captcha.requestFocus();
                 } else {
                     getTowingDetails(vehicleNo);
@@ -190,14 +190,14 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                                 && !"null".equals(response.toString()) && response.length() > 0) {
                             getTowingRTAInfoDialog(response);
                         } else {
-                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                            mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastLong(getResources().getString(R.string.error));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
             }
         }));
     }
@@ -271,7 +271,7 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
             }
         } else {
             view = inflater.inflate(R.layout.dlg_vehicle_details, null);
@@ -340,7 +340,7 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
             }
         }
         builder.setView(view);

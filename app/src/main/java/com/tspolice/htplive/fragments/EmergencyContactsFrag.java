@@ -83,7 +83,7 @@ public class EmergencyContactsFrag extends Fragment implements
 
     public void nextActivity(Class<?> mClass, String contactType) {
         if (!Networking.isNetworkAvailable(getActivity())) {
-            mUiHelper.showToastLong(getResources().getString(R.string.network_error));
+            mUiHelper.showToastLongCentre(getResources().getString(R.string.network_error));
         } else {
             sharedPrefManager.putString(Constants.EMERGENCY_CONTACTS, contactType);
             mUiHelper.intent(mClass);

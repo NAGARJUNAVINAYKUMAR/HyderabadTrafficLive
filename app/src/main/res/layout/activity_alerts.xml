@@ -6,13 +6,13 @@
     tools:context=".activities.AlertsActivity">
 
     <include
-        android:id="@+id/toolbar_main"
+        android:id="@+id/toolbar_alerts"
         layout="@layout/toolbar_home" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_main">
+        android:layout_below="@id/toolbar_alerts">
 
         <LinearLayout
             android:layout_width="match_parent"

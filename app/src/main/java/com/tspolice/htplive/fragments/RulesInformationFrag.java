@@ -87,7 +87,7 @@ public class RulesInformationFrag extends Fragment implements
 
     public void nextActivity(Class<?> mClass) {
         if (!Networking.isNetworkAvailable(getActivity())) {
-            mUiHelper.showToastLong(getResources().getString(R.string.network_error));
+            mUiHelper.showToastLongCentre(getResources().getString(R.string.network_error));
         } else {
             mUiHelper.intent(mClass);
         }

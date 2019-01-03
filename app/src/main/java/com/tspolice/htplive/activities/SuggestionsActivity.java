@@ -113,7 +113,7 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onResponse(String response) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastLong(response);
+                        mUiHelper.showToastShortCentre(response);
                         et_name.setText("");
                         et_name.setHint(getString(R.string.name));
                         et_email_id.setText("");

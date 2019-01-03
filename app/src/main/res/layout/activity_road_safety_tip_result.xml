@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/road_safety_bg_lyt_height"
         android:layout_below="@id/toolbar_road_safety_tip"
-        android:background="@drawable/header_background"
+        android:background="@drawable/ic_header"
         android:orientation="vertical" />
 
     <LinearLayout

@@ -22,7 +22,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -160,7 +159,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                     }*/
                     setEnableCurrentLocationOnPermission();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 return;
             default:
@@ -205,7 +204,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 }
                 address = addressBuilder.toString();
             } else {
-                mUiHelper.showToastShort(getResources().getString(R.string.no_address_returned));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.no_address_returned));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -395,7 +394,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
+                        mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
                     }
                 }));
     }
@@ -439,10 +438,10 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                                 }
                             } catch (JSONException | ParseException e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             }
                         } else {
-                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                            mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                             /*assert response != null;
                             if (response.length() == 0) {
                                 dayPrice = "Rs: " + Math.round(20 * 0.9) + " to " + Math.round(20 * 0.9) + 6 + " Approximately";
@@ -455,7 +454,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
             }
         }));
     }
@@ -494,11 +493,11 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                                 if (jsonString != null && !"".equals(jsonString)) {
                                     rateChart(new JSONArray(jsonString));
                                 } else {
-                                    mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                                    mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             }
                         }
                     }
@@ -507,7 +506,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
+                        mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
                     }
                 }));
     }
@@ -612,7 +611,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             mUiHelper.dismissProgressDialog();
         } catch (JSONException e) {
             e.printStackTrace();
-            mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+            mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
         }
 
         ImageView img_rate_chart_close = view.findViewById(R.id.img_rate_chart_close);
@@ -659,7 +658,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 if (tv_Distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
                     tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
                     tv_Night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    mUiHelper.showToastShort(getString(R.string.please_select_destination_place));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_select_destination_place));
                 } else {
                     tv_Night.setTextColor(getResources().getColor(R.color.colorAccentDark));
                     tv_Day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -675,7 +674,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 if (tv_Distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
                     tv_Day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     tv_Night.setTextColor(getResources().getColor(R.color.colorAccentDark));
-                    mUiHelper.showToastShort(getString(R.string.please_select_destination_place));
+                    mUiHelper.showToastShortCentre(getString(R.string.please_select_destination_place));
                 } else {
                     tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
                     tv_Night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));

@@ -9,10 +9,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.text.Editable;
 import android.text.TextWatcher;
 
@@ -22,7 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.adapters.CommonRecyclerAdapter;
-import com.tspolice.htplive.adapters.MyRecyclerViewItemDecoration;
 import com.tspolice.htplive.models.CommonModel;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
@@ -182,17 +179,17 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                                 mRecyclerView.setAdapter(mCommonRecyclerAdapter);
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             }
                         } else {
-                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                            mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 mUiHelper.dismissProgressDialog();
-                mUiHelper.showToastShort(getResources().getString(R.string.error));
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
             }
         }));
     }
@@ -213,7 +210,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     makeCall();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:

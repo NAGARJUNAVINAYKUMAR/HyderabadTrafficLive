@@ -175,17 +175,17 @@ public class TrPSInfoActivity extends AppCompatActivity {
                                 mRecyclerView.setAdapter(mTrPSInfoAdapter);
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                mUiHelper.showToastShort(getResources().getString(R.string.something_went_wrong));
+                                mUiHelper.showToastShortCentre(getResources().getString(R.string.something_went_wrong));
                             }
                         } else {
-                            mUiHelper.showToastShort(getResources().getString(R.string.empty_response));
+                            mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShort(getResources().getString(R.string.error));
+                        mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
                     }
                 }));
     }
@@ -205,7 +205,7 @@ public class TrPSInfoActivity extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     makeCall();
                 } else {
-                    mUiHelper.showToastShort(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:

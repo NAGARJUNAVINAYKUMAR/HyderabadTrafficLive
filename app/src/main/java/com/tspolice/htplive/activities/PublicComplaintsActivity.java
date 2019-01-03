@@ -106,7 +106,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getCurrentLocation();
                 } else {
-                    mUiHelper.showToastShortCentre(getResources().getString(R.string.permission_denied));
+                    mUiHelper.showToastLongCentre(getResources().getString(R.string.permission_denied));
                 }
                 break;
             default:

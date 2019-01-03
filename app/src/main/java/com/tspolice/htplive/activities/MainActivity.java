@@ -63,19 +63,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onReceive(Context context, Intent intent) {
                 switch (Objects.requireNonNull(intent.getAction())) {
                     case Constants.REGISTRATION_SUCCESS:
-                        //mUiHelper.showToastShort(getString(R.string.device_is_ready));
+                        //mUiHelper.showToastShortCentre(getString(R.string.device_is_ready));
                         Log.i(TAG, "Success--> success");
                         break;
                     case Constants.REGISTRATION_ERROR:
-                        //mUiHelper.showToastShort(getString(R.string.gcm_registration_error));
+                        //mUiHelper.showToastShortCentre(getString(R.string.gcm_registration_error));
                         Log.i(TAG, "Error--> error");
                         break;
                     case Constants.REGISTRATION_TOKEN_SENT:
-                        //mUiHelper.showToastShort(getString(R.string.ready_to_recieve_push_notifications));
+                        //mUiHelper.showToastShortCentre(getString(R.string.ready_to_recieve_push_notifications));
                         Log.i(TAG, "Token Sent--> sent");
                         break;
                     default:
-                        //mUiHelper.showToastShort(getString(R.string.error_occured));
+                        //mUiHelper.showToastShortCentre(getString(R.string.error_occured));
                         Log.i(TAG, "Default--> default");
                         break;
                 }
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         this.doubleBackToExitPressedOnce = true;
-        mUiHelper.showToastShort(getResources().getString(R.string.click_back_again_to_close));
+        mUiHelper.showToastShortCentre(getResources().getString(R.string.click_back_again_to_close));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
