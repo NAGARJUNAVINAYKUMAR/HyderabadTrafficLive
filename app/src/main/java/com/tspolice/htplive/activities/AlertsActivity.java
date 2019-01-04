@@ -77,8 +77,11 @@ public class AlertsActivity extends AppCompatActivity {
                                     JSONObject jsonObject = response.getJSONObject(i);
                                     AlertsModel model = new AlertsModel();
                                     model.setId(jsonObject.getString("id"));
-                                    model.setAdvise(jsonObject.getString("advise"));
-                                    model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                    String advice = jsonObject.getString("advise");
+                                    String[] advices = advice.split("\n\n");
+                                    model.setAdvise(advices[1]);
+                                    //model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                    model.setUpdatedDate(advices[0]);
                                     mAlertsList.add(model);
                                     if (i == 2) {
                                         lastId = mAlertsList.get(i).getId();
@@ -121,8 +124,11 @@ public class AlertsActivity extends AppCompatActivity {
                                     AlertsModel model = new AlertsModel();
                                     model.setId(jsonObject.getString("id"));
                                     arrayList.add(jsonObject.getString("id"));
-                                    model.setAdvise(jsonObject.getString("advise"));
-                                    model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                    String advice = jsonObject.getString("advise");
+                                    String[] advices = advice.split("\n\n");
+                                    model.setAdvise(advices[1]);
+                                    //model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                    model.setUpdatedDate(advices[0]);
                                     mAlertsList.add(model);
                                     if (i == 2) {
                                         lastId = arrayList.get(i);
