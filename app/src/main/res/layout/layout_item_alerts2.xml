@@ -1,44 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/alerts_lyt_padding">
+    android:padding="@dimen/alerts_lyt_item_padding">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
+        android:id="@+id/rel_lyt_right_shape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dashboard_card_view_margin"
-        android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardBackgroundColor="@color/cardview_light_background"
-        card_view:cardCornerRadius="@dimen/alerts_card_view_corners">
+        android:layout_centerVertical="true">
 
-        <RelativeLayout
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/alerts_lyt_padding">
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dashboard_card_view_margin"
+            android:foreground="?android:attr/selectableItemBackground"
+            card_view:cardBackgroundColor="@color/cardview_light_background"
+            card_view:cardCornerRadius="@dimen/alerts_card_view_corners">
 
-            <TextView
-                android:id="@+id/tv_alert_text"
-                android:layout_toLeftOf="@id/img_right_arrow"
-                android:layout_toStartOf="@id/img_right_arrow"
-                android:layout_centerVertical="true"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/alert_text"
-                android:textColor="@color/colorBlack"/>
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="92dp"
+                android:paddingRight="92dp"
+                android:paddingBottom="16dp">
 
-            <ImageView
-                android:id="@+id/img_right_arrow"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_alerts_left_shape"/>
+                <TextView
+                    android:id="@+id/tv_alert_text_right_shape"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alert_text"
+                    android:textColor="@color/colorBlack" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_alerts_right_shape"
+        android:layout_width="88dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_alerts_right_shape" />
+
+    <RelativeLayout
+        android:id="@+id/rel_lyt_right_shape_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:padding="6dp"
+        android:gravity="center"
+        tools:ignore="RelativeOverlap">
+
+        <TextView
+            android:id="@+id/tv_alert_text_right_shaped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/updated_dt_text2"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

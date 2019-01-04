@@ -216,7 +216,7 @@
     <dimen name="alerts_load_more_text_margin_bottom">8dp</dimen>
     <dimen name="alerts_load_more_text_padding_top">4dp</dimen>
     <dimen name="alerts_load_more_text_padding_bottom">4dp</dimen>
-    <dimen name="alerts_lyt_padding">8dp</dimen>
+    <dimen name="alerts_lyt_item_padding">8dp</dimen>
     <dimen name="alerts_card_view_corners">12dp</dimen>
     <dimen name="alerts_date_margin_top">8dp</dimen>
 

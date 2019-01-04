@@ -83,6 +83,7 @@
     <string name="about_traffic_police">About Traffic Police</string>
     <string name="alert_text">Dt: 12–09–2018 at 09:22 hrs - Slow movement of traffic from Karkhana to Secunderabad club.</string>
     <string name="updated_dt_text">Updated Dt: 12–09–2018 09:25hrs</string>
+    <string name="updated_dt_text2">Updated on\n12/09/2018 09:25</string>
     <string name="load_more"><u>Load More</u></string>
     <string name="we_are_waiting_for_your_valuable_suggestions">We are waiting for your valuable Suggestions</string>
     <string name="please_let_us_know_your_valuable_suggestions">Please let us know your valuable suggestions</string>

@@ -26,8 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
-            android:paddingTop="60dp"
-            android:paddingBottom="12dp"
+            android:paddingTop="@dimen/road_safety_scroll_view_padding_top"
+            android:paddingBottom="@dimen/road_safety_scroll_view_margin_bottom"
             tools:ignore="UselessParent">
 
             <LinearLayout
