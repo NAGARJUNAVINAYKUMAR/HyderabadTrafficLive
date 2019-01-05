@@ -37,10 +37,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
-                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
-                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/vehicle_number"
                 android:textColor="@color/colorBlack" />
 
@@ -55,29 +55,49 @@
                 android:maxLines="1"
                 tools:ignore="Autofill" />
 
-            <EditText
-                android:id="@+id/et_captcha"
-                style="@style/edit_text_style_drawable"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:layout_marginTop="24dp"
-                android:enabled="false"
-                android:hint="@string/captcha"
-                android:textSize="24sp"
-                android:inputType="number"
-                android:maxLines="1"
-                tools:ignore="Autofill" />
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginBottom="@dimen/pub_complaints_et_margin_bottom"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <EditText
+                    android:id="@+id/et_captcha"
+                    style="@style/edit_text_style_square"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.5"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="@string/_12345"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="24sp"
+                    tools:ignore="Autofill" />
+
+                <ImageView
+                    android:id="@+id/img_refresh"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.5"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_refresh" />
+
+            </LinearLayout>
 
             <TextView
                 style="@style/text_view_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pub_complaints_tv_label_margin_top"
-                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingStart="@dimen/pub_complaints_tv_label_padding_left"
-                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingLeft="@dimen/pub_complaints_tv_label_padding_left"
                 android:paddingEnd="@dimen/pub_complaints_tv_label_padding_right"
+                android:paddingRight="@dimen/pub_complaints_tv_label_padding_right"
                 android:text="@string/captcha"
                 android:textColor="@color/colorBlack" />
 
@@ -93,18 +113,18 @@
                 android:maxLines="1"
                 tools:ignore="Autofill" />
 
-            <!--<Button
+            <Button
                 android:id="@+id/btn_submit"
                 style="@style/button_style"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/pub_complaints_submit_btn_margin_top"
                 android:layout_marginBottom="@dimen/pub_complaints_submit_btn_margin_bottom"
-                android:text="@string/submit" />-->
+                android:gravity="center"
+                android:text="@string/submit" />
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pub_complaints_submit_btn_margin_top"
@@ -132,7 +152,7 @@
                     android:layout_weight="0.5"
                     android:text="@string/get_data" />
 
-            </LinearLayout>
+            </LinearLayout>-->
 
         </LinearLayout>
 

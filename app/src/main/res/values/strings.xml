@@ -297,6 +297,7 @@
     <string name="vehicle_number">Vehicle Number</string>
     <string name="question">Question</string>
     <string name="answer">Answer</string>
+    <string name="_12345">12345</string>
 
     <string-array name="categories">
         <item>-- Select Category --</item>

@@ -2,6 +2,7 @@ package com.tspolice.htplive.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -20,6 +22,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.tspolice.htplive.R;
+import com.tspolice.htplive.captcha.MathCaptcha;
+import com.tspolice.htplive.captcha.TextCaptcha;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
@@ -30,7 +34,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RtaTowingActivity extends AppCompatActivity implements View.OnClickListener {
+public class RtaTowingActivity extends AppCompatActivity implements
+        View.OnClickListener {
 
     private static final String TAG = "RtaTowingActivity-->";
     private UiHelper mUiHelper;
@@ -38,6 +43,7 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
     private Dialog towingRTAInfoDialog;
     private TextView tv_rta_towing;
     private EditText et_vehicle_no, et_captcha, et_enter_above_captcha;
+    private ImageView img_refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,9 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_rta_towing);
 
         initViews();
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/ITCBLKAD.TTF");
+        et_captcha.setTypeface(typeface);
 
         initObjects();
 
@@ -62,10 +71,10 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
         et_vehicle_no = findViewById(R.id.et_vehicle_no);
         et_captcha = findViewById(R.id.et_captcha);
         et_enter_above_captcha = findViewById(R.id.et_enter_above_captcha);
-        Button btn_clear = findViewById(R.id.btn_clear);
-        Button btn_get_data = findViewById(R.id.btn_get_data);
-        btn_clear.setOnClickListener(this);
-        btn_get_data.setOnClickListener(this);
+        img_refresh = findViewById(R.id.img_refresh);
+        Button btn_submit = findViewById(R.id.btn_submit);
+        img_refresh.setOnClickListener(this);
+        btn_submit.setOnClickListener(this);
     }
 
     private void initObjects() {
@@ -98,28 +107,27 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
                             mUiHelper.showToastShortCentre(getResources().getString(R.string.empty_response));
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mUiHelper.dismissProgressDialog();
-                        mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
-                    }
-                }));
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mUiHelper.dismissProgressDialog();
+                mUiHelper.showToastShortCentre(getResources().getString(R.string.error));
+            }
+        }));
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_clear:
-                et_vehicle_no.setText("");
-                et_vehicle_no.setHint(getResources().getString(R.string.enter_vehicle_no));
+            case R.id.img_refresh:
+                //et_vehicle_no.setText("");
+                //et_vehicle_no.setHint(getResources().getString(R.string.enter_vehicle_no));
                 et_enter_above_captcha.setText("");
                 et_enter_above_captcha.setHint(getResources().getString(R.string.enter_above_captcha));
                 getCaptchaForVehicleDetails();
                 break;
-            case R.id.btn_get_data:
-                String vehicleNo = et_vehicle_no.getText().toString().trim();
+            case R.id.btn_submit:
+                final String vehicleNo = et_vehicle_no.getText().toString().trim();
                 final String captcha = et_captcha.getText().toString().trim();
                 Log.i(TAG, "onClick: captcha-->" + captcha);
                 final String matchCaptcha = et_enter_above_captcha.getText().toString().trim();
@@ -176,9 +184,9 @@ public class RtaTowingActivity extends AppCompatActivity implements View.OnClick
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         String ctrl;
         if ("TOWING".equals(mSharedPrefManager.getString(Constants.RTA_TOWING))) {
-            ctrl = "towing";
+            ctrl = Constants.towing;
         } else {
-            ctrl = "RTA";
+            ctrl = Constants.RTA;
         }
         VolleySingleton.getInstance(this).addToRequestQueue(new JsonObjectRequest(Request.Method.GET,
                 "" + URLs.getVehicleDetails("" + vehicleNo, "" + ctrl), null,

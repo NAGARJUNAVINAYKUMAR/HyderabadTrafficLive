@@ -37,6 +37,8 @@ public class Constants {
     public static final String TRAFFIC_OFFICERS = "TRAFFIC_OFFICERS";
     public static final String CONTROL_ROOM_PH_NO = "914027852482";
     public static final String RTA_TOWING = "RTA_TOWING";
+    public static final String towing = "towing";
+    public static final String RTA = "RTA";
 
     static final String DEVICE_UUID = "DEVICE_UUID";
     public static final String ANDROID = "ANDROID";
