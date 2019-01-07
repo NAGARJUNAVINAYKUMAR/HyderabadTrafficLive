@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/about_htl_bg_lyt_height"
-        android:background="@drawable/header_background"
+        android:background="@drawable/ic_header"
         android:orientation="vertical" />
 
     <LinearLayout
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/road_safety_lnr_lyt_margin_left"
         android:layout_marginLeft="@dimen/road_safety_lnr_lyt_margin_left"
-        android:layout_marginTop="@dimen/road_safety_scroll_view_margin_top"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="@dimen/road_safety_lnr_lyt_margin_right"
         android:layout_marginRight="@dimen/road_safety_lnr_lyt_margin_right"
         android:layout_marginBottom="@dimen/road_safety_lnr_lyt_margin_bottom"

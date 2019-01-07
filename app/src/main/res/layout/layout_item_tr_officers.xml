@@ -24,8 +24,8 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/tr_officer_lnr_lyt_margin_left"
         android:layout_marginLeft="@dimen/tr_officer_lnr_lyt_margin_right"
-        android:layout_marginRight="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@id/img_contact"
         android:layout_toRightOf="@id/img_contact"
         android:layout_toLeftOf="@id/img_call_btn"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dummy_phone_no"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             tools:ignore="RelativeOverlap" />
 
     </LinearLayout>

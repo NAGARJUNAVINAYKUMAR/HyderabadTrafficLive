@@ -254,8 +254,8 @@
     <dimen name="tr_officer_info_lyt_padding">16dp</dimen>
     <dimen name="tr_officer_img_height">32dp</dimen>
     <dimen name="tr_officer_img_width">32dp</dimen>
-    <dimen name="tr_officer_lnr_lyt_margin_left">4dp</dimen>
-    <dimen name="tr_officer_lnr_lyt_margin_right">4dp</dimen>
+    <dimen name="tr_officer_lnr_lyt_margin_left">8dp</dimen>
+    <dimen name="tr_officer_lnr_lyt_margin_right">8dp</dimen>
 
     <dimen name="tr_officer_call_img_height">24dp</dimen>
     <dimen name="tr_officer_call_img_width">24dp</dimen>
@@ -292,7 +292,7 @@
     <dimen name="about_htl_tv_padding_bottom">12dp</dimen>
     <dimen name="about_htl_htp_logo_width">100dp</dimen>
     <dimen name="about_htl_htp_logo_height">100dp</dimen>
-    <dimen name="about_htl_htp_logo_margin_top">55dp</dimen>
+    <dimen name="about_htl_htp_logo_margin_top">24dp</dimen>
 
     <dimen name="road_safety_bg_lyt_height">200dp</dimen>
     <dimen name="road_safety_scroll_view_margin_top">100dp</dimen>

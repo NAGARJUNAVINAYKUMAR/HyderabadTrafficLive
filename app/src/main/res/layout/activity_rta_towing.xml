@@ -76,7 +76,7 @@
                     android:hint="@string/_12345"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:textSize="24sp"
+                    android:textSize="30sp"
                     tools:ignore="Autofill" />
 
                 <ImageView

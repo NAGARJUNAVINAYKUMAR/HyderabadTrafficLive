@@ -12,19 +12,20 @@ public abstract class Captcha {
     protected String answer = "";
     private int width;
     protected int height;
-    int x = 0;
-    int y = 0;
+    int x = 0, y = 0;
     static List<Integer> usedColors;
 
     protected abstract Bitmap image();
 
     public static int color() {
-        Random r = new Random();
+        Random random = new Random();
         int number;
+
         do {
-            number = r.nextInt(9);
+            number = random.nextInt(9);
         } while (usedColors.contains(number));
         usedColors.add(number);
+
         switch (number) {
             case 0:
                 return Color.BLACK;

@@ -4,7 +4,7 @@ public class Constants {
     public static final int REQUEST_CAMERA = 125;
     public static final int REQUEST_STORAGE = 225;
     public static final int REQUEST_FINE_LOCATION = 325;
-    static final int REQUEST_COARSE_LOCATION = 425;
+    public static final int REQUEST_COARSE_LOCATION = 425;
     public static final int REQUEST_CALL_PHONE = 525;
 
     public static final int INT_CAMERA = 1;
@@ -38,6 +38,7 @@ public class Constants {
     public static final String CONTROL_ROOM_PH_NO = "914027852482";
     public static final String RTA_TOWING = "RTA_TOWING";
     public static final String towing = "towing";
+    public static final String TOWING = "TOWING";
     public static final String RTA = "RTA";
 
     static final String DEVICE_UUID = "DEVICE_UUID";

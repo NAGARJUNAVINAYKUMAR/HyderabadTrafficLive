@@ -78,10 +78,17 @@ public class AlertsActivity extends AppCompatActivity {
                                     AlertsModel model = new AlertsModel();
                                     model.setId(jsonObject.getString("id"));
                                     String advice = jsonObject.getString("advise");
-                                    String[] advices = advice.split("\n\n");
-                                    model.setAdvise(advices[1]);
-                                    //model.setUpdatedDate(jsonObject.getString("updatedDate"));
-                                    model.setUpdatedDate(advices[0]);
+                                    try {
+                                        String[] advices = advice.split("\n\n");
+                                        model.setAdvise(advices[1]);
+                                        //model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                        String[] sArray = advices[0].split("at");
+                                        model.setUpdatedDate(sArray[0].trim() + "\n" + sArray[1].trim());
+                                    } catch (ArrayIndexOutOfBoundsException e) {
+                                        e.printStackTrace();
+                                        model.setAdvise("");
+                                        model.setUpdatedDate("");
+                                    }
                                     mAlertsList.add(model);
                                     if (i == 2) {
                                         lastId = mAlertsList.get(i).getId();
@@ -125,10 +132,17 @@ public class AlertsActivity extends AppCompatActivity {
                                     model.setId(jsonObject.getString("id"));
                                     arrayList.add(jsonObject.getString("id"));
                                     String advice = jsonObject.getString("advise");
-                                    String[] advices = advice.split("\n\n");
-                                    model.setAdvise(advices[1]);
-                                    //model.setUpdatedDate(jsonObject.getString("updatedDate"));
-                                    model.setUpdatedDate(advices[0]);
+                                    try {
+                                        String[] advices = advice.split("\n\n");
+                                        model.setAdvise(advices[1]);
+                                        //model.setUpdatedDate(jsonObject.getString("updatedDate"));
+                                        String[] sArray = advices[0].split("at");
+                                        model.setUpdatedDate(sArray[0].trim() + "\n" + sArray[1].trim());
+                                    } catch (ArrayIndexOutOfBoundsException e) {
+                                        e.printStackTrace();
+                                        model.setAdvise("");
+                                        model.setUpdatedDate("");
+                                    }
                                     mAlertsList.add(model);
                                     if (i == 2) {
                                         lastId = arrayList.get(i);

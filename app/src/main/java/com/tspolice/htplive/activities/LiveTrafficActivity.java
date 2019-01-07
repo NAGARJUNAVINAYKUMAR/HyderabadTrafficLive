@@ -70,8 +70,9 @@ public class LiveTrafficActivity extends FragmentActivity implements
         initObjects();
 
         et_source.setOnClickListener(this);
+        et_destination.setOnClickListener(this);
 
-        et_destination.addTextChangedListener(new TextWatcher() {
+        /*et_destination.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -88,7 +89,7 @@ public class LiveTrafficActivity extends FragmentActivity implements
                     autoCompleteMethod(DEST_PLACE_AUTO_COMPLETE_REQUEST_CODE);
                 }
             }
-        });
+        });*/
     }
 
     private void initViews() {
@@ -213,6 +214,9 @@ public class LiveTrafficActivity extends FragmentActivity implements
         switch (v.getId()) {
             case R.id.et_source:
                 autoCompleteMethod(SOURCE_PLACE_AUTO_COMPLETE_REQUEST_CODE);
+                break;
+            case R.id.et_destination:
+                autoCompleteMethod(DEST_PLACE_AUTO_COMPLETE_REQUEST_CODE);
                 break;
             default:
                 break;

@@ -46,7 +46,7 @@ import com.tspolice.htplive.network.URLParams;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
-import com.tspolice.htplive.utils.LocationTrack;
+import com.tspolice.htplive.utils.GPSTracker;
 import com.tspolice.htplive.utils.PermissionUtil;
 import com.tspolice.htplive.utils.SharedPrefManager;
 import com.tspolice.htplive.utils.UiHelper;
@@ -75,7 +75,8 @@ public class NearByActivity extends FragmentActivity implements
     private GoogleMap mMap;
     private SharedPrefManager mSharedPrefManager;
     private UiHelper mUiHelper;
-    private LocationTrack mLocationTrack;
+    private GPSTracker mGpsTracker;
+    //private LocationTrack mLocationTrack;
     private LatLng latLng;
     private double mLatitude, mLongitude;
     private Button btn_check_parking_space;
@@ -105,8 +106,9 @@ public class NearByActivity extends FragmentActivity implements
 
     private void initObjects() {
         mUiHelper = new UiHelper(this);
-        mLocationTrack = new LocationTrack(this);
+        //mLocationTrack = new LocationTrack(this);
         mSharedPrefManager = SharedPrefManager.getInstance(this);
+        mGpsTracker = new GPSTracker(this);
     }
 
     @Override
@@ -135,9 +137,9 @@ public class NearByActivity extends FragmentActivity implements
     }
 
     public void setCurrentLocation() {
-        if (mLocationTrack.canGetLocation()) {
-            mLatitude = mLocationTrack.getLatitude();
-            mLongitude = mLocationTrack.getLongitude();
+        if (mGpsTracker.canGetLocation()) {
+            mLatitude = mGpsTracker.getLatitude();
+            mLongitude = mGpsTracker.getLongitude();
             latLng = new LatLng(mLatitude, mLongitude);
             addMarker(latLng);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
@@ -328,7 +330,7 @@ public class NearByActivity extends FragmentActivity implements
     private void parkingSpaceDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(NearByActivity.this);
         LayoutInflater inflater = LayoutInflater.from(NearByActivity.this);
-        @SuppressLint("InflateParams") View view = inflater.inflate(R.layout.dlg_check_parking_details, null);
+        @SuppressLint("InflateParams") View view = inflater.inflate(R.layout.dlg_parking_details, null);
         builder.setView(view);
         builder.setCancelable(false);
         mDialogParkingSpace = builder.create();

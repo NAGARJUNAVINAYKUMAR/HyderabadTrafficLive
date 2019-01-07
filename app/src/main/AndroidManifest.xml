@@ -68,7 +68,7 @@
             android:label="@string/title_activity_near_by" />
         <activity android:name=".activities.AlertsActivity" />
         <activity android:name=".activities.TrOfficersContactsActivity" />
-        <activity android:name=".activities.TrafficViolationsActivity" />
+        <activity android:name=".activities.TrViolationsActivity" />
         <activity android:name=".activities.UsefulWebsitesActivity" />
         <activity android:name=".activities.FAQsActivity" />
         <activity android:name=".activities.RoadSafetyTipsActivity" />

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/public_interface_bg_lyt_height"
         android:layout_below="@id/toolbar_public_interface"
-        android:background="@drawable/content_background"
+        android:background="@drawable/ic_header"
         android:orientation="vertical" />
 
     <ScrollView

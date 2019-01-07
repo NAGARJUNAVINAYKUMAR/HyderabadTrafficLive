@@ -57,7 +57,7 @@ public class RtaTowingActivity extends AppCompatActivity implements
 
         initObjects();
 
-        if ("TOWING".equals(mSharedPrefManager.getString(Constants.RTA_TOWING))) {
+        if (Constants.TOWING.equals(mSharedPrefManager.getString(Constants.RTA_TOWING))) {
             tv_rta_towing.setText(getResources().getString(R.string.vehicle_details));
         } else {
             tv_rta_towing.setText(getResources().getString(R.string.towed_vehicle_details));

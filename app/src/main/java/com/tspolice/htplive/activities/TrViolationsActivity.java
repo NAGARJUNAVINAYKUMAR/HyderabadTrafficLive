@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.TableLayout;
@@ -14,11 +13,8 @@ import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.tspolice.htplive.R;
-import com.tspolice.htplive.adapters.AlertsAdapter;
-import com.tspolice.htplive.models.AlertsModel;
 import com.tspolice.htplive.models.ViolationsModel;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
@@ -31,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrafficViolationsActivity extends AppCompatActivity {
+public class TrViolationsActivity extends AppCompatActivity {
 
     private UiHelper mUiHelper;
     private List<ViolationsModel> violationsList;
@@ -45,9 +41,9 @@ public class TrafficViolationsActivity extends AppCompatActivity {
     }
 
     private void sectionMasterByWheeler() {
-        mUiHelper = new UiHelper(TrafficViolationsActivity.this);
+        mUiHelper = new UiHelper(TrViolationsActivity.this);
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        VolleySingleton.getInstance(TrafficViolationsActivity.this).addToRequestQueue(new JsonObjectRequest(Request.Method.GET,
+        VolleySingleton.getInstance(TrViolationsActivity.this).addToRequestQueue(new JsonObjectRequest(Request.Method.GET,
                 URLs.sectionMasterByWheeler("2"), null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -59,14 +55,14 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                 TableLayout tableLayoutViolations = findViewById(R.id.tbl_traffic_violations);
                                 tableLayoutViolations.removeAllViews();
 
-                                TableRow tableRow = new TableRow(TrafficViolationsActivity.this);
+                                TableRow tableRow = new TableRow(TrViolationsActivity.this);
                                 tableRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
                                 TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
 
-                                final int tableTextSize = 18, textPadding = 6;
+                                final int tableTextSize = 20, textPadding = 6;
 
-                                TextView tv_s_no = new TextView(TrafficViolationsActivity.this);
+                                /*TextView tv_s_no = new TextView(TrViolationsActivity.this);
                                 tv_s_no.setText(getResources().getString(R.string.s_no));
                                 tv_s_no.setBackgroundResource(R.drawable.cell_heading);
                                 tv_s_no.setGravity(Gravity.CENTER);
@@ -75,9 +71,9 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                 tv_s_no.setLayoutParams(layoutParams);
                                 tv_s_no.setPadding(textPadding, textPadding, textPadding, textPadding);
                                 tv_s_no.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
-                                tableRow.addView(tv_s_no);
+                                tableRow.addView(tv_s_no);*/
 
-                                TextView tv_name_of_the_offence = new TextView(TrafficViolationsActivity.this);
+                                TextView tv_name_of_the_offence = new TextView(TrViolationsActivity.this);
                                 tv_name_of_the_offence.setText(getResources().getString(R.string.name_of_the_offence));
                                 tv_name_of_the_offence.setBackgroundResource(R.drawable.cell_heading);
                                 tv_name_of_the_offence.setGravity(Gravity.CENTER);
@@ -88,7 +84,7 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                 tv_name_of_the_offence.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
                                 tableRow.addView(tv_name_of_the_offence);
 
-                                TextView tv_penal_section = new TextView(TrafficViolationsActivity.this);
+                                TextView tv_penal_section = new TextView(TrViolationsActivity.this);
                                 tv_penal_section.setText(getResources().getString(R.string.penal_section));
                                 tv_penal_section.setBackgroundResource(R.drawable.cell_heading);
                                 tv_penal_section.setGravity(Gravity.CENTER);
@@ -99,7 +95,7 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                 tv_penal_section.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
                                 tableRow.addView(tv_penal_section);
 
-                                TextView tv_amount = new TextView(TrafficViolationsActivity.this);
+                                TextView tv_amount = new TextView(TrViolationsActivity.this);
                                 tv_amount.setText(getResources().getString(R.string.amount));
                                 tv_amount.setBackgroundResource(R.drawable.cell_heading);
                                 tv_amount.setGravity(Gravity.CENTER);
@@ -125,13 +121,13 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                     violationsModel.setPenaltyPoints(jsonObject.getString("penalty_points"));
                                     violationsList.add(violationsModel);
 
-                                    TableRow tableRow1 = new TableRow(TrafficViolationsActivity.this);
+                                    TableRow tableRow1 = new TableRow(TrViolationsActivity.this);
                                     tableRow1.setLayoutParams(layoutParams);
                                     tableRow1.setClickable(true);
 
-                                    for (int j = 1; j <= 4; j++) {
-                                        if (j == 1) {
-                                            TextView tv = new TextView(TrafficViolationsActivity.this);
+                                    for (int j = 1; j <= 3; j++) {
+                                        /*if (j == 1) {
+                                            TextView tv = new TextView(TrViolationsActivity.this);
                                             tv.setLayoutParams(layoutParams);
                                             tv.setBackgroundResource(R.drawable.cell_shape);
                                             tv.setPadding(textPadding, textPadding, textPadding, textPadding);
@@ -141,8 +137,9 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                             tv.setGravity(Gravity.CENTER);
                                             tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
                                             tableRow1.addView(tv);
-                                        } else if (j == 2) {
-                                            TextView tv = new TextView(TrafficViolationsActivity.this);
+                                        } else*/
+                                        if (j == 1) {
+                                            TextView tv = new TextView(TrViolationsActivity.this);
                                             tv.setLayoutParams(layoutParams);
                                             tv.setBackgroundResource(R.drawable.cell_shape);
                                             tv.setPadding(textPadding, textPadding, textPadding, textPadding);
@@ -151,8 +148,8 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                             tv.setGravity(Gravity.CENTER);
                                             tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
                                             tableRow1.addView(tv);
-                                        } else if (j == 3) {
-                                            TextView tv = new TextView(TrafficViolationsActivity.this);
+                                        } else if (j == 2) {
+                                            TextView tv = new TextView(TrViolationsActivity.this);
                                             tv.setLayoutParams(layoutParams);
                                             tv.setBackgroundResource(R.drawable.cell_shape);
                                             tv.setPadding(textPadding, textPadding, textPadding, textPadding);
@@ -162,7 +159,7 @@ public class TrafficViolationsActivity extends AppCompatActivity {
                                             tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, tableTextSize);
                                             tableRow1.addView(tv);
                                         } else {
-                                            TextView tv = new TextView(TrafficViolationsActivity.this);
+                                            TextView tv = new TextView(TrViolationsActivity.this);
                                             tv.setLayoutParams(layoutParams);
                                             tv.setBackgroundResource(R.drawable.cell_shape);
                                             tv.setPadding(textPadding, textPadding, textPadding, textPadding);

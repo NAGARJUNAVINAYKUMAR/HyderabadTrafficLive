@@ -28,7 +28,7 @@ public class AlertsAdapter extends RecyclerView.Adapter<AlertsAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_alerts2, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_alerts, parent, false);
         return new MyViewHolder(view);
     }
 
