@@ -51,12 +51,4 @@ public class HomeActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-    /*public void setTitle(int resource) {
-        Objects.requireNonNull(((AppCompatActivity) getApplicationContext()).getSupportActionBar()).setTitle(resource);
-    }
-
-    public void setSubTitle(int resource) {
-        Objects.requireNonNull(((AppCompatActivity) getApplicationContext()).getSupportActionBar()).setSubtitle(resource);
-    }*/
 }

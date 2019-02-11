@@ -12,7 +12,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
-import com.tspolice.htplive.R;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
@@ -35,14 +34,11 @@ public class GCMRegistrationIntentService extends IntentService {
         Intent intentRegnComplete;
         try {
             InstanceID instanceID = InstanceID.getInstance(GCMRegistrationIntentService.this);
-            String gcmToken = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
-                    GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            String gcmToken = instanceID.getToken("391430358860", GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             Log.i(TAG, "gcmToken-->" + gcmToken);
             String deviceUUID = HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this);
             Log.i(TAG, "deviceUUID-->" + deviceUUID);
-
             sendGcmTokenToServer(gcmToken, deviceUUID);
-
             intentRegnComplete = new Intent(Constants.REGISTRATION_SUCCESS);
             intentRegnComplete.putExtra(Constants.GCM_TOKEN, gcmToken);
         } catch (Exception e) {

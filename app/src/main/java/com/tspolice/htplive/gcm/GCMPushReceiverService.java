@@ -23,9 +23,9 @@ public class GCMPushReceiverService extends GcmListenerService {
         if (data != null) {
             try {
                 Bundle notificationData = data.getBundle("notification");
+                assert notificationData != null;
                 String message = notificationData.getString("body");
                 String title = notificationData.getString("title");
-
                 sendNotificationToUser(message, title);
                 Log.d(TAG, "onMessageReceived()= [" + from + "], data = [" + data + "]");
             } catch (Exception e) {

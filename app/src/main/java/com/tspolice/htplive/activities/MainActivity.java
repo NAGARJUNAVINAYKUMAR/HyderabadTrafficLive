@@ -63,19 +63,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onReceive(Context context, Intent intent) {
                 switch (Objects.requireNonNull(intent.getAction())) {
                     case Constants.REGISTRATION_SUCCESS:
-                        //mUiHelper.showToastShortCentre(getString(R.string.device_is_ready));
                         Log.i(TAG, "Success--> success");
                         break;
                     case Constants.REGISTRATION_ERROR:
-                        //mUiHelper.showToastShortCentre(getString(R.string.gcm_registration_error));
                         Log.i(TAG, "Error--> error");
                         break;
                     case Constants.REGISTRATION_TOKEN_SENT:
-                        //mUiHelper.showToastShortCentre(getString(R.string.ready_to_recieve_push_notifications));
                         Log.i(TAG, "Token Sent--> sent");
                         break;
                     default:
-                        //mUiHelper.showToastShortCentre(getString(R.string.error_occured));
                         Log.i(TAG, "Default--> default");
                         break;
                 }
