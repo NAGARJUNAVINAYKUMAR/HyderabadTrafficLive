@@ -48,7 +48,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.models.Distance;
@@ -368,10 +367,11 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                     @Override
                     public void onResponse(JSONObject response) {
                         mUiHelper.dismissProgressDialog();
-                        JsonParser jsonParser = new JsonParser();
-                        JsonElement jsonElement = jsonParser.parse(response.toString());
-                        Gson gson = new Gson();
-                        DistancePojo distancePojo = gson.fromJson(jsonElement, DistancePojo.class);
+                        //JsonParser jsonParser = new JsonParser();
+                        //JsonElement jsonElement = new JsonParser().parse(response.toString());
+                        //Gson gson = new Gson();
+                        DistancePojo distancePojo = new Gson().fromJson(new JsonParser().parse(response.toString()), DistancePojo.class);
+                        //DestinationAddrModel destinationAddrModel = new Gson().fromJson(new JsonParser().parse(response.toString()), DestinationAddrModel.class);
                         Rows[] t = distancePojo.getRows();
                         String distance = null;
                         for (Rows rows : t) {

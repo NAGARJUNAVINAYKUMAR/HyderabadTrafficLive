@@ -95,7 +95,6 @@ public class SuggestionsActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    // finished with live url
     private void saveSuggestions(String name, String email, String contactNo, String suggestion) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         JSONObject jsonRequest;

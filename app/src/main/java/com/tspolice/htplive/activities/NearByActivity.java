@@ -91,6 +91,7 @@ public class NearByActivity extends FragmentActivity implements
         setContentView(R.layout.activity_nearby);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         initViews();
