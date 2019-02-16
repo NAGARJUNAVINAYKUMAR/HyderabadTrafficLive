@@ -99,7 +99,7 @@
             android:background="@color/colorWhite">
 
             <TextView
-                android:id="@+id/tv_Distance"
+                android:id="@+id/tv_distance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="1dp"
@@ -115,7 +115,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/tv_MinFare"
+                android:id="@+id/tv_min_fare"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
@@ -192,7 +192,7 @@
                 android:visibility="gone" />
 
             <TextView
-                android:id="@+id/tv_FareEstm"
+                android:id="@+id/tv_fare_estm_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -220,7 +220,7 @@
             android:weightSum="3">
 
             <TextView
-                android:id="@+id/tv_Day"
+                android:id="@+id/tv_day"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -240,7 +240,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/tv_Night"
+                android:id="@+id/tv_night"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

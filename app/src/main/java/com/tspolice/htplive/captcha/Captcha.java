@@ -8,7 +8,7 @@ import java.util.Random;
 
 public abstract class Captcha {
 
-    protected Bitmap image;
+    Bitmap image;
     protected String answer = "";
     private int width;
     protected int height;

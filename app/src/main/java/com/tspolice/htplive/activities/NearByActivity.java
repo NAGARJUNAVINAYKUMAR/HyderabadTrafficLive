@@ -581,7 +581,7 @@ public class NearByActivity extends FragmentActivity implements
                 @Override
                 public byte[] getBody() {
                     try {
-                        return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
+                        return mRequestBody.getBytes(URLs.utf_8);
                     } catch (UnsupportedEncodingException uee) {
                         VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
                         return null;
