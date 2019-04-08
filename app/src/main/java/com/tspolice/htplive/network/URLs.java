@@ -45,8 +45,6 @@ public class URLs {
                 + "&" + URLParams.key + "=" + googleApiKey;
     }
 
-    //https://maps.googleapis.com/maps/api/distancematrix/json?origins=17.4014434,78.4765565&destinations=17.439929499999998,78.4982741&departure_time=now&key=AIzaSyAdJ3Z4n1oMYfyViKxK2G1rjCf1pUYpY6Y
-
     public static final String getHydPoliceStations = rootUrl + "getHydPoliceStations"
             + "?" + URLParams.updatedDate + "=" + URLParams.updatedDate
             + "&" + URLParams.language + "=" + URLParams.ENG;
@@ -55,7 +53,7 @@ public class URLs {
 
     public static final String getParkingDetails = rootUrl + "getParkingDetails";
 
-    public static final String eChallanStatus = "https://www.echallan.org/publicview/";
+    public static final String eChallanStatus = "https://echallan.tspolice.gov.in";
 
     public static final String getCaptchaForVehicleDetails = rootUrl + "getCaptchaForVehicleDetails";
 

@@ -6,7 +6,6 @@
     android:background="@drawable/ic_main_bg"
     tools:context=".activities.MainActivity">
 
-    // updated new android studio on 11th Feb 2019
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

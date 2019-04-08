@@ -28,7 +28,7 @@ public class TextCaptcha extends Captcha {
         new TextCaptcha(0, 0, wordLength, opt);
     }
 
-    private TextCaptcha(int width, int height, int wordLength, TextOptions opt) {
+    public TextCaptcha(int width, int height, int wordLength, TextOptions opt) {
         setHeight(height);
         setWidth(width);
         this.options = opt;

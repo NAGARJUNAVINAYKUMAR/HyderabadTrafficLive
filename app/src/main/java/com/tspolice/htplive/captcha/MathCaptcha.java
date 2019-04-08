@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class MathCaptcha extends Captcha {
 
-    private MathOptions options;
+    protected MathOptions options;
 
     public enum MathOptions {
         PLUS_MINUS,

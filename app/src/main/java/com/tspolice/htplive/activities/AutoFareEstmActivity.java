@@ -48,10 +48,10 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.tspolice.htplive.R;
 import com.tspolice.htplive.models.Distance;
-import com.tspolice.htplive.models.DistanceMatrix;
 import com.tspolice.htplive.models.DistancePojo;
 import com.tspolice.htplive.models.Elements;
 import com.tspolice.htplive.models.Rows;
@@ -84,20 +84,23 @@ public class AutoFareEstmActivity extends FragmentActivity implements
 
     private static final String TAG = "AutoFareEstmActivity-->";
     private EditText et_search, et_destination;
-    private TextView tv_distance, tv_min_fare, tv_fare_estm_price, tv_day, tv_night;
+    private TextView tv_Distance, tv_MinFare, tv_FareEstm, tv_Day, tv_Night;
 
     private GoogleMap mMap;
     //private GoogleApiClient mGoogleApiClient;
     //private LocationRequest mLocationRequest;
+
     private UiHelper mUiHelper;
     private LocationTrack mLocationTrack;
     private SharedPrefManager mSharedPrefManager;
+
     private Dialog mDialogRateChart, mDialogFareEstm;
     private double mLatitude, mLongitude;
     private LatLng mLatLng;
     private final int SOURCE_PLACE_AUTO_COMPLETE_REQUEST_CODE = 2, DEST_PLACE_AUTO_COMPLETE_REQUEST_CODE = 3;
+
     private String dayPrice, nightPrice;
-    private float length, day, night;
+    float length, day, night;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,6 @@ public class AutoFareEstmActivity extends FragmentActivity implements
         setContentView(R.layout.activity_autofare_estm);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         initViews();
@@ -346,7 +348,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 double destLongitude = place.getLatLng().longitude;
                 Log.d(TAG, "destLatitude" + destLatitude + ", destLongitude" + destLongitude);
                 getDistanceOnRoad(mLatitude, mLongitude, destLatitude, destLongitude);
-                tv_min_fare.setText(getString(R.string.day_price));
+                tv_MinFare.setText(getString(R.string.day_price));
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 Log.i(TAG, "onActivityResult: dest_status-->" + status.toString());
@@ -366,26 +368,25 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                     @Override
                     public void onResponse(JSONObject response) {
                         mUiHelper.dismissProgressDialog();
-                        //JsonParser jsonParser = new JsonParser();
-                        //JsonElement jsonElement = new JsonParser().parse(response.toString());
-                        //Gson gson = new Gson();
-                        DistancePojo distanceMatrix = new Gson().fromJson(new JsonParser().parse(response.toString()), DistancePojo.class);
-                        //DistanceMatrix distanceMatrix = new Gson().fromJson(new JsonParser().parse(response.toString()), DistanceMatrix.class);
-                        Rows[] rows = distanceMatrix.getRows();
-                        String kms = null;
-                        for (Rows row : rows) {
-                            Elements[] elements = row.getElements();
-                            for (Elements element : elements) {
-                                Distance distance = element.getDistance();
-                                kms = distance.getText();
-                                if (!kms.isEmpty()) {
+                        JsonParser jsonParser = new JsonParser();
+                        JsonElement jsonElement = jsonParser.parse(response.toString());
+                        Gson gson = new Gson();
+                        DistancePojo distancePojo = gson.fromJson(jsonElement, DistancePojo.class);
+                        Rows[] t = distancePojo.getRows();
+                        String distance = null;
+                        for (Rows rows : t) {
+                            Elements[] elmt = rows.getElements();
+                            for (Elements emt : elmt) {
+                                Distance dist = emt.getDistance();
+                                distance = dist.getText();
+                                if (!distance.isEmpty()) {
                                     break;
                                 }
                             }
                         }
-                        tv_distance.setText(kms);
-                        if (kms != null && !"".equals(kms) && !"null".equals(kms)) {
-                            getAutoFaresByDistance(kms);
+                        tv_Distance.setText(distance);
+                        if (distance != null && !"".equals(distance) && !"null".equals(distance)) {
+                            getAutoFaresByDistance(distance);
                         }
                     }
                 },
@@ -398,12 +399,12 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                 }));
     }
 
-    public void getAutoFaresByDistance(String kms) {
+    public void getAutoFaresByDistance(String distance) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
-        kms = kms.replace(" km", "");
-        final String finalDistance = kms;
+        distance = distance.replace(" km", "");
+        final String finalDistance = distance;
         VolleySingleton.getInstance(this).addToRequestQueue(new JsonArrayRequest(Request.Method.GET,
-                URLs.getAutoFaresByDistance(kms), null,
+                URLs.getAutoFaresByDistance(distance), null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -423,13 +424,13 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                                             int extraNight = (int) ((difference * 11) + night);
                                             dayPrice = "Rs: " + Math.round(extraDay * 0.9) + " to " + (Math.round(extraDay * 0.9) + 6) + " Approximately";
                                             nightPrice = "Rs: " + Math.round(extraNight * 0.9) + " to " + (Math.round(extraNight * 0.9) + 10) + " Approximately";
-                                            tv_fare_estm_price.setText(dayPrice);
-                                            tv_day.setTextColor(getResources().getColor(R.color.colorGreen));
+                                            tv_FareEstm.setText(dayPrice);
+                                            tv_Day.setTextColor(getResources().getColor(R.color.colorGreen));
                                         } else {
                                             dayPrice = "Rs: " + Math.round(day * 0.9) + " to " + (Math.round(day * 0.9) + 6) + " Approximately";
                                             nightPrice = "Rs: " + Math.round(night * 0.9) + " to " + (Math.round(night * 0.9) + 10) + " Approximately";
-                                            tv_fare_estm_price.setText(dayPrice);
-                                            tv_day.setTextColor(getResources().getColor(R.color.colorGreen));
+                                            tv_FareEstm.setText(dayPrice);
+                                            tv_Day.setTextColor(getResources().getColor(R.color.colorGreen));
                                         }
                                     } catch (NumberFormatException e) {
                                         e.printStackTrace();
@@ -445,7 +446,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
                             if (response.length() == 0) {
                                 dayPrice = "Rs: " + Math.round(20 * 0.9) + " to " + Math.round(20 * 0.9) + 6 + " Approximately";
                                 nightPrice = "Rs: " + Math.round(30 * 0.9) + " to " + Math.round(30 * 0.9) + 6 + " Approximately";
-                                tv_fare_estm_price.setText(dayPrice);
+                                tv_FareEstm.setText(dayPrice);
                             }*/
                         }
                     }
@@ -628,11 +629,11 @@ public class AutoFareEstmActivity extends FragmentActivity implements
 
         ImageView img_fare_estimation_close = view.findViewById(R.id.img_fare_estimation_close);
         et_destination = view.findViewById(R.id.et_destination);
-        tv_distance = view.findViewById(R.id.tv_distance);
-        tv_min_fare = view.findViewById(R.id.tv_min_fare);
-        tv_fare_estm_price = view.findViewById(R.id.tv_fare_estm_price);
-        tv_day = view.findViewById(R.id.tv_day);
-        tv_night = view.findViewById(R.id.tv_night);
+        tv_Distance = view.findViewById(R.id.tv_Distance);
+        tv_MinFare = view.findViewById(R.id.tv_MinFare);
+        tv_FareEstm = view.findViewById(R.id.tv_FareEstm);
+        tv_Day = view.findViewById(R.id.tv_Day);
+        tv_Night = view.findViewById(R.id.tv_Night);
         LinearLayout ll_public_complaints = view.findViewById(R.id.ll_public_complaints);
 
         img_fare_estimation_close.setOnClickListener(AutoFareEstmActivity.this);
@@ -648,36 +649,36 @@ public class AutoFareEstmActivity extends FragmentActivity implements
             }
         });
 
-        tv_min_fare.setText(getString(R.string.day_price));
-        tv_day.setTextColor(getResources().getColor(R.color.colorAccentDark));
-        tv_day.setOnClickListener(new View.OnClickListener() {
+        tv_MinFare.setText(getString(R.string.day_price));
+        tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
+        tv_Day.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_min_fare.setText(getString(R.string.day_price));
-                if (tv_distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
-                    tv_day.setTextColor(getResources().getColor(R.color.colorAccentDark));
-                    tv_night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                tv_MinFare.setText(getString(R.string.day_price));
+                if (tv_Distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                     mUiHelper.showToastShortCentre(getString(R.string.please_select_destination_place));
                 } else {
-                    tv_night.setTextColor(getResources().getColor(R.color.colorAccentDark));
-                    tv_day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    tv_fare_estm_price.setText(dayPrice);
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorAccentDark));
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                    tv_FareEstm.setText(dayPrice);
                 }
             }
         });
 
-        tv_night.setOnClickListener(new View.OnClickListener() {
+        tv_Night.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_min_fare.setText(getString(R.string.night_price));
-                if (tv_distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
-                    tv_day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    tv_night.setTextColor(getResources().getColor(R.color.colorAccentDark));
+                tv_MinFare.setText(getString(R.string.night_price));
+                if (tv_Distance.getText().toString().trim().equals(getString(R.string.zero_km))) {
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorAccentDark));
                     mUiHelper.showToastShortCentre(getString(R.string.please_select_destination_place));
                 } else {
-                    tv_day.setTextColor(getResources().getColor(R.color.colorAccentDark));
-                    tv_night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    tv_fare_estm_price.setText(nightPrice);
+                    tv_Day.setTextColor(getResources().getColor(R.color.colorAccentDark));
+                    tv_Night.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                    tv_FareEstm.setText(nightPrice);
                 }
             }
         });

@@ -200,8 +200,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
         jsonRequest = new JSONObject(params);
         mRequestBody = jsonRequest.toString();
 
-        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.POST,
-                URLs.saveAutocomplainData,
+        VolleySingleton.getInstance(this).addToRequestQueue(new StringRequest(Request.Method.POST, URLs.saveAutocomplainData,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

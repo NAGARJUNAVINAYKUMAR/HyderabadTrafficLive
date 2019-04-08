@@ -91,7 +91,6 @@ public class NearByActivity extends FragmentActivity implements
         setContentView(R.layout.activity_nearby);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         initViews();
@@ -581,7 +580,7 @@ public class NearByActivity extends FragmentActivity implements
                 @Override
                 public byte[] getBody() {
                     try {
-                        return mRequestBody.getBytes(URLs.utf_8);
+                        return mRequestBody == null ? null : mRequestBody.getBytes(URLs.utf_8);
                     } catch (UnsupportedEncodingException uee) {
                         VolleyLog.wtf(URLs.unSupportedEncodingException, mRequestBody, URLs.utf_8);
                         return null;
