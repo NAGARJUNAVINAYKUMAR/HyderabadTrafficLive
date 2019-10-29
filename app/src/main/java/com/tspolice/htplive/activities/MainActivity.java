@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    // resolved --> VCS root not found !
+    // resolved again --> VCS root not found !
     private static final String TAG = "MainActivity-->";
     private final int SPLASH_DIALOG = 0, SPLASH_TIME_OUT = 2000;
     private Button btn_english;
