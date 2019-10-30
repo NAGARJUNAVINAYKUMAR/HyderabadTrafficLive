@@ -6,7 +6,7 @@ public class URLs {
 
     private static final String rootUrl = "http://117.239.149.90:8080/HTP/rest/htpService/";
 
-    private static final String testUrl = "http://61.95.168.181:8282/";
+    private static final String testUrl = "https://echallan.tspolice.gov.in/HTPService/htp/";
 
     private static final String sectionsUrl = "http://61.95.168.181:8080/echallan/";
 

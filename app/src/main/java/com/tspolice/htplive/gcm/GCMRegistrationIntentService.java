@@ -31,21 +31,23 @@ public class GCMRegistrationIntentService extends IntentService {
     }
 
     private void registerGcm() {
-        Intent intentRegnComplete;
+        Intent intent;
         try {
             InstanceID instanceID = InstanceID.getInstance(GCMRegistrationIntentService.this);
             String gcmToken = instanceID.getToken("391430358860", GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             Log.i(TAG, "gcmToken-->" + gcmToken);
             String deviceUUID = HardwareUtils.getDeviceUUID(GCMRegistrationIntentService.this);
             Log.i(TAG, "deviceUUID-->" + deviceUUID);
+
             sendGcmTokenToServer(gcmToken, deviceUUID);
-            intentRegnComplete = new Intent(Constants.REGISTRATION_SUCCESS);
-            intentRegnComplete.putExtra(Constants.GCM_TOKEN, gcmToken);
+
+            intent = new Intent(Constants.REGISTRATION_SUCCESS);
+            intent.putExtra(Constants.GCM_TOKEN, gcmToken);
         } catch (Exception e) {
             e.printStackTrace();
-            intentRegnComplete = new Intent(Constants.REGISTRATION_ERROR);
+            intent = new Intent(Constants.REGISTRATION_ERROR);
         }
-        LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(intentRegnComplete);
+        LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(intent);
     }
 
     private void sendGcmTokenToServer(String gcmToken, String deviceUUID) {

@@ -170,7 +170,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
                     mUiHelper.showToastShortCentre(getString(R.string.enter_valid_mobile_no));
                     mUiHelper.requestFocus(et_your_mobile_no);
                 } else {
-                    saveAutocomplainData(complaint, complaintType, vehicleNo, driversName,
+                    saveAutoComplaintsData(complaint, complaintType, vehicleNo, driversName,
                             typeComplaint, yourName, yourEmailId, yourMobileNo);
                 }
                 break;
@@ -180,7 +180,7 @@ public class PublicComplaintsActivity extends AppCompatActivity implements
     }
 
     // not finished
-    public void saveAutocomplainData(String complaint, String complaintType, String vehicleNo, String driversName,
+    public void saveAutoComplaintsData(String complaint, String complaintType, String vehicleNo, String driversName,
                                      String typeComplaint, String yourName, String yourEmailId, String yourMobileNo) {
         mUiHelper.showProgressDialog(getResources().getString(R.string.please_wait), false);
         JSONObject jsonRequest;

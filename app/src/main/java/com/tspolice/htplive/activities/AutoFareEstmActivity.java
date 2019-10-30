@@ -58,6 +58,7 @@ import com.tspolice.htplive.models.Rows;
 import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
+import com.tspolice.htplive.utils.GPSTracker;
 import com.tspolice.htplive.utils.LocationTrack;
 import com.tspolice.htplive.utils.PermissionUtil;
 import com.tspolice.htplive.utils.SharedPrefManager;
@@ -92,6 +93,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
 
     private UiHelper mUiHelper;
     private LocationTrack mLocationTrack;
+    private GPSTracker mGpsTracker;
     private SharedPrefManager mSharedPrefManager;
 
     private Dialog mDialogRateChart, mDialogFareEstm;
@@ -144,6 +146,7 @@ public class AutoFareEstmActivity extends FragmentActivity implements
     public void initObjects() {
         mUiHelper = new UiHelper(this);
         mLocationTrack = new LocationTrack(this);
+        mGpsTracker = new GPSTracker(this);
         mSharedPrefManager = SharedPrefManager.getInstance(this);
     }
 
@@ -178,9 +181,9 @@ public class AutoFareEstmActivity extends FragmentActivity implements
     private void setEnableCurrentLocationOnPermission() {
         try {
             mMap.setMyLocationEnabled(true);
-            if (mLocationTrack.canGetLocation()) {
-                mLatitude = mLocationTrack.getLatitude();
-                mLongitude = mLocationTrack.getLongitude();
+            if (mGpsTracker.canGetLocation()) {
+                mLatitude = mGpsTracker.getLatitude();
+                mLongitude = mGpsTracker.getLongitude();
                 mLatLng = new LatLng(mLatitude, mLongitude);
                 et_search.setText(getAddressFromLatLng(mLatitude, mLongitude));
                 addMapMarker(mLatLng);
