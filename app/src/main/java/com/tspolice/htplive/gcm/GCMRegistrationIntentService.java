@@ -16,10 +16,12 @@ import com.tspolice.htplive.network.URLs;
 import com.tspolice.htplive.network.VolleySingleton;
 import com.tspolice.htplive.utils.Constants;
 import com.tspolice.htplive.utils.HardwareUtils;
+import com.tspolice.htplive.utils.SharedPrefManager;
 
 public class GCMRegistrationIntentService extends IntentService {
 
     private static final String TAG = "GCMRegnIntentService-->";
+    private SharedPrefManager mSharedPrefManager = SharedPrefManager.getInstance(GCMRegistrationIntentService.this);
 
     public GCMRegistrationIntentService() {
         super("");
@@ -50,7 +52,7 @@ public class GCMRegistrationIntentService extends IntentService {
         LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(intent);
     }
 
-    private void sendGcmTokenToServer(String gcmToken, String deviceUUID) {
+    private void sendGcmTokenToServer(final String gcmToken, String deviceUUID) {
         String url = URLs.saveRegIds(gcmToken, Constants.ANDROID, deviceUUID);
         Log.i(TAG, "url_form-->" + url);
         VolleySingleton.getInstance(GCMRegistrationIntentService.this).addToRequestQueue(new StringRequest(Request.Method.GET,
@@ -60,6 +62,7 @@ public class GCMRegistrationIntentService extends IntentService {
                 Intent registrationComplete = new Intent(Constants.REGISTRATION_TOKEN_SENT);
                 LocalBroadcastManager.getInstance(GCMRegistrationIntentService.this).sendBroadcast(registrationComplete);
                 Log.i(TAG, "sendGcmTokenToServer--> Success");
+                mSharedPrefManager.putString(Constants.GCM_TOKEN, gcmToken);
             }
         }, new Response.ErrorListener() {
             @Override

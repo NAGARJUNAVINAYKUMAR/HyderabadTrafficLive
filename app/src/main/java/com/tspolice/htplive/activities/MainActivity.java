@@ -22,6 +22,7 @@ import com.tspolice.htplive.R;
 import com.tspolice.htplive.gcm.GCMRegistrationIntentService;
 import com.tspolice.htplive.network.Networking;
 import com.tspolice.htplive.utils.Constants;
+import com.tspolice.htplive.utils.SharedPrefManager;
 import com.tspolice.htplive.utils.UiHelper;
 
 import java.util.Objects;
@@ -34,12 +35,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_english;
     private UiHelper mUiHelper;
     private boolean doubleBackToExitPressedOnce = false;
+    private SharedPrefManager mSharedPrefManager;
     private BroadcastReceiver gcmBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mSharedPrefManager = SharedPrefManager.getInstance(this);
 
         btn_english = findViewById(R.id.btn_english);
 
@@ -88,7 +92,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mUiHelper.showToastLong("This device does not support for Google Play Service!");
             }
         } else {
-            startService(new Intent(MainActivity.this, GCMRegistrationIntentService.class));
+            if (mSharedPrefManager.getString(Constants.GCM_TOKEN).isEmpty()) {
+                startService(new Intent(MainActivity.this, GCMRegistrationIntentService.class));
+            } else {
+                Log.i(TAG, "GCM registration already done...!");
+            }
         }
     }
 
